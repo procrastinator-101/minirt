@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/24 21:43:23 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/24 22:49:46 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ typedef struct		s_camera
 }					t_camera;
 
 int 				find_next_arg(char *line, int start);
+
+double				basic_atod(char *str, int *len);
 
 int					get_resolution(char *line, void **entities);
 int					get_ambient_light(char *line, void **entities);

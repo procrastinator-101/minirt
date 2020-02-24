@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:42:04 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/24 21:43:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/24 23:18:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,16 @@ int main() {
 	printf("\n\nwidth = %d\n", ((t_resolution *)entities[0])->width);
 	printf("height = %d\n", ((t_resolution *)entities[0])->height);
 
-	if (!get_camera("c \t -50.0,-20,-2563.63    \t0,0,1    70", entities))
+	if (!get_camera("c \t -50.0,-22.-2563.63    \t-0.2,0.0036,-189.22 70", entities))
 		return (0);
 
 	printf("\n\nx = %f\n", ((t_camera *)entities[2])->position.x);
 	printf("y = %f\n", ((t_camera *)entities[2])->position.y);
 	printf("z = %f\n", ((t_camera *)entities[2])->position.z);
 
+	printf("\n\nx = %f\n", ((t_camera *)entities[2])->orientation_vec.x);
+	printf("y = %f\n", ((t_camera *)entities[2])->orientation_vec.y);
+	printf("z = %f\n", ((t_camera *)entities[2])->orientation_vec.z);
+	printf("fov = %f\n", ((t_camera *)entities[2])->fov);
 	return 0;
 }

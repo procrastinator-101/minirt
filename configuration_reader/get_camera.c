@@ -6,55 +6,51 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/24 21:44:12 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/24 23:20:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
 
-static int	read_double(char *line, int start, double *arg)
+static int	fill_camera_position(char *line, t_camera *camera, int start)
 {
-	int	sign;
-	int	radix;
 	int holder;
 
-	sign = line[start] == '-';
-	start += sign;
-	if (!ft_isdigit(line[start + sign]))
+	camera->position.x = basic_atod(line + start, &holder);
+	start += holder + 1;
+	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	holder = ft_atoi(line + start);
-	start += holder ? (int)log10(holder) + 1 : 1;
-	if (line[start] == '.')
-	{
-		if (!ft_isdigit(line[++start]))
-			return (-1);
-		*arg = ft_atoi(line + start);
-		radix = *arg != 0.0 ? (int)log10(*arg) + 1 : 1;
-		*arg /= pow(10.0, radix);
-		start += radix;
-	}
-	*arg += holder;
-	*arg = sign ? -(*arg) : *arg;
+	camera->position.y = basic_atod(line + start, &holder);
+	start += holder + 1;
+	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
+		return (-1);
+	camera->position.z = basic_atod(line + start, &holder);
+	start += holder;
 	return (start);
 }
 
-static int	fill_camera_position(char *line, t_camera *camera, int start)
+static int	fill_camera_orientation_vec(char *line, t_camera *camera, \
+		int start)
 {
-	start = read_double(line, start, &(camera->position.x));
-	if (start == -1)
+	int	holder;
+
+	camera->orientation_vec.x = basic_atod(line + start, &holder);
+	start += holder + 1;
+	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	start = find_next_arg(line, start) + 1;
-	start = read_double(line, start, &(camera->position.y));
-	if (start == -1)
+	camera->orientation_vec.y = basic_atod(line + start, &holder);
+	start += holder + 1;
+	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	start = find_next_arg(line, start) + 1;
-	start = read_double(line, start, &(camera->position.z));
+	camera->orientation_vec.z = basic_atod(line + start, &holder);
+	start += holder;
 	return (start);
 }
 
 int			get_camera(char *line, void **entities)
 {
 	int			start;
+	int			holder;
 	t_camera	*camera;
 
 	if (!(camera = malloc(sizeof(t_camera))))
@@ -64,5 +60,15 @@ int			get_camera(char *line, void **entities)
 	start = fill_camera_position(line, camera, start);
 	if (start == -1)
 		return (0);
+	holder = find_next_arg(line, start);
+	if (holder == start)
+		return (0);
+	start = fill_camera_orientation_vec(line, camera, holder);
+	if (start == -1)
+		return (0);
+	holder = find_next_arg(line, start);
+	if (holder == start)
+		return (0);
+	camera->fov = basic_atod(line + start, &holder);
 	return (1);
 }
