@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 17:45:45 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 18:57:47 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ static int	fill_camera_position(char *line, t_camera *camera, int start)
 
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	camera->position.x = basic_atod(line + start, &holder);
+	camera->position.x = ft_atod_length(line + start, &holder);
 	start += holder + 1;
 	if (line[start - 1] != ',')
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	camera->position.y = basic_atod(line + start, &holder);
+	camera->position.y = ft_atod_length(line + start, &holder);
 	start += holder + 1;
 	if (line[start - 1] != ',')
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	camera->position.z = basic_atod(line + start, &holder);
+	camera->position.z = ft_atod_length(line + start, &holder);
 	return (start + holder);
 }
 
@@ -41,7 +41,7 @@ static int	fill_camera_orientation_vec(char *line, t_camera *camera, \
 
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	camera->orientation_vec.x = basic_atod(line + start, &holder);
+	camera->orientation_vec.x = ft_atod_length(line + start, &holder);
 	if (camera->orientation_vec.x < -1.0 || camera->orientation_vec.x > 1.0)
 		return (-1);
 	start += holder + 1;
@@ -49,7 +49,7 @@ static int	fill_camera_orientation_vec(char *line, t_camera *camera, \
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	camera->orientation_vec.y = basic_atod(line + start, &holder);
+	camera->orientation_vec.y = ft_atod_length(line + start, &holder);
 	if (camera->orientation_vec.y < -1.0 || camera->orientation_vec.y > 1.0)
 		return (-1);
 	start += holder + 1;
@@ -57,7 +57,7 @@ static int	fill_camera_orientation_vec(char *line, t_camera *camera, \
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	camera->orientation_vec.z = basic_atod(line + start, &holder);
+	camera->orientation_vec.z = ft_atod_length(line + start, &holder);
 	if (camera->orientation_vec.z < -1.0 || camera->orientation_vec.z > 1.0)
 		return (-1);
 	return (start + holder);

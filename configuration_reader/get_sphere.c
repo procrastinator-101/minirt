@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:51:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 18:31:13 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 19:04:55 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ static int	fill_point_light(char *line, t_sphere sphere, int start)
 
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	sphere->sphere_point.x = basic_atod(line + start, &holder);
+	sphere->sphere_point.x = ft_atod_length(line + start, &holder);
 	start += holder + 1;
 	if (line[start - 1] != ',')
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	sphere->sphere_point.y = basic_atod(line + start, &holder);
+	sphere->sphere_point.y = ft_atod_length(line + start, &holder);
 	start += holder + 1;
 	if (line[start - 1] != ',')
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	sphere->sphere_point.z = basic_atod(line + start, &holder);
+	sphere->sphere_point.z = ft_atod_length(line + start, &holder);
 	return (start + holder);
 }
 
@@ -68,18 +68,6 @@ static int	fill_rgb(char *line, t_sphere sphere, int start)
 	if (sphere->rgb.blue < 0 || sphere->rgb.blue > 255)
 		return (-1);
 	return (start + holder);
-}
-
-static int	update_start(char *line, int start)
-{
-	int new_start;
-
-	if (start == -1)
-		return (-1);
-	new_start = find_next_arg(line, start);
-	if (new_start == start)
-		return (-1);
-	return (new_start);
 }
 
 int			get_sphere(char *line, void **entities)

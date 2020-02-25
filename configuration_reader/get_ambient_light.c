@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:50:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 16:55:25 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 18:57:06 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int			get_ambient_light(char *line, void **entities)
 	start = find_next_arg(line, 2);
 	if (!ft_isdigit(line[start]))
 		return (0);
-	ambient_light->ratio = basic_atod(line + start, &holder);
+	ambient_light->ratio = ft_atod_length(line + start, &holder);
 	if (ambient_light->ratio < 0.0 || ambient_light->ratio > 1.0)
 		return (0);
 	start = find_next_arg(line, start + holder);
