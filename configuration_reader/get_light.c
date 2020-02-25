@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 13:48:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 15:48:05 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 17:45:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,67 @@
 
 static int	fill_light_point(char *line, t_light *light, int start)
 {
-	int	holder;
+	int holder;
 
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	light->light_point.x = basic_atod(line + start, &holder);
+	light->light_point.x = ft_atod_length(line + start, &holder);
 	start += holder + 1;
 	if (line[start - 1] != ',')
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	light->light_point.y = basic_atod(line + start, &holder);
+	light->light_point.y = ft_atod_length(line + start, &holder);
 	start += holder + 1;
 	if (line[start - 1] != ',')
 		return (-1);
 	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
 		return (-1);
-	light->light_point.z = basic_atod(line + start, &holder);
-	start += holder;
-	return (start);
+	light->light_point.z = ft_atod_length(line + start, &holder);
+	return (start + holder);
 }
 
 static int	fill_rgb(char *line, t_light *light, int start)
 {
-	if (!ft_isdigit(line[start] && line[start] != 43))
+	int holder;
+
+	if (!ft_isdigit(line[start]) && line[start] != '+')
 		return (-1);
-	light->red = ft_atoi(line + start);
-	if (light->red > 255)
+	light->rgb.red = ft_atoi_length(line + start, &holder);
+	if (light->rgb.red < 0 || light->rgb.red > 255)
 		return (-1);
-	
+	start += holder + 1;
+	if (line[start - 1] != ',')
+		return (-1);
+	if (!ft_isdigit(line[start]) && line[start] != '+')
+		return (-1);
+	light->rgb.green = ft_atoi_length(line + start, &holder);
+	if (light->rgb.green < 0 || light->rgb.green > 255)
+		return (-1);
+	start += holder + 1;
+	if (line[start - 1] != ',')
+		return (-1);
+	if (!ft_isdigit(line[start]) && line[start] != '+')
+		return (-1);
+	light->rgb.blue = ft_atoi_length(line + start, &holder);
+	if (light->rgb.blue < 0 || light->rgb.blue > 255)
+		return (-1);
+	return (start + holder);
 }
 
-int		get_light(char *line, void **entities)
+static int	fill_brightness(char *line, t_light *light, int start)
+{
+	int holder;
+
+	if (!ft_isdigit(line[start]) && line[start] != '+')
+		return (-1);
+	light->brightness = ft_atod_length(line + start, &holder);
+	if (light->brightness > 1.0)
+		return (0);
+	return (start + holder);
+}
+
+int			get_light(char *line, void **entities)
 {
 	int			start;
 	int			holder;
@@ -60,15 +89,16 @@ int		get_light(char *line, void **entities)
 	start = fill_light_point(line, light, start);
 	if (start == -1)
 		return (0);
-	start = find_next_arg(line, start);
-	if (!ft_isdigit(line[start]))
+	holder = find_next_arg(line, start);
+	if (start == holder)
 		return (0);
-	light->brightness = basic_atod(line + start, &holder);
-	if (light->brightness > 1.0)
-		return (0);
-	start = find_next_arg(line, start + holder);
-	start = fill_rgb(line, light, start);
+	start = fill_brightness(line, light, start);
 	if (start == -1)
+		return (0);
+	holder = find_next_arg(line, start);
+	if (holder == start)
+		return (0);
+	if (fill_rgb(line, light, start) == -1)
 		return (0);
 	return (1);
 }

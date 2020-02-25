@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:50:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 16:11:30 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 16:55:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	fetch_rgb(char *line, t_ambient *ambient_light, int start)
 	if (!ft_isdigit(line[start]) && line[start] != '+')
 		return (-1);
 	ambient_light->rgb.red = ft_atoi_length(line + start, &holder);
-	if (ambient_light->rgb.red > 255)
+	if (ambient_light->rgb.red < 0 || ambient_light->rgb.red > 255)
 		return (-1);
 	start += holder + 1;
 	if (line[start - 1] != ',')
@@ -27,7 +27,7 @@ static int	fetch_rgb(char *line, t_ambient *ambient_light, int start)
 	if (!ft_isdigit(line[start]) && line[start] != '+')
 		return (-1);
 	ambient_light->rgb.green = ft_atoi_length(line + start, &holder);
-	if (ambient_light->rgb.green > 255)
+	if (ambient_light->rgb.green < 0 || ambient_light->rgb.green > 255)
 		return (-1);
 	start += holder + 1;
 	if (line[start - 1] != ',')
@@ -35,7 +35,7 @@ static int	fetch_rgb(char *line, t_ambient *ambient_light, int start)
 	if (!ft_isdigit(line[start]) && line[start] != '+')
 		return (-1);
 	ambient_light->rgb.blue = ft_atoi_length(line + start, &holder);
-	if (ambient_light->rgb.blue > 255)
+	if (ambient_light->rgb.blue < 0 || ambient_light->rgb.blue > 255)
 		return (-1);
 	return (start + holder);
 }
