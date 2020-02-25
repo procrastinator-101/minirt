@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:50:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 12:19:36 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 16:11:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,30 @@
 
 static int	fetch_rgb(char *line, t_ambient *ambient_light, int start)
 {
-	if (!ft_isdigit(line[start]))
+	int holder;
+
+	if (!ft_isdigit(line[start]) && line[start] != '+')
 		return (-1);
-	ambient_light->red = ft_atoi(line + start);
-	if (ambient_light->red > 255 || ambient_light->red < 0)
+	ambient_light->rgb.red = ft_atoi_length(line + start, &holder);
+	if (ambient_light->rgb.red > 255)
 		return (-1);
-	start += (int)log10(ambient_light->red) + 1;
-	if (line[start] != ',' || !ft_isdigit(line[++start]))
+	start += holder + 1;
+	if (line[start - 1] != ',')
 		return (-1);
-	ambient_light->green = ft_atoi(line + start);
-	if (ambient_light->green < 0 || ambient_light->green > 255)
+	if (!ft_isdigit(line[start]) && line[start] != '+')
 		return (-1);
-	start += (int)log10(ambient_light->green) + 1;
-	if (line[start] != ',' || !ft_isdigit(line[++start]))
+	ambient_light->rgb.green = ft_atoi_length(line + start, &holder);
+	if (ambient_light->rgb.green > 255)
 		return (-1);
-	ambient_light->blue = ft_atoi(line + start);
-	if (ambient_light->blue < 0 || ambient_light->blue > 255)
+	start += holder + 1;
+	if (line[start - 1] != ',')
 		return (-1);
-	return (1);
+	if (!ft_isdigit(line[start]) && line[start] != '+')
+		return (-1);
+	ambient_light->rgb.blue = ft_atoi_length(line + start, &holder);
+	if (ambient_light->rgb.blue > 255)
+		return (-1);
+	return (start + holder);
 }
 
 int			get_ambient_light(char *line, void **entities)
@@ -40,11 +46,11 @@ int			get_ambient_light(char *line, void **entities)
 	int			holder;
 	t_ambient	*ambient_light;
 
-	if (entities[1])
+	if (entities[AMBIENT])
 		return (0);
 	if (!(ambient_light = malloc(sizeof(t_ambient))))
 		return (0);
-	entities[1] = (void *)ambient_light;
+	entities[AMBIENT] = (void *)ambient_light;
 	start = find_next_arg(line, 2);
 	if (!ft_isdigit(line[start]))
 		return (0);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basic_atod.c                                       :+:      :+:    :+:   */
+/*   ft_atod_length.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 22:00:15 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 11:55:09 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/02/25 15:46:40 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/02/25 15:47:10 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static double	update_ret(char *str, int i, int radix, double ret)
 	return (ret);
 }
 
-double			basic_atod(char *str, int *len)
+double			ft_atod_length(char *str, int *len)
 {
 	int		i;
 	int		sp;
@@ -45,7 +45,7 @@ double			basic_atod(char *str, int *len)
 		else
 			ret = update_ret(str, i, radix, ret);
 		i++;
-		*len = i;
+		*len = i - sp;
 	}
 	return (str[sp] == '-' ? -ret : ret);
 }

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 13:48:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 14:32:49 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:48:05 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	fill_light_point(char *line, t_light *light, int start)
 {
 	int	holder;
 
+	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
+		return (-1);
 	light->light_point.x = basic_atod(line + start, &holder);
 	start += holder + 1;
 	if (line[start - 1] != ',')
@@ -35,7 +37,12 @@ static int	fill_light_point(char *line, t_light *light, int start)
 
 static int	fill_rgb(char *line, t_light *light, int start)
 {
-
+	if (!ft_isdigit(line[start] && line[start] != 43))
+		return (-1);
+	light->red = ft_atoi(line + start);
+	if (light->red > 255)
+		return (-1);
+	
 }
 
 int		get_light(char *line, void **entities)
@@ -60,9 +67,7 @@ int		get_light(char *line, void **entities)
 	if (light->brightness > 1.0)
 		return (0);
 	start = find_next_arg(line, start + holder);
-	if (!ft_isdigit(line[start]))
-		return (0);
-	start = fill_rgb(line, light, rgb);
+	start = fill_rgb(line, light, start);
 	if (start == -1)
 		return (0);
 	return (1);

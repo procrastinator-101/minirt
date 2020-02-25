@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 14:13:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 16:07:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "../miniRT.h"
 
+# define RESOLUTION	0
+# define AMBIENT	1
 # define CAMERA		2
 # define LIGHT		3
 # define SPHERE		4
@@ -127,7 +129,9 @@ typedef struct		s_triangle
 
 int 				find_next_arg(char *line, int start);
 
-double				basic_atod(char *str, int *len);
+int					ft_atoi_length(char *str, int *len);
+double				ft_atod_length(char *str, int *len);
+
 void				ft_lstadd_head(void **lst_tail, void *new, int type);
 
 int					get_resolution(char *line, void **entities);
