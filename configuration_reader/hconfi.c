@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:42:04 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/24 23:18:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:56:47 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int main() {
 	void **entities = malloc(10 * sizeof(void *));
 	for (int i = 0; i < 10; i++)
 		entities[i] = 0;
-	if (!get_ambient_light("A 0.15478 29,89,11", entities))
+	if (!get_ambient_light("A 0.0000005 229,89,11", entities))
 		return (0);
 
-	printf("ratio\t= %f|\n", ((t_ambient *)entities[1])->ratio);
+	printf("ratio\t= %.10f|\n", ((t_ambient *)entities[1])->ratio);
 	printf("red\t= %d|\n", ((t_ambient *)entities[1])->red);
 	printf("green\t= %d|\n", ((t_ambient *)entities[1])->green);
 	printf("blue\t= %d|\n", ((t_ambient *)entities[1])->blue);
@@ -33,7 +33,7 @@ int main() {
 	printf("\n\nwidth = %d\n", ((t_resolution *)entities[0])->width);
 	printf("height = %d\n", ((t_resolution *)entities[0])->height);
 
-	if (!get_camera("c \t -50.0,-22.-2563.63    \t-0.2,0.0036,-189.22 70", entities))
+	if (!get_camera("c \t -50.0,-22.,-2563.63    \t-0.2,0.0036,-189.22 150", entities))
 		return (0);
 
 	printf("\n\nx = %f\n", ((t_camera *)entities[2])->position.x);
@@ -43,6 +43,6 @@ int main() {
 	printf("\n\nx = %f\n", ((t_camera *)entities[2])->orientation_vec.x);
 	printf("y = %f\n", ((t_camera *)entities[2])->orientation_vec.y);
 	printf("z = %f\n", ((t_camera *)entities[2])->orientation_vec.z);
-	printf("fov = %f\n", ((t_camera *)entities[2])->fov);
+	printf("fov = %d\n", ((t_camera *)entities[2])->fov);
 	return 0;
 }
