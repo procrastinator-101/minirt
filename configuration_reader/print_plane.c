@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:34:20 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:53:07 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	display_element(t_plane *plane)
 	display_element(plane->next);
 }
 
-void	print_plane(void **entities)
+void		print_plane(void **entities)
 {
 	t_plane	*plane;
 

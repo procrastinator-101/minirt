@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:35:37 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:38:43 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:53:47 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static void	display_element(t_square *square)
 	display_element(square->next);
 }
 
-
-void	print_square(void **entities)
+void		print_square(void **entities)
 {
 	t_square	*square;
 

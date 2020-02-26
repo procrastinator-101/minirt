@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:04:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:15:09 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:54:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-static void	display_element(t_camera, *camera)
+static void	display_element(t_camera *camera)
 {
 	if (!camera)
 		return ;
@@ -22,7 +22,7 @@ static void	display_element(t_camera, *camera)
 	display_element(camera->next);
 }
 
-void	print_camera(void **entities)
+void		print_camera(void **entities)
 {
 	t_camera	*camera;
 

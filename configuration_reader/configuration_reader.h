@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:39:15 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:49:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,8 @@ void	print_camera(void **entities);
 void	print_sphere(void **entities);
 void	print_plane(void **entities);
 void	print_square(void **entities);
+void	print_cylinder(void **entities);
+void	print_triangle(void **entities);
 
 
 #endif

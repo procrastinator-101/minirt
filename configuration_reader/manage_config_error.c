@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 15:38:29 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 17:10:05 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:52:19 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-void manage_config_error(int fd, char *line, void **entities, int er_nb)
+void	manage_config_error(int fd, char *line, void **entities, int er_nb)
 {
 	int	i;
 

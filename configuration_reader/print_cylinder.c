@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_sphere.c                                     :+:      :+:    :+:   */
+/*   print_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 18:21:14 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:50:15 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/02/26 18:41:31 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/02/26 18:45:15 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-static void	display_element(t_sphere *sphere)
+static void	display_element(t_cylinder *cylinder)
 {
-	if (!sphere)
+	if (!cylinder)
 		return ;
-	print_point_3d(sphere->sphere_point);
-	printf("diameter = %f\n", sphere->diameter);
-	print_rgb(sphere->rgb);
-	display_element(sphere->next);
+	print_point_3d(cylinder->cylinder_point);
+	print_vector_3d(cylinder->orientation_vec);
+	printf("diameter = %f\n", cylinder->diameter);
+	printf("height = %f\n", cylinder->height);
+	print_rgb(cylinder->rgb);
+	display_element(cylinder->next);
 }
 
-void		print_sphere(void **entities)
+void		print_cylinder(void **entities)
 {
-	t_sphere	*sphere;
+	t_cylinder	*cylinder;
 
-	sphere = entities[SPHERE];
-	display_element(sphere);
+	cylinder = entities[CYLINDER];
+	display_element(cylinder);
 }

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:45:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 16:41:35 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:52:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		ft_lstadd_head(void **lst_tail, void *new, int type)
 		{
 			next = choose_entity_type(tail, type);
 			if (!next)
-				break;
+				break ;
 			tail = next;
 		}
 		add_new(tail, new, type);

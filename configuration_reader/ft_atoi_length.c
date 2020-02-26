@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 15:37:44 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 15:46:11 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:51:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
 
-int ft_atoi_length(char *str, int *len)
+int	ft_atoi_length(char *str, int *len)
 {
 	int	i;
 	int	sp;
