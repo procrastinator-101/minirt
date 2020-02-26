@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:51:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:44:40 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:46:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-static int	fill_diameter(char *line, t_sphere sphere, int start)
+static int	fill_diameter(char *line, t_sphere *sphere, int start)
 {
 	if (!ft_isdigit(line[start]) && line[start] != 43)
 		return (-1);
@@ -23,7 +23,7 @@ static int	fill_diameter(char *line, t_sphere sphere, int start)
 int			get_sphere(char *line, void **entities)
 {
 	int			start;
-	t_sphere	sphere;
+	t_sphere	*sphere;
 
 	if (!(sphere = malloc(sizeof(t_sphere))))
 		return (-SPHERE);
@@ -36,7 +36,7 @@ int			get_sphere(char *line, void **entities)
 	start = update_start(line, start);
 	if (start == -1)
 		return (-SPHERE);
-	start = fill_diameter(line, sphere, holder);
+	start = fill_diameter(line, sphere, start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-SPHERE);

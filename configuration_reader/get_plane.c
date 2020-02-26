@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:39:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:44:30 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:44:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			get_plane(char *line, void **entities)
 {
 	int		start;
-	t_plane	plane;
+	t_plane	*plane;
 
 	if (!(plane = malloc(sizeof(t_plane))))
 		return (0);

@@ -6,14 +6,14 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:42:04 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 12:56:47 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:32:08 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
 
 
-int main() {
+/*int main() {
 
 	void **entities = malloc(10 * sizeof(void *));
 	for (int i = 0; i < 10; i++)
@@ -45,4 +45,4 @@ int main() {
 	printf("z = %f\n", ((t_camera *)entities[2])->orientation_vec.z);
 	printf("fov = %d\n", ((t_camera *)entities[2])->fov);
 	return 0;
-}
+}*/

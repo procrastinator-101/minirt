@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 16:30:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:43:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,15 +109,15 @@ typedef struct			s_square
 	t_rgb				rgb;
 }						t_square;
 
-typedef struct			s_cylindre
+typedef struct			s_cylinder
 {
-	t_point_3d			cylindre_point;
+	t_point_3d			cylinder_point;
 	t_vector_3d			orientation_vec;
 	double				diameter;
 	double				height;
-	struct s_cylindre	*next;
+	struct s_cylinder	*next;
 	t_rgb				rgb;
-}						t_cylindre;
+}						t_cylinder;
 
 typedef struct			s_triangle
 {

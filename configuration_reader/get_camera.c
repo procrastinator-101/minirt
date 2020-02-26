@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:44:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:42:07 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			get_camera(char *line, void **entities)
 	start = update_start(line, start);
 	if (start == -1)
 		return (-CAMERA);
-	if (fill_fov(line, camera, holder) == -1)
+	if (fill_fov(line, camera, start) == -1)
 		return (-CAMERA);
 	return (CAMERA);
 }

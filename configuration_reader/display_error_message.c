@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 16:22:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 16:30:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:38:37 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	display_error_message(int error_number)
 {
-	if (type == RESOLUTION)
+	if (error_number == RESOLUTION)
 		printf("the resolution's configuration is not valid");
-	else if (type == AMBIENT)
+	else if (error_number == AMBIENT)
 		printf("the ambient light's configuration is not valid");
-	else if (type == CAMERA)
+	else if (error_number == CAMERA)
 		printf("the camera's configuration is not valid");
-	else if (type == LIGHT)
+	else if (error_number == LIGHT)
 		printf("the light's configuration is not valid");
-	else if (type == SPHERE)
+	else if (error_number == SPHERE)
 		printf("the sphere's configuration is not valid");
-	else if (type == PLANE)
+	else if (error_number == PLANE)
 		printf("the plane's configuration is not valid");
-	else if (type == SQUARE)
+	else if (error_number == SQUARE)
 		printf("the square's configuration is not valid");
-	else if (type == CYLINDER)
+	else if (error_number == CYLINDER)
 		printf("the cylinder's configuration is not valid");
-	else if (type == TRIANGLE)
+	else if (error_number == TRIANGLE)
 		printf("the triangle's configuration is not valid");
 	printf("\nplease restart the program and enter valid configuration data\n");
 }

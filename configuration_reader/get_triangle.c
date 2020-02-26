@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 14:11:52 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:22:14 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:45:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		get_triangle(char *line, void **entities)
 {
 	int			start;
-	t_triangle	triangle;
+	t_triangle	*triangle;
 
 	if (!(triangle = malloc(sizeof(t_triangle))))
 		return (-TRIANGLE);
