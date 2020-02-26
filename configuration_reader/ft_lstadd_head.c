@@ -6,29 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:45:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 13:47:11 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:06:47 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
-
-static void	*choose_type(void *tail, int type)
-{
-	if (type == CAMERA)
-		return (((t_camera *)tail)->next);
-	if (type == LIGHT)
-		return (((t_light *)tail)->next);
-	if (type == SPHERE)
-		return (((t_sphere *)tail)->next);
-	if (type == PLANE)
-		return (((t_plane *)tail)->next);
-	if (type == SQUARE)
-		return (((t_square *)tail)->next);
-	if (type == CYLINDER)
-		return (((t_cylinder *)tail)->next);
-	if (type == TRIANGLE)
-		return (((t_triangle *)tail)->next);
-}
 
 void		add_new(void *tail, void *new, int type)
 {

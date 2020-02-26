@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:40:16 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:30:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int			main(int argc, char **argv)
 	char	*entity_name;
 	void	**entities;
 
-	fd = open("config.rt", O_RDONLY);
+	if (!(entities = malloc(sizeof(void *) * 11)))
+		return (0);
+	fd = open(argv[1], O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
 		if (line[0] != '\n')

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:43:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:30:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,10 @@ int						ft_atoi_length(char *str, int *len);
 double					ft_atod_length(char *str, int *len);
 
 void					ft_lstadd_head(void **lst_tail, void *new, int type);
+void					ft_lst_destroy(void **lst_tail, int type);
+void					ft_lst_delete(void **lst_tail);
+
+void					*choose_entity_type(void *tail, int type);
 
 int						get_entity_info(char *entity_name, void **entities, \
 						char *line);
@@ -158,7 +162,8 @@ int						get_square(char *line, void **entities);
 int						get_cylinder(char *line, void **entities);
 int						get_triangle(char *line, void **entities);
 
-void					manage_config_error(int fd, char *line, \
-						void **entities);
+void					manage_config_error(int fd, char *line, void **entities, \
+						int er_nb);
+void					display_error_message(int error_number);
 
 #endif
