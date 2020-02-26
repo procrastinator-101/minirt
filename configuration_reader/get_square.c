@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 19:13:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:13:12 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:44:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../miniRT.h"
+#include "configuration_reader.h"
 
 static int	fill_height(char *line, t_square *square, int start)
 {

@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:50:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:03:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:43:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../miniRT.h"
+#include "configuration_reader.h"
 
 int			get_ambient_light(char *line, void **entities)
 {

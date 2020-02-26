@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 14:58:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:43:06 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,8 +145,20 @@ double					ft_atod_length(char *str, int *len);
 
 void					ft_lstadd_head(void **lst_tail, void *new, int type);
 
+int						get_entity_info(char *entity_name, void **entities, \
+						char *line);
+
 int						get_resolution(char *line, void **entities);
 int						get_ambient_light(char *line, void **entities);
 int						get_camera(char *line, void **entities);
+int						get_light(char *line, void **entities);
+int						get_sphere(char *line, void **entities);
+int						get_plane(char *line, void **entities);
+int						get_square(char *line, void **entities);
+int						get_cylinder(char *line, void **entities);
+int						get_triangle(char *line, void **entities);
+
+void					manage_config_error(int fd, char *line, \
+						void **entities);
 
 #endif

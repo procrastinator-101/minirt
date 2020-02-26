@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:39:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 14:46:05 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:44:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../miniRT.h"
+#include "configuration_reader.h"
 
 int			get_plane(char *line, void **entities)
 {
@@ -20,7 +20,6 @@ int			get_plane(char *line, void **entities)
 	if (!(plane = malloc(sizeof(t_plane))))
 		return (0);
 	ft_lstadd_head(&(entities[PLANE]), plane, PLANE);
-	//entities[PLANE] = plane;
 	plane->next = 0;
 	start = update_start(line, 2);
 	if (start == -1)

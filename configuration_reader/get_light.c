@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 13:48:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:07:12 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:44:14 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../miniRT.h"
+#include "configuration_reader.h"
 
 static int	fill_brightness(char *line, t_light *light, int start)
 {

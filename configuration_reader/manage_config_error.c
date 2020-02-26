@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   configuration_reader.c                             :+:      :+:    :+:   */
+/*   manage_config_error.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:40:16 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/02/26 15:38:29 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/02/26 15:43:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-int			main(int argc, char **argv)
+void manage_config_error(int fd, char *line, void **entities)
 {
-	int		fd;
-	int		nb_er;
-	char	*line;
-	char	*entity_name;
-	void	**entities;
-
-	fd = open("config.rt", O_RDONLY);
+	free(line);
 	while (get_next_line(fd, &line) > 0)
-	{
-		if (line[0] != '\n')
-		{
-			entity_name = malloc(3 * sizeof(char));
-			if (!entity_name)
-				manage_config_error(fd, line, entities);
-			ft_strlcpy(entity_name, line, 3);
-			if ((nb_er = get_entity_info(entity_name, entities, line) < 0)
-				manage_config_error(fd, line, entities, nb_er);
-		}
 		free(line);
-	}
+	exit(1);
 }

@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:02:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:43:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../miniRT.h"
+#include "configuration_reader.h"
 
 int	get_resolution(char *line, void **entities)
 {
