@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 19:04:26 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 14:58:10 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include "../miniRT.h"
 
-# define RESOLUTION	0
-# define AMBIENT	1
-# define CAMERA		2
-# define LIGHT		3
-# define SPHERE		4
-# define PLANE		5
-# define SQUARE		6
-# define CYLINDER	7
-# define TRIANGLE	8
+# define RESOLUTION	1
+# define AMBIENT	2
+# define CAMERA		3
+# define LIGHT		4
+# define SPHERE		5
+# define PLANE		6
+# define SQUARE		7
+# define CYLINDER	8
+# define TRIANGLE	9
 
 /************** basic data structures **************/
 
@@ -132,7 +132,13 @@ typedef struct			s_triangle
 /************ configuration functions ***********/
 
 int						update_start(char *line, int start);
-int 					find_next_arg(char *line, int start);
+int						find_next_arg(char *line, int start);
+
+int						fetch_rgb(char *line, t_rgb *rgb, int start);
+int						fetch_point_3d(char *line, t_point_3d *point, \
+						int start);
+int						fetch_vector_3d(char *line, t_vector_3d *vector, \
+						int start);
 
 int						ft_atoi_length(char *str, int *len);
 double					ft_atod_length(char *str, int *len);

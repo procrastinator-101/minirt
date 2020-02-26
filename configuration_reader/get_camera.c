@@ -6,62 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 18:57:47 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:05:54 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
-
-static int	fill_camera_position(char *line, t_camera *camera, int start)
-{
-	int holder;
-
-	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
-		return (-1);
-	camera->position.x = ft_atod_length(line + start, &holder);
-	start += holder + 1;
-	if (line[start - 1] != ',')
-		return (-1);
-	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
-		return (-1);
-	camera->position.y = ft_atod_length(line + start, &holder);
-	start += holder + 1;
-	if (line[start - 1] != ',')
-		return (-1);
-	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
-		return (-1);
-	camera->position.z = ft_atod_length(line + start, &holder);
-	return (start + holder);
-}
-
-static int	fill_camera_orientation_vec(char *line, t_camera *camera, \
-		int start)
-{
-	int	holder;
-
-	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
-		return (-1);
-	camera->orientation_vec.x = ft_atod_length(line + start, &holder);
-	if (camera->orientation_vec.x < -1.0 || camera->orientation_vec.x > 1.0)
-		return (-1);
-	start += holder + 1;
-	if (line[start - 1] != ',')
-		return (-1);
-	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
-		return (-1);
-	camera->orientation_vec.y = ft_atod_length(line + start, &holder);
-	if (camera->orientation_vec.y < -1.0 || camera->orientation_vec.y > 1.0)
-		return (-1);
-	start += holder + 1;
-	if (line[start - 1] != ',')
-		return (-1);
-	if (!ft_isdigit(line[start]) && line[start] != 43 && line[start] != 45)
-		return (-1);
-	camera->orientation_vec.z = ft_atod_length(line + start, &holder);
-	if (camera->orientation_vec.z < -1.0 || camera->orientation_vec.z > 1.0)
-		return (-1);
-	return (start + holder);
-}
 
 static int	fill_fov(char *line, t_camera *camera, int start)
 {
@@ -76,28 +25,22 @@ static int	fill_fov(char *line, t_camera *camera, int start)
 int			get_camera(char *line, void **entities)
 {
 	int			start;
-	int			holder;
 	t_camera	*camera;
 
 	if (!(camera = malloc(sizeof(t_camera))))
-		return (0);
-	//ft_lstadd_head(&(entities[CAMERA]), camera, CAMERA);
-	entities[CAMERA] = camera;
+		return (-CAMERA);
+	ft_lstadd_head(&(entities[CAMERA]), camera, CAMERA);
 	camera->next = 0;
 	start = find_next_arg(line, 2);
-	start = fill_camera_position(line, camera, start);
+	start = fetch_point_3d(line, &(camera->position), start);
+	start = update_start(line, start);
 	if (start == -1)
-		return (0);
-	holder = find_next_arg(line, start);
-	if (holder == start)
-		return (0);
-	start = fill_camera_orientation_vec(line, camera, holder);
+		return (-CAMERA);
+	start = fetch_vector_3d(line, &(camera->orientation_vec), start);
+	start = update_start(line, start);
 	if (start == -1)
-		return (0);
-	holder = find_next_arg(line, start);
-	if (holder == start)
-		return (0);
+		return (-CAMERA);
 	if (fill_fov(line, camera, holder) == -1)
-		return (0);
-	return (1);
+		return (-CAMERA);
+	return (CAMERA);
 }

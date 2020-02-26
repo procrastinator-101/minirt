@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_plane.c                                        :+:      :+:    :+:   */
+/*   get_triangle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/25 18:39:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 14:46:05 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/02/26 14:11:52 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/02/26 14:29:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../miniRT.h"
+#include "configuration_reader.h"
 
-int			get_plane(char *line, void **entities)
+int		get_triangle(char *line, void **entities)
 {
-	int		start;
-	t_plane	plane;
+	int			start;
+	t_triangle	triangle;
 
-	if (!(plane = malloc(sizeof(t_plane))))
+	if (!(triangle = malloc(sizeof(t_triangle))))
 		return (0);
-	ft_lstadd_head(&(entities[PLANE]), plane, PLANE);
-	//entities[PLANE] = plane;
-	plane->next = 0;
+	ft_lstadd_head(&(entities[TRIANGLE]), triangle, TRIANGLE);
 	start = update_start(line, 2);
 	if (start == -1)
 		return (0);
-	start = fetch_point_3d(line, &(plane->plane_point), start);
+	start = fetch_point_3d(line, &(triangle->first_point), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (0);
-	start = fetch_vector_3d(line, &(plane->orientation_vec), start);
+	start = fetch_point_3d(line, &(triangle->second_point), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (0);
-	if (fetch_rgb(line, &(plane->rgb), start) == -1)
+	start = fetch_point_3d(line, &(triangle->third_point), start);
+	start = update_start(line, start);
+	if (start == -1)
+		return (0);
+	if (fetch_rgb(line, &(triangle->rgb), start) == -1)
 		return (0);
 	return (1);
 }
