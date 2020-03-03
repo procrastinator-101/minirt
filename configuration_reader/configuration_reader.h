@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:49:44 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/03 09:14:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,12 +162,14 @@ int						get_square(char *line, void **entities);
 int						get_cylinder(char *line, void **entities);
 int						get_triangle(char *line, void **entities);
 
-void					manage_config_error(int fd, char *line, void **entities, \
-						int er_nb);
+void					manage_config_error(int fd, char *line, \
+						void **entities, int er_nb);
 void					display_error_message(int error_number);
 
 
 /*********** printing entities functions ************/
+
+void    print_entity(void **entities, int type);
 
 void	print_rgb(t_rgb rgb);
 void	print_point_3d(t_point_3d point);
@@ -176,6 +178,7 @@ void	print_vector_3d(t_vector_3d vector);
 void	print_resolution(void **entities);
 void	print_ambient_light(void **entities);
 void	print_camera(void **entities);
+void	print_light(void **entities);
 void	print_sphere(void **entities);
 void	print_plane(void **entities);
 void	print_square(void **entities);

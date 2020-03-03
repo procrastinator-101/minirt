@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:08:03 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:13:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:22:54 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void		print_light(void **entities)
 	t_light	*light;
 
 	light = entities[LIGHT];
+	printf("\n\n===========	LIGHT	===========\n");
 	display_element(light);
 }

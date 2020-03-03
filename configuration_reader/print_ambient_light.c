@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:01:02 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:04:15 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:19:47 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	print_ambient_light(void **entities)
 	ambient = entities[AMBIENT];
 	if (!ambient)
 		return ;
+	printf("\n\n===========	AMBIENT	===========\n");
 	printf("ratio = %f\n", ambient->ratio);
-	printf_rgb(ambient->rgb);
+	print_rgb(ambient->rgb);
 }

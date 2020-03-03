@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:10:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:15:25 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/02/26 19:42:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	print_entity(void **entities, int type)
 {
 	if (type == RESOLUTION)
 		print_resolution(entities);
-	else if (error_number == AMBIENT)
+	else if (type == AMBIENT)
 		print_ambient_light(entities);
-	else if (error_number == CAMERA)
+	else if (type == CAMERA)
 		print_camera(entities);
-	else if (error_number == LIGHT)
+	else if (type == LIGHT)
 		print_light(entities);
-	else if (error_number == SPHERE)
+	else if (type == SPHERE)
 		print_sphere(entities);
-	else if (error_number == PLANE)
+	else if (type == PLANE)
 		print_plane(entities);
-	else if (error_number == SQUARE)
+	else if (type == SQUARE)
 		print_square(entities);
-	else if (error_number == CYLINDER)
+	else if (type == CYLINDER)
 		print_cylinder(entities);
-	else if (error_number == TRIANGLE)
+	else if (type == TRIANGLE)
 		print_triangle(entities);
 }

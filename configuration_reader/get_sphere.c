@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:51:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 16:46:20 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/03 09:21:31 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 static int	fill_diameter(char *line, t_sphere *sphere, int start)
 {
+	int holder;
+
 	if (!ft_isdigit(line[start]) && line[start] != 43)
 		return (-1);
-	sphere->diameter = ft_atod_length(line + start, &start);
-	return (start);
+	sphere->diameter = ft_atod_length(line + start, &holder);
+	return (start + holder);
 }
 
 int			get_sphere(char *line, void **entities)
