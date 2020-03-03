@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/03/03 11:21:22 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/03/03 11:32:47 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,43 +18,43 @@ FLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 
-CONFIGURATION_READER_SRC = choose_entity_type.c \
-							configuration_reader.c \
-							display_error_message.c \
-							fetch_point_3d.c \
-							fetch_rgb.c \
-							fetch_vector_3d.c \
-							find_next_arg.c \
-							ft_atod_length.c \
-							ft_atoi_length.c \
-							ft_lst_delete.c \
-							ft_lst_destroy.c \
-							ft_lstadd_head.c \
-							get_ambient_light.c \
-							get_camera.c \
-							get_cylinder.c \
-							get_entity_info.c \
-							get_light.c \
-							get_plane.c \
-							get_resolution.c \
-							get_sphere.c \
-							get_square.c \
-							get_triangle.c \
-							manage_config_error.c \
-							print_ambient_light.c \
-							print_camera.c \
-							print_cylinder.c \
-							print_entity.c \
-							print_light.c \
-							print_plane.c \
-							print_point_3d.c \
-							print_resolution.c \
-							print_rgb.c \
-							print_sphere.c \
-							print_square.c \
-							print_triangle.c \
-							print_vector_3d.c \
-							update_start.c
+CONFIGURATION_READER_SRC = configuration_reader/choose_entity_type.c \
+						   configuration_reader/configuration_reader.c \
+						   configuration_reader/display_error_message.c \
+						   configuration_reader/fetch_point_3d.c \
+						   configuration_reader/fetch_rgb.c \
+						   configuration_reader/fetch_vector_3d.c \
+						   configuration_reader/find_next_arg.c \
+						   configuration_reader/ft_atod_length.c \
+						   configuration_reader/ft_atoi_length.c \
+						   configuration_reader/ft_lst_delete.c \
+						   configuration_reader/ft_lst_destroy.c \
+						   configuration_reader/ft_lstadd_head.c \
+						   configuration_reader/get_ambient_light.c \
+						   configuration_reader/get_camera.c \
+						   configuration_reader/get_cylinder.c \
+						   configuration_reader/get_entity_info.c \
+						   configuration_reader/get_light.c \
+						   configuration_reader/get_plane.c \
+						   configuration_reader/get_resolution.c \
+						   configuration_reader/get_sphere.c \
+						   configuration_reader/get_square.c \
+						   configuration_reader/get_triangle.c \
+						   configuration_reader/manage_config_error.c \
+						   configuration_reader/print_ambient_light.c \
+						   configuration_reader/print_camera.c \
+						   configuration_reader/print_cylinder.c \
+						   configuration_reader/print_entity.c \
+						   configuration_reader/print_light.c \
+						   configuration_reader/print_plane.c \
+						   configuration_reader/print_point_3d.c \
+						   configuration_reader/print_resolution.c \
+						   configuration_reader/print_rgb.c \
+						   configuration_reader/print_sphere.c \
+						   configuration_reader/print_square.c \
+						   configuration_reader/print_triangle.c \
+						   configuration_reader/print_vector_3d.c \
+						   configuration_reader/update_start.c
 
 LIBFT_SRC = libft/ft_atoi.c \
 			libft/ft_bzero.c \
@@ -100,8 +100,8 @@ LIBFT_SRC = libft/ft_atoi.c \
 			libft/ft_tolower.c \
 			libft/ft_toupper.c
 
-GET_NEXT_LINE_SRC = get_next_line.c \
-					get_next_line_utils.c
+GET_NEXT_LINE_SRC = get_next_line/get_next_line.c \
+					get_next_line/get_next_line_utils.c
 
 
 
@@ -122,9 +122,9 @@ $(NAME) : $(OBJ)
 	@$(CC) -o $@ -c $(FLAGS) $<
 
 clean :
-		@rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean : clean
-		@rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
