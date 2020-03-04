@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_config_error.c                              :+:      :+:    :+:   */
+/*   get_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 15:38:29 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/04 18:15:24 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/04 15:51:29 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/04 16:52:21 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-void	manage_config_error(int fd, char *line, void **entities, int er_nb)
+void	get_pixel(void **entities)
 {
-	int	i;
+	double		width;
+	double		height;
+	t_camera	*tail;
 
-	printf("\n==> line | %s |\n", line);
-	free(line);
-	while (get_next_line(fd, &line) > 0)
-		free(line);
-	i = 0;
-	while (++i < ENTITIES_SIZE)
+	width = entities[RESOLUTION]->width / 2.0;
+	height = entities[RESOLUTION]->height / 2.0;
+	tail = entities[CAMERA];
+	if (tail)
 	{
-		if (i < CAMERA)
-			free(entities[i]);
-		else
-			ft_lst_destroy(entities + i, i);
+		while (tail != camera->next)
+		{
+			camera->pixel.width = camera->screen.width / width;
+			camera->pixel.height = camera->screen.height / height;
+			camera = camera->next;
+		}
 	}
-	free(entities);
-	display_error_message(-er_nb);
-	exit(1);
 }

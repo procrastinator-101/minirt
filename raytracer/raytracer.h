@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.h                                           :+:      :+:    :+:   */
+/*   raytracer.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/04 18:33:28 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/03 20:49:53 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/04 18:23:18 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef RAYTRACER_H
+# define RAYTRACER_H
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include <mlx.h>
+# include "../miniRT.h"
 
-# include "libft/libft.h"
-# include "get_next_line/get_next_line.h"
-# include "configuration_reader/configuration_reader.h"
+typedef struct	s_ray
+{
+	t_point_3d	origin;
+	t_point_3d	direction;
+}				t_ray;
+
+typedef struct	s_intersection
+{
+	double		distance;
+	void		*object;
+	int			type;
+}				t_intersection;
+
+
+//possible addition of pixels arguments
+int				raytracer(t_camera *camera, void **entities);
+
+
+t_intersection	get_closest_inter(t_ray ray, void **entity_name);
 
 #endif

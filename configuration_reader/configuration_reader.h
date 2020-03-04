@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/03 09:14:12 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/04 18:13:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONFIGURATION_READER_H
 
 # include "../miniRT.h"
+
+# define ENTITIES_SIZE	10
 
 # define RESOLUTION	1
 # define AMBIENT	2
@@ -26,12 +28,6 @@
 # define TRIANGLE	9
 
 /************** basic data structures **************/
-
-typedef struct			s_point_2d
-{
-	double				x;
-	double				y;
-}						t_point_2d;
 
 typedef struct			s_point_3d
 {
@@ -54,6 +50,18 @@ typedef struct			s_rgb
 	int					blue;
 }						t_rgb;
 
+typedef struct			s_screen
+{
+	double				width;
+	double				height;
+}						t_screen;
+
+typedef struct			s_pixel
+{
+	double				width;
+	double				height;
+}						t_pixel;
+
 /************ entities' data structures ***********/
 
 typedef struct			s_resolution
@@ -72,6 +80,9 @@ typedef struct			s_camera
 {
 	t_point_3d			position;
 	t_vector_3d			orientation_vec;
+	t_screen			screen;
+	t_pixel				pixel;
+	struct s_camera     *previous;
 	struct s_camera		*next;
 	int					fov;
 }						t_camera;
@@ -80,6 +91,7 @@ typedef struct			s_light
 {
 	t_point_3d			light_point;
 	double				brightness;
+	struct s_light		*previous;
 	struct s_light		*next;
 	t_rgb				rgb;
 }						t_light;
@@ -88,6 +100,7 @@ typedef struct			s_sphere
 {
 	t_point_3d			sphere_point;
 	double				diameter;
+	struct s_sphere		*previous;
 	struct s_sphere		*next;
 	t_rgb				rgb;
 }						t_sphere;
@@ -96,6 +109,7 @@ typedef	struct			s_plane
 {
 	t_point_3d			plane_point;
 	t_vector_3d			orientation_vec;
+	struct s_plane		*previous;
 	struct s_plane		*next;
 	t_rgb				rgb;
 }						t_plane;
@@ -105,6 +119,7 @@ typedef struct			s_square
 	t_point_3d			square_point;
 	t_vector_3d			orientation_vec;
 	double				height;
+	struct s_square		*previous;
 	struct s_square		*next;
 	t_rgb				rgb;
 }						t_square;
@@ -115,6 +130,7 @@ typedef struct			s_cylinder
 	t_vector_3d			orientation_vec;
 	double				diameter;
 	double				height;
+	struct s_cylinder	*previous;
 	struct s_cylinder	*next;
 	t_rgb				rgb;
 }						t_cylinder;
@@ -124,6 +140,7 @@ typedef struct			s_triangle
 	t_point_3d			first_point;
 	t_point_3d			second_point;
 	t_point_3d			third_point;
+	struct s_triangle	*previous;
 	struct s_triangle	*next;
 	t_rgb				rgb;
 }						t_triangle;
@@ -161,6 +178,10 @@ int						get_plane(char *line, void **entities);
 int						get_square(char *line, void **entities);
 int						get_cylinder(char *line, void **entities);
 int						get_triangle(char *line, void **entities);
+
+void					get_screen(void **entities);
+void					get_pixel(void **entities);
+
 
 void					manage_config_error(int fd, char *line, \
 						void **entities, int er_nb);
