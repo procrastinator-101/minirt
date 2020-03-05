@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/04 14:05:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:29:19 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			get_camera(char *line, void **entities)
 	if (!(camera = malloc(sizeof(t_camera))))
 		return (-CAMERA);
 	ft_lstadd_head(&(entities[CAMERA]), camera, CAMERA);
-	camera->next = 0;
+	camera->next = entities[CAMERA];
 	start = find_next_arg(line, 2);
 	start = fetch_point_3d(line, &(camera->position), start);
 	start = update_start(line, start);

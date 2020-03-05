@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/04 18:13:40 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 17:55:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,12 @@
 
 /************** basic data structures **************/
 
-typedef struct			s_point_3d
+typedef struct			s_coord_3d
 {
 	double				x;
 	double				y;
 	double				z;
-}						t_point_3d;
-
-typedef struct			s_vector_3d
-{
-	double				x;
-	double				y;
-	double				z;
-}						t_vector_3d;
+}						t_coord_3d;
 
 typedef struct			s_rgb
 {
@@ -78,8 +71,8 @@ typedef struct			s_ambient
 
 typedef struct			s_camera
 {
-	t_point_3d			position;
-	t_vector_3d			orientation_vec;
+	t_coord_3d			position;
+	t_coord_3d			orientation_vec;
 	t_screen			screen;
 	t_pixel				pixel;
 	struct s_camera     *previous;
@@ -89,7 +82,7 @@ typedef struct			s_camera
 
 typedef struct			s_light
 {
-	t_point_3d			light_point;
+	t_coord_3d			light_point;
 	double				brightness;
 	struct s_light		*previous;
 	struct s_light		*next;
@@ -98,7 +91,7 @@ typedef struct			s_light
 
 typedef struct			s_sphere
 {
-	t_point_3d			sphere_point;
+	t_coord_3d			sphere_point;
 	double				diameter;
 	struct s_sphere		*previous;
 	struct s_sphere		*next;
@@ -107,8 +100,8 @@ typedef struct			s_sphere
 
 typedef	struct			s_plane
 {
-	t_point_3d			plane_point;
-	t_vector_3d			orientation_vec;
+	t_coord_3d			plane_point;
+	t_coord_3d			orientation_vec;
 	struct s_plane		*previous;
 	struct s_plane		*next;
 	t_rgb				rgb;
@@ -116,8 +109,8 @@ typedef	struct			s_plane
 
 typedef struct			s_square
 {
-	t_point_3d			square_point;
-	t_vector_3d			orientation_vec;
+	t_coord_3d			square_point;
+	t_coord_3d			orientation_vec;
 	double				height;
 	struct s_square		*previous;
 	struct s_square		*next;
@@ -126,8 +119,8 @@ typedef struct			s_square
 
 typedef struct			s_cylinder
 {
-	t_point_3d			cylinder_point;
-	t_vector_3d			orientation_vec;
+	t_coord_3d			cylinder_point;
+	t_coord_3d			orientation_vec;
 	double				diameter;
 	double				height;
 	struct s_cylinder	*previous;
@@ -137,9 +130,9 @@ typedef struct			s_cylinder
 
 typedef struct			s_triangle
 {
-	t_point_3d			first_point;
-	t_point_3d			second_point;
-	t_point_3d			third_point;
+	t_coord_3d			first_point;
+	t_coord_3d			second_point;
+	t_coord_3d			third_point;
 	struct s_triangle	*previous;
 	struct s_triangle	*next;
 	t_rgb				rgb;
@@ -152,9 +145,9 @@ int						update_start(char *line, int start);
 int						find_next_arg(char *line, int start);
 
 int						fetch_rgb(char *line, t_rgb *rgb, int start);
-int						fetch_point_3d(char *line, t_point_3d *point, \
+int						fetch_point_3d(char *line, t_coord_3d *point, \
 						int start);
-int						fetch_vector_3d(char *line, t_vector_3d *vector, \
+int						fetch_vector_3d(char *line, t_coord_3d *vector, \
 						int start);
 
 int						ft_atoi_length(char *str, int *len);
@@ -193,8 +186,7 @@ void					display_error_message(int error_number);
 void    print_entity(void **entities, int type);
 
 void	print_rgb(t_rgb rgb);
-void	print_point_3d(t_point_3d point);
-void	print_vector_3d(t_vector_3d vector);
+void	print_coord_3d(t_coord_3d point);
 
 void	print_resolution(void **entities);
 void	print_ambient_light(void **entities);

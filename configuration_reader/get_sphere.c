@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:51:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/03 09:21:31 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:31:39 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			get_sphere(char *line, void **entities)
 	if (!(sphere = malloc(sizeof(t_sphere))))
 		return (-SPHERE);
 	ft_lstadd_head(&(entities[SPHERE]), sphere, SPHERE);
-	sphere->next = 0;
+	sphere->next = entities[SPHERE];
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-SPHERE);

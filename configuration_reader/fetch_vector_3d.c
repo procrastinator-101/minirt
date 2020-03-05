@@ -12,7 +12,7 @@
 
 #include "configuration_reader.h"
 
-int	fetch_vector_3d(char *line, t_vector_3d *vector, int start)
+int	fetch_vector_3d(char *line, t_coord_3d *vector, int start)
 {
 	int	holder;
 

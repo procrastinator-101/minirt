@@ -12,7 +12,7 @@
 
 #include "configuration_reader.h"
 
-int	fetch_point_3d(char *line, t_point_3d *point, int start)
+int	fetch_point_3d(char *line, t_coord_3d *point, int start)
 {
 	int holder;
 

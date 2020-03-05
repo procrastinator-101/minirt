@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_vector_3d.c                                  :+:      :+:    :+:   */
+/*   cross_product.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 18:19:47 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:24:45 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/04 20:40:59 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/04 20:44:07 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "configuration_reader.h"
+#include "raytracer.h"
 
-void	print_vector_3d(t_vector_3d vector)
+double	cross_product(coord_3d b1, coord_3d b2)
 {
-	printf("X = %f\n", vector.x);
-	printf("Y = %f\n", vector.y);
-	printf("Z = %f\n", vector.z);
+	return (b1.x * b2.x + b1.y * b2.y + b1.z * b2.z);
 }

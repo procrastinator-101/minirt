@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 13:48:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:44:14 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:30:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			get_light(char *line, void **entities)
 	if (!(light = malloc(sizeof(t_light))))
 		return (-LIGHT);
 	ft_lstadd_head(&(entities[LIGHT]), light, LIGHT);
-	light->next = 0;
+	light->next = entities[LIGHT];
 	start = find_next_arg(line, 2);
 	start = fetch_point_3d(line, &(light->light_point), start);
 	start = update_start(line, start);

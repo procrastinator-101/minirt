@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 19:13:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:44:52 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:31:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			get_square(char *line, void **entities)
 	if (!(square = malloc(sizeof(t_square))))
 		return (-SQUARE);
 	ft_lstadd_head(&(entities[SQUARE]), square, SQUARE);
-	square->next = 0;
+	square->next = entities[SQUARE];
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-SQUARE);
