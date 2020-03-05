@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 14:04:02 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/05 15:46:50 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 18:15:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void		get_screen(void **entities)
 	double		aspect_ratio;
 	t_camera	*camera;
 
-	width = entities[RESOLUTION]->width;
-	height = entities[RESOLUTION]->height;
+	width = ((t_resolution *)entities[RESOLUTION])->width;
+	height = ((t_resolution *)entities[RESOLUTION])->height;
 	aspect_ratio = width / height;
 	camera = entities[CAMERA];
 	if (camera)

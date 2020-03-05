@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/04 18:14:46 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 18:21:04 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int			main(int argc, char **argv)
 				manage_config_error(fd, line, entities, er_nb);
 		}
 		free(line);
-		print_entity(entities, er_nb);
 	}
+	while (++i < ENTITIES_SIZE)
+		print_entity(entities, i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/03/03 11:32:47 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/03/05 18:07:32 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,25 +35,26 @@ CONFIGURATION_READER_SRC = configuration_reader/choose_entity_type.c \
 						   configuration_reader/get_cylinder.c \
 						   configuration_reader/get_entity_info.c \
 						   configuration_reader/get_light.c \
+						   configuration_reader/get_pixel.c \
 						   configuration_reader/get_plane.c \
 						   configuration_reader/get_resolution.c \
+						   configuration_reader/get_screen.c \
 						   configuration_reader/get_sphere.c \
 						   configuration_reader/get_square.c \
 						   configuration_reader/get_triangle.c \
 						   configuration_reader/manage_config_error.c \
 						   configuration_reader/print_ambient_light.c \
 						   configuration_reader/print_camera.c \
+						   configuration_reader/print_coord_3d.c \
 						   configuration_reader/print_cylinder.c \
 						   configuration_reader/print_entity.c \
 						   configuration_reader/print_light.c \
 						   configuration_reader/print_plane.c \
-						   configuration_reader/print_point_3d.c \
 						   configuration_reader/print_resolution.c \
 						   configuration_reader/print_rgb.c \
 						   configuration_reader/print_sphere.c \
 						   configuration_reader/print_square.c \
 						   configuration_reader/print_triangle.c \
-						   configuration_reader/print_vector_3d.c \
 						   configuration_reader/update_start.c
 
 LIBFT_SRC = libft/ft_atoi.c \

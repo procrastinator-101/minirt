@@ -6,26 +6,26 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:23:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/04 20:52:39 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/05 18:33:22 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raytracer.h"
 
-t_intersection	intersect(t_ray ray, void *object, int type)
+t_intersection	intersect(t_ray ray, void *class, int type)
 {
 	t_intersection temp;
 
 	temp.distance = INFINITY;
-	else if (type == SPHERE)
-		temp = intersect_sphere(ray, object);
+	if (type == SPHERE)
+		temp = intersect_sphere(ray, class);
 	else if (type == PLANE)
-		temp = intersect_plane(ray, object);
+		temp = intersect_plane(ray, class);
 	else if (type == SQUARE)
-		temp = intersect_square(ray, object);
+		temp = intersect_square(ray, class);
 	else if (type == CYLINDER)
-		temp = intersect_cylinder(ray, object);
+		temp = intersect_cylinder(ray, class);
 	else if (type == TRIANGLE)
-		temp = intersect_plane(ray, object);
+		temp = intersect_plane(ray, class);
 	return (temp);
 }
