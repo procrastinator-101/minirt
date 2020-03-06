@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/06 11:06:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/06 11:58:24 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "../miniRT.h"
 
-# define ENTITIES_SIZE	10
+# define ENTITIES_SIZE	11
 
-# define FILE_READING_ERROR -11
+# define FILE_READING_ERROR 11
 # define MEMORY_ALLOCATION_FAILURE -12
 
 # define RESOLUTION	1
@@ -29,6 +29,7 @@
 # define SQUARE		7
 # define CYLINDER	8
 # define TRIANGLE	9
+# define PIXELS		10
 
 /************** basic data structures **************/
 

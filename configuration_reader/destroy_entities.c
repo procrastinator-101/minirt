@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cross_product.c                                    :+:      :+:    :+:   */
+/*   destroy_entities.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 20:40:59 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/04 20:44:07 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/06 12:04:13 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/06 12:19:36 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracer.h"
+#include "configuration_reader.h"
 
-double	cross_product(coord_3d b1, coord_3d b2)
+void	destroy_entities(void **entities)
 {
-	return (b1.x * b2.x + b1.y * b2.y + b1.z * b2.z);
+	int	i;
+	int j;
+
+	i = 0;
+	while (++i < ENTITIES_SIZE)
+	{
+		if (i < CAMERA)
+			free(entities[i]);
+		else if (i == PIXELS)
+			destroy_pixels(entities[PIXELS]);
+		else
+			ft_lst_destroy(entities + i, i);
+	}
+	free(entities);
 }

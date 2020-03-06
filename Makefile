@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/03/05 18:07:32 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/03/06 12:31:49 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,17 @@ NAME = minirt.a
 FLAGS = -Wall -Wextra -Werror
 
 CC = gcc
+
+
+RAYTRACER_SRC = raytracer/create_pixels.c \
+				raytracer/destroy_pixels.c \
+				raytracer/dot_product.c \
+				raytracer/ft_min.c \
+				raytracer/get_closest_inter.c \
+				raytracer/get_color.c \
+				raytracer/intersect.c \
+				raytracer/intersect_sphere.c \
+				raytracer/raytracer.c
 
 CONFIGURATION_READER_SRC = configuration_reader/choose_entity_type.c \
 						   configuration_reader/configuration_reader.c \

@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.c                                           :+:      :+:    :+:   */
+/*   destroy_pixels.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/06 12:03:24 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/06 11:52:23 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/06 12:18:22 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "raytracer.h"
 
-int main(int argc, char **argv)
+void	destroy_pixels(void **entities)
 {
-	int		i;
-	void	**entities;
+	int i;
+	int	**pixels;
 
-	if (argc < 2)
-		return (0);
-	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
-		return (0);
+	pixels = (int **)entities[PIXELS];
 	i = -1;
-	while (++i < ENTITIES_SIZE)
-		entities[i] = 0;
-	configuration_reader(argv[1], entities);
-	create_pixels(entities);
-	raytracer(entities[CAMERA], entities);
-	return (0);
+	while (pixels[++i])
+		free(pixels[i]);
+	free(pixels);
 }

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:39:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/05 18:26:34 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/06 11:57:31 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ int	raytracer(t_camera *camera, void **entities)
 {
 	int			i;
 	int			j;
+	int			**pixels;
 	t_ray		ray;
 	t_point_3d	start;
 
+	pixels = entities[PIXELS];
 	ray.origin = camera->postion;
 	start.x = camera->postion.x - camera->screen.width;
 	start.y = camera->postion.y + camera->screen.height;
