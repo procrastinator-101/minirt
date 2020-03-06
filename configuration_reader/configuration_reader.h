@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/05 17:55:41 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/06 11:06:07 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include "../miniRT.h"
 
 # define ENTITIES_SIZE	10
+
+# define FILE_READING_ERROR -11
+# define MEMORY_ALLOCATION_FAILURE -12
 
 # define RESOLUTION	1
 # define AMBIENT	2
@@ -75,7 +78,7 @@ typedef struct			s_camera
 	t_coord_3d			orientation_vec;
 	t_screen			screen;
 	t_pixel				pixel;
-	struct s_camera     *previous;
+	struct s_camera		*previous;
 	struct s_camera		*next;
 	int					fov;
 }						t_camera;
@@ -140,6 +143,8 @@ typedef struct			s_triangle
 
 
 /************ configuration functions ***********/
+
+void					configuration_reader(char *input_file, void **entities);
 
 int						update_start(char *line, int start);
 int						find_next_arg(char *line, int start);
