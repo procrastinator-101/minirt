@@ -6,13 +6,14 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 14:04:02 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 16:27:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 17:49:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-static void	fill_screen(t_screen *screen, double width, double height)
+static void	fill_screen(t_screen *screen, double width, double height, \
+			double aspect_ratio)
 {
 	double	fov_radian;
 

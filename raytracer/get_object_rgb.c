@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_closest_inter.c                                :+:      :+:    :+:   */
+/*   get_object_rgb.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 18:15:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:13:05 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 17:58:16 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 18:01:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raytracer.h"
 
-t_intersection	get_closest_inter(t_ray ray, void **entity_name)
+t_rgb	get_object_rgb(void *object, int type)
 {
-	int				i;
-	t_intersection	closest_inter;
-	t_intersection	temp;
-
-	closest_inter.distance = INFINTY;
-	i = CAMERA;
-	while (++i < ENTITIES_SIZE)
-	{
-		temp = intersect(ray, entities[i], i);
-		if (temp.distance < closest_inter.distance)
-			closest_inter = temp;
-	}
-	return (closest_inter);
+	if (type == CAMERA)
+		return (((t_camera *)tail)->rgb);
+	if (type == LIGHT)
+		return (((t_light *)tail)->rgb);
+	if (type == SPHERE)
+		return (((t_sphere *)tail)->rgb);
+	if (type == PLANE)
+		return (((t_plane *)tail)->rgb);
+	if (type == SQUARE)
+		return (((t_square *)tail)->rgb);
+	if (type == CYLINDER)
+		return (((t_cylinder *)tail)->rgb);
+	return (((t_triangle *)tail)->rgb);
 }

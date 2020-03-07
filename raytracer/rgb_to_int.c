@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_closest_inter.c                                :+:      :+:    :+:   */
+/*   rgb_to_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 18:15:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:13:05 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 18:01:56 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 18:08:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raytracer.h"
 
-t_intersection	get_closest_inter(t_ray ray, void **entity_name)
+int	rgb_to_int(t_rgb rgb, int endian)
 {
-	int				i;
-	t_intersection	closest_inter;
-	t_intersection	temp;
+	int				color;
+	unsigned char 	*ptr;
 
-	closest_inter.distance = INFINTY;
-	i = CAMERA;
-	while (++i < ENTITIES_SIZE)
+	ptr = (unsigned char *)(&color);
+	if (endian)
 	{
-		temp = intersect(ray, entities[i], i);
-		if (temp.distance < closest_inter.distance)
-			closest_inter = temp;
+		ptr[0] = 0;
+		ptr[1] = rgb.red;
+		ptr[2] = rgb.green;
+		ptr[3] = rgb.blue;
 	}
-	return (closest_inter);
+	else
+	{
+		ptr[0] = rgb.blue;
+		ptr[1] = rgb.green;
+		ptr[2] = rgb.red;
+		ptr[3] = 0;
+	}
+	return (color);
 }

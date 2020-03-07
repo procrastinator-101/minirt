@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_closest_inter.c                                :+:      :+:    :+:   */
+/*   ft_atoi_length.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 18:15:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:13:05 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/02/25 15:37:44 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/02/26 18:51:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracer.h"
+#include "../minirt.h"
 
-t_intersection	get_closest_inter(t_ray ray, void **entity_name)
+int	ft_atoi_length(char *str, int *len)
 {
-	int				i;
-	t_intersection	closest_inter;
-	t_intersection	temp;
+	int	i;
+	int	sp;
+	int	ret;
 
-	closest_inter.distance = INFINTY;
-	i = CAMERA;
-	while (++i < ENTITIES_SIZE)
-	{
-		temp = intersect(ray, entities[i], i);
-		if (temp.distance < closest_inter.distance)
-			closest_inter = temp;
-	}
-	return (closest_inter);
+	sp = 0;
+	while (str[sp] == 32 || (str[sp] > 8 && str[sp] < 14))
+		sp++;
+	i = sp;
+	if (str[sp] == '-' || str[sp] == '+')
+		i++;
+	ret = 0;
+	while (str[i] > 47 && str[i] < 58)
+		ret = ret * 10 + (str[i++] - 48);
+	*len = i - sp;
+	return (str[sp] == '-' ? -ret : ret);
 }

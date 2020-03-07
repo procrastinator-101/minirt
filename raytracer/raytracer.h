@@ -13,7 +13,7 @@
 #ifndef RAYTRACER_H
 # define RAYTRACER_H
 
-# include "../miniRT.h"
+# include "../minirt.h"
 
 typedef struct	s_ray
 {

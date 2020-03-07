@@ -13,7 +13,7 @@
 #ifndef CONFIGURATION_READER_H
 # define CONFIGURATION_READER_H
 
-# include "../miniRT.h"
+# include "../minirt.h"
 
 # define ENTITIES_SIZE	11
 

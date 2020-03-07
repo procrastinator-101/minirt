@@ -1,4 +1,4 @@
-#include "../miniRT.h"
+#include "../minirt.h"
 
 void            *mlx_ptr;
 void            *win_ptr;
