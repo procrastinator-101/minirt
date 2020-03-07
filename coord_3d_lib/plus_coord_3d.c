@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.c                                           :+:      :+:    :+:   */
+/*   plus_coord_3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 15:28:31 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 16:43:42 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 16:44:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "coord_3d_lib.h"
 
-int main(int argc, char **argv)
+t_coord_3d	plus_coord_3d(t_coord_3d a, t_coord_3d b)
 {
-	int			i;
-	void		**entities;
-	t_display	display;
+	t_coord_3d	ret;
 
-	if (argc < 2)
-		return (0);
-	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
-		return (0);
-	i = -1;
-	while (++i < ENTITIES_SIZE)
-		entities[i] = 0;
-	configuration_reader(argv[1], entities);
-	initialise_display(&display);
-	raytracer(entities[CAMERA], entities, &display);
-	return (0);
+	ret.x = a.x + b.x;
+	ret.y = a.y + b.y;
+	ret.z = a.z + b.z;
+	return (ret);
 }

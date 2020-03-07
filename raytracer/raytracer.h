@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:49:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/06 12:27:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 17:20:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,5 @@ t_intersection	get_closest_inter(t_ray ray, void **entity_name);
 t_intersection	intersect(t_ray ray, void *class, int type);
 
 t_intersection	intersect_sphere(t_ray ray, t_camera *tail);
-
-double			dot_product(coord_3d a, coord_3d b);
-
-double			ft_min(double a, double b);
 
 #endif

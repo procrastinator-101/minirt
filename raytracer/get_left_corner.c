@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.c                                           :+:      :+:    :+:   */
+/*   get_left_corner.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 15:28:31 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 16:29:35 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 16:51:33 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "raytracer.h"
 
-int main(int argc, char **argv)
+t_coord_3d	get_left_corner(t_camera *camera, t_screen screen)
 {
-	int			i;
-	void		**entities;
-	t_display	display;
+	t_coord_3d	start;
+	t_coord_3d	temp;
 
-	if (argc < 2)
-		return (0);
-	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
-		return (0);
-	i = -1;
-	while (++i < ENTITIES_SIZE)
-		entities[i] = 0;
-	configuration_reader(argv[1], entities);
-	initialise_display(&display);
-	raytracer(entities[CAMERA], entities, &display);
-	return (0);
+	start = plus_coord_3d(camera->position, screen.w);
+	temp = scalar_product(screen.u, -screen.width);
+	start = plus_coord_3d(start, temp);
+	temp = scalar_product(screen.v, screen.height);
+	return (plus_coord_3d(start, temp));
 }

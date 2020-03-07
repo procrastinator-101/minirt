@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/06 11:58:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 17:20:53 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include "../miniRT.h"
 
 # define ENTITIES_SIZE	11
-
-# define FILE_READING_ERROR 11
-# define MEMORY_ALLOCATION_FAILURE -12
 
 # define RESOLUTION	1
 # define AMBIENT	2
@@ -33,13 +30,6 @@
 
 /************** basic data structures **************/
 
-typedef struct			s_coord_3d
-{
-	double				x;
-	double				y;
-	double				z;
-}						t_coord_3d;
-
 typedef struct			s_rgb
 {
 	int					red;
@@ -49,6 +39,9 @@ typedef struct			s_rgb
 
 typedef struct			s_screen
 {
+	t_coord_3d			u;
+	t_coord_3d			v;
+	t_coord_3d			w;
 	double				width;
 	double				height;
 }						t_screen;
@@ -76,7 +69,6 @@ typedef struct			s_ambient
 typedef struct			s_camera
 {
 	t_coord_3d			position;
-	t_coord_3d			orientation_vec;
 	t_screen			screen;
 	t_pixel				pixel;
 	struct s_camera		*previous;
@@ -155,9 +147,6 @@ int						fetch_point_3d(char *line, t_coord_3d *point, \
 						int start);
 int						fetch_vector_3d(char *line, t_coord_3d *vector, \
 						int start);
-
-int						ft_atoi_length(char *str, int *len);
-double					ft_atod_length(char *str, int *len);
 
 void					ft_lstadd_head(void **lst_tail, void *new, int type);
 void					ft_lst_destroy(void **lst_tail, int type);

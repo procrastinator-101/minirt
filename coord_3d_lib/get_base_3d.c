@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.c                                           :+:      :+:    :+:   */
+/*   get_base_3d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 15:28:31 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 16:02:39 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 16:19:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "coord_3d_lib.h"
 
-int main(int argc, char **argv)
+void	get_base_3d(t_coord_3d *w, t_coord_3d *v, t_coord_3d *u)
 {
-	int			i;
-	void		**entities;
-	t_display	display;
+	t_coord_3d up;
 
-	if (argc < 2)
-		return (0);
-	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
-		return (0);
-	i = -1;
-	while (++i < ENTITIES_SIZE)
-		entities[i] = 0;
-	configuration_reader(argv[1], entities);
-	initialise_display(&display);
-	raytracer(entities[CAMERA], entities, &display);
-	return (0);
+	up.x = 0;
+	up.y = 1;
+	up.z = 0;
+	if (coor_3d_cmp(up, *w))
+	{
+		up.x = 1;
+		up.y = 0;
+	}
+	*u = cross_product(*w, up);
+	*v = cross_product(*u, *w);
 }

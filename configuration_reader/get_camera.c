@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/05 15:29:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 15:40:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int			get_camera(char *line, void **entities)
 	start = update_start(line, start);
 	if (start == -1)
 		return (-CAMERA);
-	start = fetch_vector_3d(line, &(camera->orientation_vec), start);
+	start = fetch_vector_3d(line, &(camera->screen.w), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-CAMERA);

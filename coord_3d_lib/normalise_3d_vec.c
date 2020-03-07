@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.c                                           :+:      :+:    :+:   */
+/*   normalise_3d_vec.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 15:28:31 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 15:40:39 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 15:59:43 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "coord_3d_lib.h"
 
-int main(int argc, char **argv)
+void	normalise_3d_vec(t_coord_3d *v)
 {
-	int			i;
-	void		**entities;
-	t_display	display;
+	double	den;
 
-	if (argc < 2)
-		return (0);
-	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
-		return (0);
-	i = -1;
-	while (++i < ENTITIES_SIZE)
-		entities[i] = 0;
-	configuration_reader(argv[1], entities);
-	initialise_display(&display);
-	raytracer(entities[CAMERA], entities, &display);
-	return (0);
+	den = sqrt(pow(v->x, 2) + pow(v->y, 2) + pow(v->z, 2));
+	v->x /= den;
+	v->y /= den;
+	v->z /= den;
 }

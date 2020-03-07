@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.c                                           :+:      :+:    :+:   */
+/*   scalar_product.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 15:28:31 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 16:38:42 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 16:40:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "coord_3d_lib.h"
 
-int main(int argc, char **argv)
+t_coord_3d	scalar_product(t_coord_3d v, double scalar)
 {
-	int			i;
-	void		**entities;
-	t_display	display;
-
-	if (argc < 2)
-		return (0);
-	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
-		return (0);
-	i = -1;
-	while (++i < ENTITIES_SIZE)
-		entities[i] = 0;
-	configuration_reader(argv[1], entities);
-	initialise_display(&display);
-	raytracer(entities[CAMERA], entities, &display);
-	return (0);
+	v.x *= scalar;
+	v.y *= scalar;
+	v.z *= scalar;
+	return (v);
 }

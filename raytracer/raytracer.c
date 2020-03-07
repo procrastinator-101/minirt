@@ -6,35 +6,36 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:39:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/06 11:57:31 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 17:06:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raytracer.h"
 
-int	raytracer(t_camera *camera, void **entities)
+int	raytracer(t_camera *camera, void **entities, t_display display)
 {
 	int			i;
 	int			j;
-	int			**pixels;
+	int			width;
 	t_ray		ray;
 	t_point_3d	start;
 
-	pixels = entities[PIXELS];
+	width = entities[RESOLUTION]->width;
 	ray.origin = camera->postion;
-	start.x = camera->postion.x - camera->screen.width;
-	start.y = camera->postion.y + camera->screen.height;
-	start.z = camera->postion.z + 1;
+	start = get_left_corner(camera, camera->screen);
 	ray.direction.z = start.z;
-	i = 0;
+	i = -1;
 	while (++i < entities[RESOLUTION]->height)
 	{
-		j = 0;
-		while (++j < entities[RESOLUTION]->width)
+		j = -1;
+		while (++j < width)
 		{
 			ray.direction.x = start.x + j * camera->pixel.width;
 			ray.direction.y = start.y - i * camera->pixel.height;
-			pixels[i - 1][j - 1] = get_color(ray, entities);
+			display->img_addr[i * width + j] = get_color(ray, entities, \
+				display->endian);
 		}
 	}
+	mlx_put_image_to_window(display->mlx_ptr, display->win_ptr, \
+		display->img_ptr, 0, 0);
 }
