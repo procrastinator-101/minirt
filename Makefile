@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/03/07 18:24:48 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/03/07 19:58:59 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RAYTRACER_SRC = raytracer/get_closest_inter.c \
 				raytracer/get_color.c \
 				raytracer/get_left_corner.c \
 				raytracer/get_object_rgb.c \
-				initialise_display.c \
+				raytracer/initialise_display.c \
 				raytracer/intersect.c \
 				raytracer/intersect_sphere.c \
 				raytracer/raytracer.c \
@@ -69,7 +69,7 @@ CONFIGURATION_READER_SRC = configuration_reader/choose_entity_type.c \
 
 SUPPORT_FUNCTIONS_SRC = support_functions/ft_atod_length.c \
 						support_functions/ft_atoi_length.c \
-						support_functions/ft_min.c
+						support_functions/ft_min.c \
 
 COORD_3D_LIB = coord_3d_lib/cross_product.c \
 			   coord_3d_lib/dot_product.c \

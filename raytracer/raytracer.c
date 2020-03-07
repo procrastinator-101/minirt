@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:39:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:12:26 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 19:39:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raytracer.h"
 
-int	raytracer(t_camera *camera, void **entities, t_display display)
+int	raytracer(t_camera *camera, void **entities, t_display *display)
 {
 	int			i;
 	int			j;

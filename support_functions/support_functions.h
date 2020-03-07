@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_entities.c                                 :+:      :+:    :+:   */
+/*   support_functions.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 12:04:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:29:09 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 19:53:35 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 19:56:54 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "configuration_reader.h"
+#ifndef SUPPORT_FUNCTIONS_H
+# define SUPPORT_FUNCTIONS_H
 
-void	destroy_entities(void **entities)
-{
-	int	i;
+double	ft_min(double a, double b);
 
-	i = 0;
-	while (++i < ENTITIES_SIZE)
-	{
-		if (i < CAMERA)
-			free(entities[i]);
-		else
-			ft_lst_destroy(entities + i, i);
-	}
-	free(entities);
-}
+int		ft_atoi_length(char *str, int *len);
+double	ft_atod_length(char *str, int *len);
+
+#endif

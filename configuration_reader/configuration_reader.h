@@ -6,16 +6,28 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 17:20:53 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 19:57:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONFIGURATION_READER_H
 # define CONFIGURATION_READER_H
 
-# include "../minirt.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include "../libft/libft.h"
+# include "../get_next_line/get_next_line.h"
+# include "../coord_3d_lib/coord_3d_lib.h"
+# include "../support_functions/support_functions.h"
 
 # define ENTITIES_SIZE	11
+
+# define FILE_READING_ERROR					11
+# define MEMORY_ALLOCATION_FAILURE			12
+# define MLX_CONNECTION_ERROR				13
+# define WINDOW_CREATION_ERROR				14
+# define IMAGE_CREATION_ERROR				15
 
 # define RESOLUTION	1
 # define AMBIENT	2
@@ -26,7 +38,6 @@
 # define SQUARE		7
 # define CYLINDER	8
 # define TRIANGLE	9
-# define PIXELS		10
 
 /************** basic data structures **************/
 
