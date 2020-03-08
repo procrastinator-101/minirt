@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracer.h"
+#include "../minirt.h"
 
 int	rgb_to_int(t_rgb rgb, int endian)
 {

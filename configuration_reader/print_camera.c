@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:04:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:36:52 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:53:24 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,22 @@ void		print_camera(void **entities)
 	printf("\n\n===========	CAMERA	===========\n");
 	print_coord_3d(camera->position);
 	print_coord_3d(camera->screen.w);
+	print_coord_3d(camera->screen.u);
+	print_coord_3d(camera->screen.v);
 	printf("fov = %d\n\n\n", camera->fov);
+	printf("pixel_width = %f\n", camera->pixel.width);
+	printf("pixel_height = %f\n", camera->pixel.height);
 	camera = camera->next;
 	while (camera != entities[CAMERA])
 	{
 		printf("\n\n===========	CAMERA	===========\n");
 		print_coord_3d(camera->position);
 		print_coord_3d(camera->screen.w);
+		print_coord_3d(camera->screen.u);
+		print_coord_3d(camera->screen.v);
 		printf("fov = %d\n\n\n", camera->fov);
+		printf("pixel_width = %f\n", camera->pixel.width);
+		printf("pixel_height = %f\n", camera->pixel.height);
 		camera = camera->next;
 	}
 }

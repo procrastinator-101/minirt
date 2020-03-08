@@ -6,25 +6,23 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:58:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:01:26 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 20:11:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracer.h"
+#include "../minirt.h"
 
 t_rgb	get_object_rgb(void *object, int type)
 {
-	if (type == CAMERA)
-		return (((t_camera *)tail)->rgb);
 	if (type == LIGHT)
-		return (((t_light *)tail)->rgb);
+		return (((t_light *)object)->rgb);
 	if (type == SPHERE)
-		return (((t_sphere *)tail)->rgb);
+		return (((t_sphere *)object)->rgb);
 	if (type == PLANE)
-		return (((t_plane *)tail)->rgb);
+		return (((t_plane *)object)->rgb);
 	if (type == SQUARE)
-		return (((t_square *)tail)->rgb);
+		return (((t_square *)object)->rgb);
 	if (type == CYLINDER)
-		return (((t_cylinder *)tail)->rgb);
-	return (((t_triangle *)tail)->rgb);
+		return (((t_cylinder *)object)->rgb);
+	return (((t_triangle *)object)->rgb);
 }

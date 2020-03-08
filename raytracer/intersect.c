@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracer.h"
+#include "../minirt.h"
 
 t_intersection	intersect(t_ray ray, void *class, int type)
 {

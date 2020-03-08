@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "support_functions.h"
 
 int	ft_atoi_length(char *str, int *len)
 {

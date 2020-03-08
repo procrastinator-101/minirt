@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracer.h"
+#include "../minirt.h"
 
 t_coord_3d	get_left_corner(t_camera *camera, t_screen screen)
 {
 	t_coord_3d	start;
 	t_coord_3d	temp;
 
-	start = plus_coord_3d(camera->position, screen.w);
+	start = coord_3d_plus(camera->position, screen.w);
 	temp = scalar_product(screen.u, -screen.width);
-	start = plus_coord_3d(start, temp);
+	start = coord_3d_plus(start, temp);
 	temp = scalar_product(screen.v, screen.height);
-	return (plus_coord_3d(start, temp));
+	return (coord_3d_plus(start, temp));
 }

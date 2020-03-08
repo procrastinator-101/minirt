@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_screen.c                                       :+:      :+:    :+:   */
+/*   get_screen_pixel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 14:04:02 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:36:00 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/08 12:23:21 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/08 12:52:38 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-static void	fill_screen(t_camera *camera, t_screen *screen, double aspect_ratio)
+static void	get_screen(t_camera *camera, t_screen *screen, double aspect_ratio)
 {
 	double		fov_radian;
 
@@ -25,7 +25,13 @@ static void	fill_screen(t_camera *camera, t_screen *screen, double aspect_ratio)
 	normalise_3d_vec(&(screen->u));
 }
 
-void		get_screen(void **entities)
+static void	get_pixel(t_camera *camera, double width, double height)
+{
+	camera->pixel.width = camera->screen.width / width / 2.0;
+	camera->pixel.height = camera->screen.height / height / 2.0;
+}
+
+void		get_screen_pixel(void **entities)
 {
 	double		width;
 	double		height;
@@ -38,11 +44,13 @@ void		get_screen(void **entities)
 	camera = entities[CAMERA];
 	if (camera)
 	{
-		fill_screen(camera, &(camera->screen), aspect_ratio);
+		get_screen(camera, &(camera->screen), aspect_ratio);
+		get_pixel(camera, width, height);
 		camera = camera->next;
 		while (camera != entities[CAMERA])
 		{
-			fill_screen(camera, &(camera->screen), aspect_ratio);
+			get_screen(camera, &(camera->screen), aspect_ratio);
+			get_pixel(camera, width, height);
 			camera = camera->next;
 		}
 	}

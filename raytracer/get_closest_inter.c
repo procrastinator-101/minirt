@@ -6,19 +6,19 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:15:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 18:13:05 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 20:07:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracer.h"
+#include "../minirt.h"
 
-t_intersection	get_closest_inter(t_ray ray, void **entity_name)
+t_intersection	get_closest_inter(t_ray ray, void **entities)
 {
 	int				i;
 	t_intersection	closest_inter;
 	t_intersection	temp;
 
-	closest_inter.distance = INFINTY;
+	closest_inter.distance = INFINITY;
 	i = CAMERA;
 	while (++i < ENTITIES_SIZE)
 	{

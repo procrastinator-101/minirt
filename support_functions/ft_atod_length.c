@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "support_functions.h"
 
 static double	update_ret(char *str, int i, int radix, double ret)
 {

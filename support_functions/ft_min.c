@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:34:17 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 17:06:05 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 20:24:04 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "support_functions.h"
 
 double	ft_min(double a, double b)
 {

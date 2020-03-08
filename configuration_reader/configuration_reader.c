@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/06 11:20:42 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:41:47 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	configuration_reader(char *input_file, void **entities)
 		}
 		free(line);
 	}
+	get_screen_pixel(entities);
 	while (++i < ENTITIES_SIZE)
 		print_entity(entities, i);
 }

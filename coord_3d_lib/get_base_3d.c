@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:02:39 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 16:19:34 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/07 20:56:53 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	get_base_3d(t_coord_3d *w, t_coord_3d *v, t_coord_3d *u)
 	up.x = 0;
 	up.y = 1;
 	up.z = 0;
-	if (coor_3d_cmp(up, *w))
+	if (coord_3d_cmp(up, *w))
 	{
 		up.x = 1;
 		up.y = 0;

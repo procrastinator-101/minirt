@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 19:57:35 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:39:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 # include "../coord_3d_lib/coord_3d_lib.h"
@@ -38,6 +39,7 @@
 # define SQUARE		7
 # define CYLINDER	8
 # define TRIANGLE	9
+# define DISPLAY	10
 
 /************** basic data structures **************/
 
@@ -98,8 +100,8 @@ typedef struct			s_light
 
 typedef struct			s_sphere
 {
-	t_coord_3d			sphere_point;
-	double				diameter;
+	t_coord_3d			center;
+	double				radius;
 	struct s_sphere		*previous;
 	struct s_sphere		*next;
 	t_rgb				rgb;
@@ -178,9 +180,7 @@ int						get_square(char *line, void **entities);
 int						get_cylinder(char *line, void **entities);
 int						get_triangle(char *line, void **entities);
 
-void					get_screen(void **entities);
-void					get_pixel(void **entities);
-
+void					get_screen_pixel(void **entities);
 
 void					manage_config_error(int fd, char *line, \
 						void **entities, int er_nb);

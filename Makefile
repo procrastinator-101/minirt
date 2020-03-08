@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/03/07 19:58:59 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/03/08 12:44:44 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,9 @@ CONFIGURATION_READER_SRC = configuration_reader/choose_entity_type.c \
 						   configuration_reader/get_cylinder.c \
 						   configuration_reader/get_entity_info.c \
 						   configuration_reader/get_light.c \
-						   configuration_reader/get_pixel.c \
 						   configuration_reader/get_plane.c \
 						   configuration_reader/get_resolution.c \
-						   configuration_reader/get_screen.c \
+						   configuration_reader/get_screen_pixel.c \
 						   configuration_reader/get_sphere.c \
 						   configuration_reader/get_square.c \
 						   configuration_reader/get_triangle.c \
@@ -71,12 +70,13 @@ SUPPORT_FUNCTIONS_SRC = support_functions/ft_atod_length.c \
 						support_functions/ft_atoi_length.c \
 						support_functions/ft_min.c \
 
-COORD_3D_LIB = coord_3d_lib/cross_product.c \
+COORD_3D_LIB = coord_3d_lib/coord_3d_cmp.c \
+			   coord_3d_lib/coord_3d_minus.c \
+			   coord_3d_lib/coord_3d_plus.c \
+			   coord_3d_lib/cross_product.c \
 			   coord_3d_lib/dot_product.c \
 			   coord_3d_lib/get_base_3d.c \
-			   coord_3d_lib/minus_coord_3d.c \
 			   coord_3d_lib/normalise_3d_vec.c \
-			   coord_3d_lib/plus_coord_3d.c \
 			   coord_3d_lib/scalar_product.c
 
 LIBFT_SRC = libft/ft_atoi.c \
@@ -128,7 +128,8 @@ GET_NEXT_LINE_SRC = get_next_line/get_next_line.c \
 
 
 
-SRC = $(CONFIGURATION_READER_SRC) $(LIBFT_SRC) $(GET_NEXT_LINE_SRC)
+SRC = $(RAYTRACER_SRC) $(CONFIGURATION_READER_SRC) $(SUPPORT_FUNCTIONS_SRC) \
+	  $(COORD_3D_LIB) $(LIBFT_SRC) $(GET_NEXT_LINE_SRC)
 
 OBJ = $(SRC:.c=.o)
 
