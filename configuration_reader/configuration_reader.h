@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 12:39:44 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 16:03:55 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "../coord_3d_lib/coord_3d_lib.h"
 # include "../support_functions/support_functions.h"
 
-# define ENTITIES_SIZE	11
+# define ENTITIES_SIZE	12
 
 # define FILE_READING_ERROR					11
 # define MEMORY_ALLOCATION_FAILURE			12
@@ -30,16 +30,17 @@
 # define WINDOW_CREATION_ERROR				14
 # define IMAGE_CREATION_ERROR				15
 
-# define RESOLUTION	1
-# define AMBIENT	2
-# define CAMERA		3
-# define LIGHT		4
-# define SPHERE		5
-# define PLANE		6
-# define SQUARE		7
-# define CYLINDER	8
-# define TRIANGLE	9
-# define DISPLAY	10
+# define RESOLUTION							1
+# define AMBIENT							2
+# define CAMERA								3
+# define LIGHT								4
+# define SPHERE								5
+# define PLANE								6
+# define SQUARE								7
+# define CYLINDER							8
+# define TRIANGLE							9
+# define DISPLAY							10
+# define USER_CAMERA						11
 
 /************** basic data structures **************/
 

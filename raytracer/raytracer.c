@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:39:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 14:21:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 18:37:50 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	raytracer(t_camera *camera, void **entities, t_display *display)
 	int			j;
 	int			width;
 	t_ray		ray;
+	t_coord_3d	temp;
 	t_coord_3d	start;
 
 	width = ((t_resolution *)entities[RESOLUTION])->width;
@@ -27,12 +28,13 @@ int	raytracer(t_camera *camera, void **entities, t_display *display)
 	i = -1;
 	while (++i < ((t_resolution *)entities[RESOLUTION])->height)
 	{
-		ray.direction.y = start.y - i * camera->pixel.height;
+		temp = coord_3d_minus(start, scalar_product(camera->screen.v, \
+			i * camera->pixel.height));
 		j = -1;
 		while (++j < width)
 		{
-			ray.direction.x = start.x + j * camera->pixel.width;
-			//print_coord_3d(ray.direction);
+			ray.direction = coord_3d_plus(temp, \
+				scalar_product(camera->screen.u, j * camera->pixel.width));
 			display->img_addr[i * width + j] = get_color(ray, entities, \
 				display->endian);
 		}

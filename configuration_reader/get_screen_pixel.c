@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 12:23:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 12:52:38 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 15:28:11 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	get_screen(t_camera *camera, t_screen *screen, double aspect_ratio)
 
 static void	get_pixel(t_camera *camera, double width, double height)
 {
-	camera->pixel.width = camera->screen.width / width / 2.0;
-	camera->pixel.height = camera->screen.height / height / 2.0;
+	camera->pixel.width = camera->screen.width / width * 2.0;
+	camera->pixel.height = camera->screen.height / height * 2.0;
 }
 
 void		get_screen_pixel(void **entities)

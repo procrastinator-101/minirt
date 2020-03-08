@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:04:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 12:53:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 15:25:53 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void		print_camera(void **entities)
 	print_coord_3d(camera->screen.u);
 	print_coord_3d(camera->screen.v);
 	printf("fov = %d\n\n\n", camera->fov);
+	printf("screen_width = %f\n", camera->screen.width);
+	printf("screen_height = %f\n", camera->screen.height);
 	printf("pixel_width = %f\n", camera->pixel.width);
 	printf("pixel_height = %f\n", camera->pixel.height);
 	camera = camera->next;
@@ -36,6 +38,8 @@ void		print_camera(void **entities)
 		print_coord_3d(camera->screen.u);
 		print_coord_3d(camera->screen.v);
 		printf("fov = %d\n\n\n", camera->fov);
+		printf("screen_width = %f\n", camera->screen.width);
+		printf("screen_height = %f\n", camera->screen.height);
 		printf("pixel_width = %f\n", camera->pixel.width);
 		printf("pixel_height = %f\n", camera->pixel.height);
 		camera = camera->next;

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 14:05:00 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 15:16:08 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,5 @@ t_intersection	intersect_sphere(t_ray ray, t_sphere *tail)
 			sphere = sphere->next;
 		}
 	}
-	/*if (closest_inter.distance < INFINITY)
-	{
-		//printf("object = %p\n", closest_inter.object);
-		printf("distance = %f\n", closest_inter.distance);
-		//printf("type = %d\n", closest_inter.type);
-	}*/
 	return (closest_inter);
 }

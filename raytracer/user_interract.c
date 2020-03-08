@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 20:59:59 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 14:21:26 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 18:38:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int manage_key(int key, void *param)
 	t_camera	*camera;
 
 	entities = (void **)param;
-	camera = entities[CAMERA];
+	camera = entities[USER_CAMERA];
 	if (key == 53)
 		exit(EXIT_SUCCESS);
 	if (key == 126)
@@ -26,13 +26,18 @@ static int manage_key(int key, void *param)
 	else if (key == 125)
 		camera->position.z--;
 	else if (key == 124)
-		camera->position.x--;
-	else if (key == 123)
 		camera->position.x++;
+	else if (key == 123)
+		camera->position.x--;
 	else if (key == 91)
 		camera->position.y++;
 	else if (key == 84)
 		camera->position.y--;
+	else if (key == 45)
+		camera = camera->next;
+	else if (key == 35)
+		camera = camera->previous;
+	entities[USER_CAMERA] = camera;
 	print_coord_3d(camera->position);
 	raytracer(camera, entities, entities[DISPLAY]);
 	return (0);

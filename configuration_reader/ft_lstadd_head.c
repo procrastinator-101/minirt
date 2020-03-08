@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:45:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/05 15:34:08 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/08 16:18:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void		ft_lstadd_head(void **lst_tail, void *new, int type)
 			tail = next;
 		}
 		add_new(tail, new, type);
-		update_previous(next, tail, type);
+		update_previous(new, tail, type);
+		tail = new;
 	}
 	update_previous(*lst_tail, tail, type);
 }
