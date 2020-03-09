@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:15:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 20:07:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:05:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_intersection	get_closest_inter(t_ray ray, void **entities)
 
 	closest_inter.distance = INFINITY;
 	i = CAMERA;
-	while (++i < ENTITIES_SIZE)
+	while (++i < DISPLAY)
 	{
 		temp = intersect(ray, entities[i], i);
 		if (temp.distance < closest_inter.distance)

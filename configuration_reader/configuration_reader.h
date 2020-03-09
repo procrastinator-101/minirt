@@ -110,8 +110,8 @@ typedef struct			s_sphere
 
 typedef	struct			s_plane
 {
-	t_coord_3d			plane_point;
-	t_coord_3d			orientation_vec;
+	t_coord_3d			position;
+	t_coord_3d			v;
 	struct s_plane		*previous;
 	struct s_plane		*next;
 	t_rgb				rgb;
@@ -119,8 +119,8 @@ typedef	struct			s_plane
 
 typedef struct			s_square
 {
-	t_coord_3d			square_point;
-	t_coord_3d			orientation_vec;
+	t_coord_3d			position;
+	t_coord_3d			v;
 	double				height;
 	struct s_square		*previous;
 	struct s_square		*next;
@@ -130,7 +130,7 @@ typedef struct			s_square
 typedef struct			s_cylinder
 {
 	t_coord_3d			cylinder_point;
-	t_coord_3d			orientation_vec;
+	t_coord_3d			v;
 	double				diameter;
 	double				height;
 	struct s_cylinder	*previous;

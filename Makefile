@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/03/08 12:44:44 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/03/09 18:52:25 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,14 @@ CC = gcc
 
 RAYTRACER_SRC = raytracer/get_closest_inter.c \
 				raytracer/get_color.c \
+				raytracer/get_intersection.c \
 				raytracer/get_left_corner.c \
 				raytracer/get_object_rgb.c \
 				raytracer/initialise_display.c \
 				raytracer/intersect.c \
+				raytracer/intersect_plane.c \
 				raytracer/intersect_sphere.c \
+				raytracer/intersect_square.c \
 				raytracer/raytracer.c \
 				raytracer/rgb_to_int.c
 

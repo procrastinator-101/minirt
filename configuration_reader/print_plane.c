@@ -20,16 +20,16 @@ void		print_plane(void **entities)
 	if (!plane)
 		return ;
 	printf("\n\n===========	PLANE	===========\n");
-	print_coord_3d(plane->plane_point);
-	print_coord_3d(plane->orientation_vec);
+	print_coord_3d(plane->position);
+	print_coord_3d(plane->v);
 	print_rgb(plane->rgb);
 	printf("\n\n");
 	plane = plane->next;
 	while (plane != entities[PLANE])
 	{
 		printf("\n\n===========	PLANE	===========\n");
-		print_coord_3d(plane->plane_point);
-		print_coord_3d(plane->orientation_vec);
+		print_coord_3d(plane->position);
+		print_coord_3d(plane->v);
 		print_rgb(plane->rgb);
 		printf("\n\n");
 		plane = plane->next;

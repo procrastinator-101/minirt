@@ -44,7 +44,7 @@ int			get_cylinder(char *line, void **entities)
 	start = update_start(line, start);
 	if (start == -1)
 		return (-CYLINDER);
-	start = fetch_vector_3d(line, &(cylinder->orientation_vec), start);
+	start = fetch_vector_3d(line, &(cylinder->v), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-CYLINDER);

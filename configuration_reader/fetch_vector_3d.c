@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 14:47:28 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 16:40:31 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/09 20:37:24 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	fetch_vector_3d(char *line, t_coord_3d *vector, int start)
 	vector->z = ft_atod_length(line + start, &holder);
 	if (vector->z < -1.0 || vector->z > 1.0)
 		return (-1);
+	normalise_3d_vec(vector);
 	return (start + holder);
 }

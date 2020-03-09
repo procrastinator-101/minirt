@@ -15,8 +15,8 @@
 static void	display_element(t_square *square)
 {
 	printf("\n\n===========	SQUARE	===========\n");
-	print_coord_3d(square->square_point);
-	print_coord_3d(square->orientation_vec);
+	print_coord_3d(square->position);
+	print_coord_3d(square->v);
 	printf("height = %f\n", square->height);
 	print_rgb(square->rgb);
 	printf("\n\n");

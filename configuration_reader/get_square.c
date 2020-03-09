@@ -34,11 +34,11 @@ int			get_square(char *line, void **entities)
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-SQUARE);
-	start = fetch_point_3d(line, &(square->square_point), start);
+	start = fetch_point_3d(line, &(square->position), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-SQUARE);
-	start = fetch_vector_3d(line, &(square->orientation_vec), start);
+	start = fetch_vector_3d(line, &(square->v), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-SQUARE);
