@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/03/09 18:52:25 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/03/10 19:35:54 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ RAYTRACER_SRC = raytracer/get_closest_inter.c \
 				raytracer/intersect_plane.c \
 				raytracer/intersect_sphere.c \
 				raytracer/intersect_square.c \
+				raytracer/intersect_triangle.c \
 				raytracer/raytracer.c \
 				raytracer/rgb_to_int.c
 

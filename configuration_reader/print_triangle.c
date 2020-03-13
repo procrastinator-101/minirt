@@ -15,9 +15,9 @@
 static void	display_element(t_triangle *triangle)
 {
 	printf("\n\n===========	TRIANGLE	===========\n");
-	print_coord_3d(triangle->first_point);
-	print_coord_3d(triangle->second_point);
-	print_coord_3d(triangle->third_point);
+	print_coord_3d(triangle->p1);
+	print_coord_3d(triangle->p2);
+	print_coord_3d(triangle->p3);
 	print_rgb(triangle->rgb);
 	printf("\n\n");
 }

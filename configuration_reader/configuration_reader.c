@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 12:41:47 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/10 15:30:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	configuration_reader(char *input_file, void **entities)
 		free(line);
 	}
 	get_screen_pixel(entities);
+	printf("previous = %p\n", ((t_camera *)entities[CAMERA])->previous);
+	printf("camera = %p\n", entities[CAMERA]);
 	while (++i < ENTITIES_SIZE)
 		print_entity(entities, i);
 }

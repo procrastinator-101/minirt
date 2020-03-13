@@ -140,9 +140,9 @@ typedef struct			s_cylinder
 
 typedef struct			s_triangle
 {
-	t_coord_3d			first_point;
-	t_coord_3d			second_point;
-	t_coord_3d			third_point;
+	t_coord_3d			p1;
+	t_coord_3d			p2;
+	t_coord_3d			p3;
 	struct s_triangle	*previous;
 	struct s_triangle	*next;
 	t_rgb				rgb;

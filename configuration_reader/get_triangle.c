@@ -24,15 +24,15 @@ int		get_triangle(char *line, void **entities)
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-TRIANGLE);
-	start = fetch_point_3d(line, &(triangle->first_point), start);
+	start = fetch_point_3d(line, &(triangle->p1), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-TRIANGLE);
-	start = fetch_point_3d(line, &(triangle->second_point), start);
+	start = fetch_point_3d(line, &(triangle->p2), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-TRIANGLE);
-	start = fetch_point_3d(line, &(triangle->third_point), start);
+	start = fetch_point_3d(line, &(triangle->p3), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-TRIANGLE);
