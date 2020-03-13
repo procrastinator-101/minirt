@@ -15,7 +15,7 @@
 static void	display_element(t_cylinder *cylinder)
 {
 	printf("\n\n===========	CYLINDER	===========\n");
-	print_coord_3d(cylinder->cylinder_point);
+	print_coord_3d(cylinder->position);
 	print_coord_3d(cylinder->v);
 	printf("diameter = %f\n", cylinder->diameter);
 	printf("height = %f\n", cylinder->height);

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 21:13:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/05 15:29:57 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/13 22:35:16 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ static int	fill_dimension(char *line, t_cylinder *cylinder, int start)
 	return (start + holder);
 }
 
+static void	get_u_vec(t_coord_3d v, t_coord_3d center)
+{
+	double		d;
+	t_coord_3d	u;
+	t_coord_3d	l;
+
+	d = -dot_product(position, v);
+	l = cross_product(u, v);
+}
+
 int			get_cylinder(char *line, void **entities)
 {
 	int			start;
@@ -40,7 +50,7 @@ int			get_cylinder(char *line, void **entities)
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-CYLINDER);
-	start = fetch_point_3d(line, &(cylinder->cylinder_point), start);
+	start = fetch_point_3d(line, &(cylinder->position), start);
 	start = update_start(line, start);
 	if (start == -1)
 		return (-CYLINDER);

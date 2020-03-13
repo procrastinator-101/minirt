@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 16:03:55 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/13 21:44:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,9 @@ typedef struct			s_square
 
 typedef struct			s_cylinder
 {
-	t_coord_3d			cylinder_point;
+	t_coord_3d			position;
 	t_coord_3d			v;
+	t_coord_3d			u;
 	double				diameter;
 	double				height;
 	struct s_cylinder	*previous;
