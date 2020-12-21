@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/26 20:33:51 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/21 17:10:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # include "support_functions/support_functions.h"
 # include "configuration_reader/configuration_reader.h"
 
-# define AMPLITUDE			10
-# define WAVE_LENGTH		50
+# define AMPLITUDE			5
+# define WAVE_LENGTH		5
 # define ROTATION_ANGLE		9
 
 typedef struct	s_bitmap
@@ -140,7 +140,7 @@ t_coord_3d		triangle_normal(t_triangle *triangle, t_coord_3d p, t_coord_3d d);
 t_coord_3d		cone_normal(t_cone *cone, t_coord_3d p, t_coord_3d d);
 t_coord_3d		get_bump_normal(t_map *bump_map, t_3d_basis *basis, t_coord_3d n, \
 				t_coord_3d p);
-t_coord_3d 		get_wave_normal(t_3d_basis basis, t_coord_3d c, t_coord_3d p, \
-				t_coord_3d d);
+t_coord_3d		get_wave_normal(t_3d_basis basis, t_coord_3d n, t_coord_3d c, \
+				t_coord_3d p);
 
 #endif

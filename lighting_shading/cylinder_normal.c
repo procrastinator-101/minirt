@@ -6,13 +6,14 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/04 12:43:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/21 18:43:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-static int	is_on_caps(t_cylinder *cylinder, t_coord_3d p, t_coord_3d p1)
+static int			is_on_caps(t_cylinder *cylinder, t_coord_3d p, \
+					t_coord_3d p1)
 {
 	t_coord_3d p2;
 
@@ -25,18 +26,40 @@ static int	is_on_caps(t_cylinder *cylinder, t_coord_3d p, t_coord_3d p1)
 	return (0);
 }
 
-t_coord_3d	cylinder_normal(t_cylinder *cylinder, t_coord_3d p, t_coord_3d d)
+static t_coord_3d	get_dirupted_normal(t_cylinder *cylinder, t_coord_3d p, \
+					t_coord_3d n, int caps)
 {
+	t_3d_basis	basis;
+
+	if (cylinder->texture.type[1] == BUMP_MAP)
+		n = get_bump_normal(&(cylinder->texture.bump_map), \
+			&(cylinder->basis), n, p);
+	else if (cylinder->texture.type[1] == WAVE)
+	{
+		basis = cylinder->basis;
+		if (!caps)
+		{
+			basis.v = basis.w;
+			basis.u = basis.w;
+		}
+		n = get_wave_normal(basis, n, cylinder->position, p);
+	}
+	return (n);
+}
+
+t_coord_3d			cylinder_normal(t_cylinder *cylinder, t_coord_3d p, \
+					t_coord_3d d)
+{
+	int			caps;
 	double		temp;
 	t_coord_3d	n;
 	t_coord_3d	v;
 
+	caps = 0;
 	if (cylinder->caps && is_on_caps(cylinder, p, cylinder->position))
 	{
-		if (dot_product(cylinder->basis.w, d) < 0.0)
-			n = cylinder->basis.w;
-		else
-			n = scalar_product(cylinder->basis.w, -1);
+		n = cylinder->basis.w;
+		caps = 1;
 	}
 	else
 	{
@@ -45,11 +68,8 @@ t_coord_3d	cylinder_normal(t_cylinder *cylinder, t_coord_3d p, t_coord_3d d)
 		n = scalar_product(cylinder->basis.w, temp);
 		n = coord_3d_minus(v, n);
 		normalise_3d_vec(&n);
-		if (dot_product(n, d) >= 0.0)
-			n = scalar_product(n, -1);
 	}
-	if (cylinder->texture.type[1] == BUMP_MAP)
-		n = get_bump_normal(&(cylinder->texture.bump_map), \
-			&(cylinder->basis), n, p);
-	return (n);
+	if (dot_product(n, d) >= 0.0)
+		n = scalar_product(n, -1);
+	return (get_dirupted_normal(cylinder, p, n, caps));
 }

@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 13:10:00 by youness           #+#    #+#             */
-/*   Updated: 2020/11/04 20:11:49 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/21 18:19:53 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static void	traverse_hidden_objects(void **entities, int key)
 			entities[USER_CAMERA] = ((t_camera *)entities[USER_CAMERA])->next;
 		else
 			entities[USER_CAMERA] = ((t_camera *)entities[USER_CAMERA])->previous;
-		entities[USER_OBJECT] = entities[USER_CAMERA];
+		if (entities[USER_OBJECT_TYPE] == (void *)CAMERA)
+			entities[USER_OBJECT] = entities[USER_CAMERA];
 		entities[RENDER] = (void *)1;
 	}
 }
@@ -99,7 +100,8 @@ int	manage_key(int key, void *param)
 		manage_rotation(key, entities[USER_CAMERA], entities);
 	else
 		manage_translation(key, entities[USER_CAMERA], entities);
-	ft_print_object_position(entities[USER_CAMERA], CAMERA);
+	//ft_print_object_position(entities[USER_CAMERA], CAMERA);
+	print_camera(entities[USER_CAMERA]);
 	ft_print_object_position(entities[USER_OBJECT], \
 		(int)entities[USER_OBJECT_TYPE]);
 	if ((int)entities[USER_OBJECT_TYPE] == PYRAMID)
