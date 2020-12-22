@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:15:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/07 16:49:26 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/22 10:50:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		prepare_triangle_mapping(t_triangle *triangle)
 	triangle->basis.v = cross_product(v1, v3);
 	normalise_3d_vec(&(triangle->basis.u));
 	normalise_3d_vec(&(triangle->basis.v));
+	triangle->basis.w = cross_product(triangle->basis.u, triangle->basis.v);
 	triangle->texture.width = ft_max(len[0], ft_max(len[1], len[2]));
 	triangle->texture.height = triangle->texture.width;
 	get_triangle_texture_center(triangle);

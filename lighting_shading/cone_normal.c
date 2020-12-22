@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 10:40:26 by youness           #+#    #+#             */
-/*   Updated: 2020/12/21 18:47:46 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/22 10:23:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ t_coord_3d	cone_normal(t_cone *cone, t_coord_3d p, t_coord_3d d)
 		n = get_bump_normal(&(cone->texture.bump_map), &(cone->basis), n, p);
 	else if (cone->texture.type[1] == WAVE)
 	{
-		basis = cone->basis;
-		basis.u = basis.w;
-		basis.v = basis.w;
-		n = get_wave_normal(basis, n, cone->vertex, p);
+		basis.u = cone->basis.w;
+		basis.v = cone->basis.w;
+		basis.w = n;
+		n = get_wave_normal(basis, cone->vertex, p, \
+			get_wave_length(cone->texture));
 	}
 	return (n);
 }

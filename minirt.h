@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/22 09:49:15 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/22 10:31:43 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # include "configuration_reader/configuration_reader.h"
 
 # define AMPLITUDE			10
-# define WAVE_LENGTH		5
 # define ROTATION_ANGLE		9
 
 typedef struct	s_bitmap
@@ -131,6 +130,7 @@ t_rgb			ambient_term(t_ambient *ambient);
 int				is_light_blocked(t_ray ray, void **entities);
 t_rgb			diffuse_spec_terms(t_ray l, t_coord_3d n, t_coord_3d v, t_light *light);
 
+double			get_wave_length(t_texture texture);
 t_coord_3d		surface_normal(void *object, t_coord_3d d, t_coord_3d p, int type);
 t_coord_3d		sphere_normal(t_sphere *sphere, t_coord_3d p, t_coord_3d d);
 t_coord_3d		plane_normal(t_plane *plane, t_coord_3d p, t_coord_3d d);
@@ -140,7 +140,7 @@ t_coord_3d		triangle_normal(t_triangle *triangle, t_coord_3d p, t_coord_3d d);
 t_coord_3d		cone_normal(t_cone *cone, t_coord_3d p, t_coord_3d d);
 t_coord_3d		get_bump_normal(t_map *bump_map, t_3d_basis *basis, t_coord_3d n, \
 				t_coord_3d p);
-t_coord_3d		get_wave_normal(t_3d_basis basis, t_coord_3d n, t_coord_3d c, \
-				t_coord_3d p);
+t_coord_3d		get_wave_normal(t_3d_basis basis, t_coord_3d c, t_coord_3d p, \
+				double wave_length);
 
 #endif

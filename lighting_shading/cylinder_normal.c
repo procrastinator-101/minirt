@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/21 18:43:41 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/22 10:22:21 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ static t_coord_3d	get_dirupted_normal(t_cylinder *cylinder, t_coord_3d p, \
 			basis.v = basis.w;
 			basis.u = basis.w;
 		}
-		n = get_wave_normal(basis, n, cylinder->position, p);
+		basis.w = n;
+		n = get_wave_normal(basis, cylinder->position, p, \
+			get_wave_length(cylinder->texture));
 	}
 	return (n);
 }

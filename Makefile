@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/11/25 14:09:48 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/12/22 10:29:42 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ LIGHTING_SHADING_SRC = lighting_shading/ambient_term.c \
 					   lighting_shading/cylinder_normal.c \
 					   lighting_shading/diffuse_spec_terms.c \
 					   lighting_shading/get_bump_normal.c \
+					   lighting_shading/get_wave_length.c \
 					   lighting_shading/get_wave_normal.c \
 					   lighting_shading/illuminate.c \
 					   lighting_shading/is_light_blocked.c \
