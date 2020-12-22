@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 20:03:11 by youness           #+#    #+#             */
-/*   Updated: 2020/11/04 11:36:08 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/22 08:25:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ void	build_cube_faces(t_square *faces[6], t_coord_3d position, \
 		faces[i]->basis.w = base[w_index];
 		faces[i]->basis.v = base[v_index];
 		faces[i]->basis.u = base[u_index];
+		faces[i]->face_number = i;
 		faces[i + 1]->basis.w = base[w_index];
 		faces[i + 1]->basis.v = base[v_index];
 		faces[i + 1]->basis.u = base[u_index];
+		faces[i + 1]->face_number = i + 1;
 		i += 2;
 	}
 }

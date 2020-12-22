@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/25 14:11:48 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/22 08:23:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ typedef struct			s_square
 	struct s_square		*next;
 	t_texture			texture;
 	int					parent_type;
+	int					face_number;
 }						t_square;
 
 typedef struct			s_cylinder

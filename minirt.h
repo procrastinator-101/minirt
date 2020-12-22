@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/21 17:10:29 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/22 09:49:15 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # include "support_functions/support_functions.h"
 # include "configuration_reader/configuration_reader.h"
 
-# define AMPLITUDE			5
+# define AMPLITUDE			10
 # define WAVE_LENGTH		5
 # define ROTATION_ANGLE		9
 
