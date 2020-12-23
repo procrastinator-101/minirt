@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/22 10:44:11 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 09:49:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static t_coord_3d	handle_wave_texture(t_square *square, t_coord_3d n, \
 			basis.u = square->basis.v;
 		else if (square->face_number > 1)
 			basis.v = square->basis.u;
-		basis.w = n;
 		n = get_wave_normal(basis, \
 			((t_cube *)square->parent)->faces[0]->position, p, wave_length);
 	}
@@ -43,7 +42,7 @@ t_coord_3d			square_normal(t_square *square, t_coord_3d p, t_coord_3d d)
 {
 	t_coord_3d	n;
 
-	if (dot_product(square->basis.w, d) <= 0.0)
+	if (dot_product(square->basis.w, d) < 0.0)
 		n = square->basis.w;
 	else
 		n = scalar_product(square->basis.w, -1);

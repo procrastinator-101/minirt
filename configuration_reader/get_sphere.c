@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:51:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/21 09:34:23 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 10:44:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	get_sphere(char *line, void **entities)
 	sphere->texture.width = sphere->radius * 2.0;
 	sphere->texture.height = sphere->texture.width;
 	initialise_map_dimension(&(sphere->texture));
+	sphere->mode = 's';
 	return (get_texture(line + start, &(sphere->texture), entities[DISPLAY], \
 		SPHERE));
 }

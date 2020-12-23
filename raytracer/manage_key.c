@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 13:10:00 by youness           #+#    #+#             */
-/*   Updated: 2020/12/21 18:19:53 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 11:17:13 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,15 @@ int	manage_key(int key, void *param)
 	{
 		caps = ((t_cylinder *)(entities[USER_OBJECT]))->caps;
 		((t_cylinder *)(entities[USER_OBJECT]))->caps = !caps;
+		entities[RENDER] = (void *)1;
+	}
+	else if (key == M && entities[USER_OBJECT_TYPE] == (void *)SPHERE)
+	{
+		if (((t_sphere *)entities[USER_OBJECT])->mode == 'r')
+			((t_sphere *)entities[USER_OBJECT])->mode = 's';
+		else
+			((t_sphere *)entities[USER_OBJECT])->mode = 'r';
+		update_sphere_mode(entities[USER_OBJECT]);
 		entities[RENDER] = (void *)1;
 	}
 	else if (entities[USER_OBJECT_TYPE] == (void *)ANTI_ALIASING && \

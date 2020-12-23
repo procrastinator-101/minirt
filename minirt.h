@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/22 10:31:43 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 11:06:09 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_rgb			get_color(t_ray ray, void **entities);
 int				image_to_bmp(t_bitmap bitmap, int fd);
 void			save_image(void **entities, char *image_name, char *image);
 
+void			update_sphere_mode(t_sphere *sphere);
 void			update_pixel_data(t_display *display, int x, int y, unsigned color);
 
 void			ft_btl_endian(unsigned char *src, int bit_offset, int size);
@@ -92,6 +93,7 @@ t_smat_3d		get_rotation_matrix(int angle, t_coord_3d n);
 
 void			rotate_object(void *object, t_smat_3d m, int type);
 void			rotate_camera(t_camera *camera, t_smat_3d m);
+void			rotate_sphere(t_sphere *sphere, t_smat_3d m);
 void			rotate_plane(t_plane *plane, t_smat_3d m);
 void			rotate_square(t_square *square, t_smat_3d m);
 void			rotate_cylinder(t_cylinder *cylinder, t_smat_3d m);

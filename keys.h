@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 20:41:44 by youness           #+#    #+#             */
-/*   Updated: 2020/10/15 14:54:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 11:09:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define N				45
 # define O				31
 # define P				35
+# define M				46
 # define S				1
 
 # define ESC			53

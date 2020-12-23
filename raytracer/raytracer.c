@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:39:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/08 10:05:44 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 12:03:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ int			raytracer(t_camera *camera, void **entities, t_display *display)
 	pthread_create(threads + 1, 0, render_2_block, (void *)entities);
 	pthread_create(threads + 2, 0, render_3_block, (void *)entities);
 	pthread_create(threads + 3, 0, render_4_block, (void *)entities);
-	nb = -1;
-	while (++nb < 4)
-		pthread_join(threads[nb], 0);
+	pthread_join(threads[0], 0);
+	pthread_join(threads[1], 0);
+	pthread_join(threads[2], 0);
+	pthread_join(threads[3], 0);
 	if (entities[SAVE_IMAGE])
 		save_image(entities, entities[SAVE_IMAGE], (char *)display->img_addr);//image name
 	else

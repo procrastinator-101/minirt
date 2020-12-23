@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/12/22 10:29:42 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/12/23 11:06:39 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ RAYTRACER_SRC = raytracer/check_prog_arg.c \
 				raytracer/save_image.c \
 				raytracer/terminate_minirt.c \
 				raytracer/update_pixel_data.c \
+				raytracer/update_sphere_mode.c \
 				raytracer/user_interract.c
 
 OBJECTS_INTERACTIVITY = objects_interactivity/rotate_camera.c \
@@ -48,6 +49,7 @@ OBJECTS_INTERACTIVITY = objects_interactivity/rotate_camera.c \
 						objects_interactivity/rotate_object.c \
 						objects_interactivity/rotate_plane.c \
 						objects_interactivity/rotate_pyramid.c \
+						objects_interactivity/rotate_sphere.c \
 						objects_interactivity/rotate_square.c \
 						objects_interactivity/rotate_triangle.c \
 						objects_interactivity/translate_camera.c \

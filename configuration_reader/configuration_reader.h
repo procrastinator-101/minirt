@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/22 08:23:34 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 10:44:42 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,7 @@ typedef struct			s_sphere
 	t_coord_3d			center;
 	struct s_sphere		*next;
 	t_texture			texture;
+	char				mode;
 }						t_sphere;
 
 typedef	struct			s_plane

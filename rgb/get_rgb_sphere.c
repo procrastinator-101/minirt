@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 19:37:22 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/04 12:08:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/23 11:43:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,16 @@ t_rgb	get_rgb_sphere(t_sphere *sphere, t_coord_3d p)
 	if (sphere->texture.type[0] == RGB)
 		return (sphere->texture.rgb1);
 	p = coord_3d_minus(p, sphere->center);
-	x = dot_product(p, sphere->basis.u);
-	y = dot_product(p, sphere->basis.v);
+	if (sphere->texture.type[0] == UV_MAP && sphere->mode == 's')
+	{
+		x = dot_product(p, get_coord_3d(1, 0, 0));
+		y = dot_product(p, get_coord_3d(0, 1, 0));
+	}
+	else
+	{
+		x = dot_product(p, sphere->basis.u);
+		y = dot_product(p, sphere->basis.v);
+	}
 	if (sphere->texture.type[0] == CHECKERBOARD)
 	{
 		rgb_nb = get_rgb_nb(x, y, sphere->texture.grid_len);
