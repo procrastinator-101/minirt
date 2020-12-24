@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/22 10:21:13 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 11:28:54 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_coord_3d	sphere_normal(t_sphere *sphere, t_coord_3d p, t_coord_3d d)
 		n = scalar_product(n, -1);
 	if (sphere->texture.type[1] == BUMP_MAP)
 		n = get_bump_normal(&(sphere->texture.bump_map), &(sphere->basis), n, \
-			p);
+			coord_3d_minus(p, sphere->center));
 	else if (sphere->texture.type[1] == WAVE)
 	{
 		basis = sphere->basis;

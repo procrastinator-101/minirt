@@ -6,6 +6,6 @@ c	0,0,0	0,0,1	75
 
 sp	0,0,50		30		r			255,0,255
 
-sk	./skybox/stary_sky/right.png	./skybox/stary_sky/left.png	./skybox/stary_sky/up.png		./skybox/stary_sky/down.png	./skybox/stary_sky/front.png	./skybox/stary_sky/back.png
+sk	./skybox/cloudy_sky/right.png	./skybox/cloudy_sky/left.png	./skybox/cloudy_sky/up.png		./skybox/cloudy_sky/down.png	./skybox/cloudy_sky/front.png	./skybox/cloudy_sky/back.png
 
 l	0,200,-200	0.8	255,255,255

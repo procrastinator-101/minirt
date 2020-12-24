@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 10:40:26 by youness           #+#    #+#             */
-/*   Updated: 2020/12/22 10:23:52 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 11:31:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_coord_3d	cone_normal(t_cone *cone, t_coord_3d p, t_coord_3d d)
 	if (dot_product(n, d) >= 0.0)
 		n = scalar_product(n, -1);
 	if (cone->texture.type[1] == BUMP_MAP)
-		n = get_bump_normal(&(cone->texture.bump_map), &(cone->basis), n, p);
+		n = get_bump_normal(&(cone->texture.bump_map), &(cone->basis), n, \
+			coord_3d_minus(p, cone->vertex));
 	else if (cone->texture.type[1] == WAVE)
 	{
 		basis.u = cone->basis.w;

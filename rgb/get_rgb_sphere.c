@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 19:37:22 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/23 11:43:20 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 11:02:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-t_rgb	get_rgb_sphere(t_sphere *sphere, t_coord_3d p)
+t_rgb	get_rgb_sphere(t_sphere *sphere, t_camera *camera, t_coord_3d p)
 {
 	int		rgb_nb;
 	double	x;
@@ -23,8 +23,8 @@ t_rgb	get_rgb_sphere(t_sphere *sphere, t_coord_3d p)
 	p = coord_3d_minus(p, sphere->center);
 	if (sphere->texture.type[0] == UV_MAP && sphere->mode == 's')
 	{
-		x = dot_product(p, get_coord_3d(1, 0, 0));
-		y = dot_product(p, get_coord_3d(0, 1, 0));
+		x = dot_product(p, camera->screen.u);
+		y = dot_product(p, camera->screen.v);
 	}
 	else
 	{

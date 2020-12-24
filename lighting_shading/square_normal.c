@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/23 09:49:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 11:28:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_coord_3d			square_normal(t_square *square, t_coord_3d p, t_coord_3d d)
 		n = scalar_product(square->basis.w, -1);
 	if (square->texture.type[1] == BUMP_MAP)
 		n = get_bump_normal(&(square->texture.bump_map), &(square->basis), n, \
-				p);
+			coord_3d_minus(p, square->position));
 	else if (square->texture.type[1] == WAVE)
 		n = handle_wave_texture(square, n, p);
 	return (n);

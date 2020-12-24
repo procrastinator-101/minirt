@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/23 09:28:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 11:30:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_coord_3d	triangle_normal(t_triangle *triangle, t_coord_3d p, t_coord_3d d)
 	if (dot_product(n, d) >= 0.0)
 		n = scalar_product(n, -1);
 	if (triangle->texture.type[1] == BUMP_MAP)
-		n = get_bump_normal(&(triangle->texture.bump_map), &basis, n, p);
+		n = get_bump_normal(&(triangle->texture.bump_map), &basis, n, \
+			coord_3d_minus(p, triangle->c));
 	else if (triangle->texture.type[1] == WAVE)
 	{
 		if (triangle->parent)

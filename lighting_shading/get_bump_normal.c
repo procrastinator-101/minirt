@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:30:25 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/26 18:53:53 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 11:27:53 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_coord_3d	perturb_normal(t_map *bump_map, t_coord_3d n, int px, \
 }
 
 t_coord_3d			get_bump_normal(t_map *bump_map, t_3d_basis *basis, \
-					t_coord_3d n, t_coord_3d p)
+					t_coord_3d n, t_coord_3d v)
 {
 	int		px;
 	int		py;
@@ -50,8 +50,8 @@ t_coord_3d			get_bump_normal(t_map *bump_map, t_3d_basis *basis, \
 	double	y;
 
 	//optimise it
-	x = dot_product(p, basis->u);
-	y = dot_product(p, basis->v);
+	x = dot_product(v, basis->u);
+	y = dot_product(v, basis->v);
 	px = ((int)bump_map->width) / 2 + (int)floor(x / bump_map->u_scale);
 	py = ((int)bump_map->height) / 2 - (int)floor(y / bump_map->v_scale);
 	px = adjust_pixel_coordinate(px, (int)bump_map->width);

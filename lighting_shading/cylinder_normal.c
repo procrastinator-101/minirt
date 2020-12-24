@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/22 10:22:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 11:30:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_coord_3d	get_dirupted_normal(t_cylinder *cylinder, t_coord_3d p, \
 
 	if (cylinder->texture.type[1] == BUMP_MAP)
 		n = get_bump_normal(&(cylinder->texture.bump_map), \
-			&(cylinder->basis), n, p);
+			&(cylinder->basis), n, coord_3d_minus(p, cylinder->position));
 	else if (cylinder->texture.type[1] == WAVE)
 	{
 		basis = cylinder->basis;

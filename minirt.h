@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/23 11:06:09 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/24 09:50:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ t_rgb			adjust_rgb(t_rgb rgb);
 t_rgb			get_map_pix_color(t_map *map, double x, double y);
 
 int				get_rgb_nb(double x, double y, double grid_len);
-t_rgb			get_object_rgb(void *object, t_coord_3d p, int type);
-t_rgb			get_rgb_sphere(t_sphere *sphere, t_coord_3d p);
+t_rgb			get_object_rgb(void *object, t_camera *camera, t_coord_3d p, int type);
+t_rgb			get_rgb_sphere(t_sphere *sphere, t_camera *camera, t_coord_3d p);
 t_rgb			get_rgb_plane(t_plane *plane, t_coord_3d p);
 t_rgb			get_rgb_square(t_square *square, t_coord_3d p);
 t_rgb			get_rgb_cylinder(t_cylinder *cylinder, t_coord_3d p);
