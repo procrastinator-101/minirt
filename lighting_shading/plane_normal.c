@@ -6,11 +6,29 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/24 12:32:37 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/25 12:52:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
+
+static	t_coord_3d	tilt_point_coordinates(t_plane *plane, t_coord_3d p)
+{
+	double      x;
+	double      y;
+	t_coord_3d  p1;
+
+	p = coord_3d_minus(p, plane->position);
+	x = fabs(fmod(dot_product(p, plane->basis.u), PLANE_TILTING_SIZE));
+	y = fabs(fmod(dot_product(p, plane->basis.v), PLANE_TILTING_SIZE));
+	if (x > PLANE_TILTING_SIZE / 2.0)
+		x = PLANE_TILTING_SIZE / 2.0 - x;
+	if (y > PLANE_TILTING_SIZE / 2.0)
+		y = PLANE_TILTING_SIZE / 2.0 - y;
+	p1 = coord_3d_plus(plane->position, scalar_product(plane->basis.u, x));
+	p1 = coord_3d_plus(p1, scalar_product(plane->basis.v, y));
+	return (p1);
+}
 
 t_coord_3d	plane_normal(t_plane *plane, t_coord_3d p, t_coord_3d d)
 {
@@ -23,7 +41,7 @@ t_coord_3d	plane_normal(t_plane *plane, t_coord_3d p, t_coord_3d d)
 		n = scalar_product(plane->basis.w, -1);
 	if (plane->texture.type[1] == BUMP_MAP)
 		n = get_bump_normal(&(plane->texture.bump_map), &(plane->basis), n, \
-			coord_3d_minus(p, plane->position));
+			tilt_point_coordinates(plane, p));
 	else if (plane->texture.type[1] == WAVE)
 	{
 		basis = plane->basis;

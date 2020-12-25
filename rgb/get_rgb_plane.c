@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 17:28:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/07 20:03:40 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/25 10:05:13 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-static double	title_point_coordinates(double c)
+static double	tilt_point_coordinates(double c)
 {
 	double	tmp;
 
@@ -43,8 +43,8 @@ t_rgb			get_rgb_plane(t_plane *plane, t_coord_3d p)
 		rgb_nb = get_rgb_nb(x, y, plane->texture.grid_len);
 		return (rgb_nb ? plane->texture.rgb2 : plane->texture.rgb1);
 	}
-	x = title_point_coordinates(x);
-	y = title_point_coordinates(y);
+	x = tilt_point_coordinates(x);
+	y = tilt_point_coordinates(y);
 	if (plane->texture.type[0] == UV_MAP)
 		return (get_map_pix_color(&(plane->texture.uv_map), x, y));
 	return (get_black_rgb());
