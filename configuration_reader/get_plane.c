@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:39:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/07 19:41:11 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 17:07:43 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	get_plane(char *line, void **entities)
 	start = update_start(line, start);
 	if (start == -1)
 		return (-PLANE);
-	plane->texture.width = PLANE_TILTING_SIZE;//to modify
-	plane->texture.height = PLANE_TILTING_SIZE;//to modify
+	plane->texture.width = PLANE_TILTING_SIZE;
+	plane->texture.height = PLANE_TILTING_SIZE;
 	get_base_3d(&(plane->basis.w), &(plane->basis.v), &(plane->basis.u));
 	initialise_map_dimension(&(plane->texture));
 	return (get_texture(line + start, &(plane->texture), entities[DISPLAY], \

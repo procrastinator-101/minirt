@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 17:59:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/01 10:41:29 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 17:05:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static void	shapes_error_message(int error_number)
 		ft_putstr_fd("the cylinder's configuration is not valid", 2);
 	else if (error_number == TRIANGLE)
 		ft_putstr_fd("the triangle's configuration is not valid", 2);
-	else if (error_number == RECTANGLE)
-		ft_putstr_fd("the rectangle's configuration is not valid", 2);
 	else if (error_number == CONE)
 		ft_putstr_fd("the cone's configuration is not valid", 2);
 	else if (error_number == CUBE)

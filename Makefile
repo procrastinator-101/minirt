@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/12/27 12:47:04 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/12/27 17:20:36 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,7 +145,6 @@ CONFIGURATION_READER_SRC = configuration_reader/build_cube.c \
 						   configuration_reader/get_cube.c \
 						   configuration_reader/get_cylinder.c \
 						   configuration_reader/get_entity_info.c \
-						   configuration_reader/get_grid_len.c \
 						   configuration_reader/get_light.c \
 						   configuration_reader/get_next_lst_mem.c \
 						   configuration_reader/get_plane.c \

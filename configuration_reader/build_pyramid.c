@@ -6,18 +6,18 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 21:43:55 by youness           #+#    #+#             */
-/*   Updated: 2020/11/07 16:54:50 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 17:07:19 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-static void update_faces_texture(t_texture *texture)
+static void	update_faces_texture(t_texture *texture)
 {
-    texture->uv_map.u_scale = texture->width / texture->uv_map.width;
-    texture->uv_map.v_scale = texture->height / texture->uv_map.height;
-    texture->bump_map.u_scale = texture->width / texture->bump_map.width;
-    texture->bump_map.v_scale = texture->height / texture->bump_map.height;
+	texture->uv_map.u_scale = texture->width / texture->uv_map.width;
+	texture->uv_map.v_scale = texture->height / texture->uv_map.height;
+	texture->bump_map.u_scale = texture->width / texture->bump_map.width;
+	texture->bump_map.v_scale = texture->height / texture->bump_map.height;
 }
 
 static void	update_pyramid_faces(t_pyramid *pyramid, int index)

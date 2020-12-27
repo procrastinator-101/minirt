@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 16:48:41 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 17:20:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 # include "../support_functions/support_functions.h"
 
 # define ENTITIES_SIZE						24
-
 
 /*
 **=============				entities indexes defines			  =============
@@ -123,7 +122,6 @@ typedef struct			s_texture
 	t_map				bump_map;
 	char				type[2];
 }						t_texture;
-
 
 /*
 **=============				scene parameters definitions		  =============
@@ -271,7 +269,7 @@ typedef struct			s_anti_aliasing
 /*
 **=============					display definition			  	  =============
 */
-typedef struct  s_display
+typedef struct			s_display
 {
 	void				*mlx_ptr;
 	void				*win_ptr;
@@ -283,50 +281,56 @@ typedef struct  s_display
 	int					line_size;
 }						t_display;
 
-
-/************ configuration functions ***********/
-
+/*
+**=============				non specific functions				  =============
+*/
+int						check_critical_entities(void **entities);
+void					get_screen_pixel(void **entities);
+void					destroy_entities(void **entities);
 void					configuration_reader(char *input_file, void **entities);
 
+/*
+**=============					parsing	 functions				  =============
+*/
 int						update_start(char *line, int start);
 int						find_next_arg(char *line, int start);
 int						check_end_entity_info(char *line, int start, int ret);
-
+int						get_entity_info(char *entity_name, void **entities, \
+						char *line);
+/*
+**=============					fetching functions				  =============
+*/
+int						get_radius(char *line, double *radius, int start);
 int						fetch_rgb(char *line, t_rgb *rgb, int start);
 int						fetch_point_3d(char *line, t_coord_3d *point, \
 						int start);
 int						fetch_vector_3d(char *line, t_coord_3d *vector, \
 						int start);
-void					ft_dclst_add_head(void **lst_tail, void *new, int type);
-void					ft_dclst_destroy(void **tail, int type);
 
+/*
+**=============					linked lists functions			  =============
+*/
 void					ft_lst_add_head(void **lst_tail, void *new, int type);
 void					ft_lst_destroy(void **lst_tail, int type);
-
-void					destroy_entities(void **entities);
-
+void					ft_dclst_add_head(void **lst_tail, void *new, int type);
+void					ft_dclst_destroy(void **tail, int type);
 void					*get_next_lst_mem(void *lst_mem, int type);
 void					*get_previous_lst_mem(void *lst_mem, int type);
-
-
 void					ft_update_next(void *lst_mem, void *next, int type);
-void					ft_update_previous(void *lst_mem, void *previous, int type);
-
-int						get_entity_info(char *entity_name, void **entities, \
-						char *line);
-
-int						get_radius(char *line, double *radius, int start);
+void					ft_update_previous(void *lst_mem, void *previous, \
+						int type);
 
 /*
 **=============					texture functions			  	  =============
 */
 int						get_texture(char *line, t_texture *texture, \
 						t_display *display, int type);
-int						get_texture_color(char *line, t_texture *texture, int start);
-int						get_texture_type(char *line, char *texture_type, int start);
-int						get_texture_map(char *line, t_map *map, t_display *display, \
+int						get_texture_color(char *line, t_texture *texture, \
 						int start);
-int						get_grid_len(char *line, double *grid_len, int start);
+int						get_texture_type(char *line, char *texture_type, \
+						int start);
+int						get_texture_map(char *line, t_map *map, \
+						t_display *display, int start);
 
 void					initialise_map_dimension(t_texture *texture);
 void					get_triangle_basis(t_triangle *triangle);
@@ -340,37 +344,42 @@ int						get_resolution(char *line, void **entities);
 int						get_ambient_light(char *line, void **entities);
 int						get_camera(char *line, void **entities);
 int						get_light(char *line, void **entities);
+
+/*
+**=============				prime objects functions				  =============
+*/
 int						get_sphere(char *line, void **entities);
 int						get_plane(char *line, void **entities);
 int						get_square(char *line, void **entities);
 int						get_cylinder(char *line, void **entities);
 int						get_triangle(char *line, void **entities);
 int						get_cone(char *line, void **entities);
+
+/*
+**=============					cube functions					  =============
+*/
 int						get_cube(char *line, void **entities);
+int						build_cube(t_cube *cube, void **entities);
+int						construct_cubes(t_cube *tail, void **entities);
+void					build_cube_faces(t_square *faces[6], t_coord_3d \
+						position, double radius, t_coord_3d *base);
+
+/*
+**=============					pyramid functions				  =============
+*/
 int						get_pyramid(char *line, void **entities);
+int						build_pyramid(t_pyramid *pyramid, void **entities);
+int						construct_pyramids(t_pyramid *tail, void **entities);
+void					build_pyramid_faces(t_pyramid *pyramid, double radius, \
+						t_coord_3d center);
+
 int						get_skybox(char *line, void **entities);
 int						get_sepia(char *line, void **entities);
 int						get_anti_aliasing(char *line, void **entities);
 
-int						build_cube(t_cube *cube, void **entities);
-int						construct_cubes(t_cube *tail, void **entities);
-
-void					build_cube_faces(t_square *faces[6], t_coord_3d position, \
-						double radius, t_coord_3d *base);
-
-int						build_pyramid(t_pyramid *pyramid, void **entities);
-int						construct_pyramids(t_pyramid *tail, void **entities);
-
-void					build_pyramid_faces(t_pyramid *pyramid, double radius, \
-						t_coord_3d center);
-
-void					get_screen_pixel(void **entities);
-
-int						check_critical_entities(void **entities);
-
-
-/*********** printing entities functions ************/
-
+/*
+**=============					printing functions				  =============
+*/
 void					ft_print_object_position(void *object, int type);
 
 void					print_entity(void **entities, int type);
@@ -392,6 +401,5 @@ void					print_square(t_square *square);
 void					print_cylinder(t_cylinder *cylinder);
 void					print_triangle(t_triangle *triangle);
 void					print_cone(t_cone *tail);
-
 
 #endif
