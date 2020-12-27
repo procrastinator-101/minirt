@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 12:28:30 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 16:48:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <limits.h>
 
 # include "../mlx.h"
+# include "errors.h"
 # include "../libft/libft.h"
 # include "../lib_3d_math/lib_3d_math.h"
 # include "../get_next_line/get_next_line.h"
@@ -27,22 +28,10 @@
 
 # define ENTITIES_SIZE						24
 
-# define EFR								15	//FILE_READING_ERROR
-# define EMA								16	//MEMORY_ALLOCATION_FAILURE
-# define EMRD								17	//MULTIPLE_R_DECLARATION
-# define EMAD								18	//MULTIPLE_A_DECLARATION
-# define EERP								19	//EMPTY_RESOLUTION
-# define EEAP								20	//EMPTY_AMBIENT
-# define EECP								21	//EMPTY_CAMERA
-# define EMC								22	//MLX_CONNECTION_ERROR
-# define EWC								23	//WINDOW_CREATION_ERROR
-# define EIC								24	//IMAGE_CREATION_ERROR
-# define EMFE								25	//MISSING FILE EXTENSION
-# define EWFE								26	//WRONG FILE EXTENSION
-# define EMIF								27	//MISSING INPUT FILE
-# define EUPA								28	//UNDESIRED PROGRAM ARGUMENTS
-# define EIA								29	//INVALID ARGUMENT
 
+/*
+**=============				entities indexes defines			  =============
+*/
 # define RESOLUTION							1
 # define AMBIENT							2
 # define CAMERA								3
@@ -52,49 +41,47 @@
 # define SQUARE								7
 # define CYLINDER							8
 # define TRIANGLE							9
-# define RECTANGLE							10
-# define CONE								11
-# define CUBE								12
-# define PYRAMID							13
-# define SKYBOX								14
-# define SEPIA								15
-# define ANTI_ALIASING						16
-# define DISPLAY							17
-# define USER_CAMERA						18
-# define USER_LIGHT							19
-# define USER_OBJECT						20
-# define USER_OBJECT_TYPE					21
-# define SAVE_IMAGE							22
-# define RENDER								23
+# define CONE								10
+# define CUBE								11
+# define PYRAMID							12
+# define SKYBOX								13
+# define SEPIA								14
+# define ANTI_ALIASING						15
+# define DISPLAY							16
+# define USER_CAMERA						17
+# define USER_LIGHT							18
+# define USER_OBJECT						19
+# define USER_OBJECT_TYPE					20
+# define SAVE_IMAGE							21
+# define RENDER								22
 
-
+/*
+**=============				texture types defines			  	  =============
+*/
 # define WAVE								'w'
 # define BUMP_MAP							'b'
 # define RGB								'r'
 # define CHECKERBOARD						'c'
 # define UV_MAP								'm'
 
+/*
+**=============						other defines			  	  =============
+*/
 # define MAX_AA_FACTOR						10
 # define STATIC_MODE						's'
 # define INTERACTIVE_MODE					'i'
-
 # define LINEAR_INTERPOLATION				0
 # define PLANE_TILTING_SIZE					100
-/************** basic data structures **************/
 
+/*
+**=============				basic data types definitions		  =============
+*/
 typedef struct			s_rgb
 {
 	double				red;
 	double				green;
 	double				blue;
 }						t_rgb;
-
-typedef struct			s_3d_basis
-{
-	t_coord_3d			u;
-	t_coord_3d			v;
-	t_coord_3d			w;
-}						t_3d_basis;
 
 typedef struct			s_screen
 {
@@ -137,8 +124,10 @@ typedef struct			s_texture
 	char				type[2];
 }						t_texture;
 
-/************ entities' data structures ***********/
 
+/*
+**=============				scene parameters definitions		  =============
+*/
 typedef struct			s_resolution
 {
 	int					width;
@@ -171,6 +160,9 @@ typedef struct			s_light
 	struct s_light		*next;
 }						t_light;
 
+/*
+**=============				prime ojects definitions			  =============
+*/
 typedef struct			s_sphere
 {
 	double				radius;
@@ -224,16 +216,6 @@ typedef struct			s_triangle
 	t_texture			texture;
 }						t_triangle;
 
-typedef struct			s_rectangle
-{
-	double				width;
-	double				height;
-	t_3d_basis			basis;
-	t_coord_3d			position;
-	struct s_rectangle	*next;
-	t_texture			texture;
-}						t_rectangle;
-
 typedef struct			s_cone
 {
 	double				angle;
@@ -244,6 +226,9 @@ typedef struct			s_cone
 	t_texture			texture;
 }						t_cone;
 
+/*
+**=============				compound ojects definitions			  =============
+*/
 typedef struct			s_cube
 {
 	double				radius;
@@ -268,6 +253,9 @@ typedef	struct			s_skybox
 	t_square			faces[6];
 }						t_skybox;
 
+/*
+**=============					filters definitions				  =============
+*/
 typedef struct			s_sepia
 {
 	char				on;
@@ -280,6 +268,9 @@ typedef struct			s_anti_aliasing
 	char				set;
 }						t_anti_aliasing;
 
+/*
+**=============					display definition			  	  =============
+*/
 typedef struct  s_display
 {
 	void				*mlx_ptr;
@@ -325,18 +316,26 @@ int						get_entity_info(char *entity_name, void **entities, \
 						char *line);
 
 int						get_radius(char *line, double *radius, int start);
-int						get_grid_len(char *line, double *grid_len, int start);
+
+/*
+**=============					texture functions			  	  =============
+*/
 int						get_texture(char *line, t_texture *texture, \
 						t_display *display, int type);
 int						get_texture_color(char *line, t_texture *texture, int start);
 int						get_texture_type(char *line, char *texture_type, int start);
 int						get_texture_map(char *line, t_map *map, t_display *display, \
 						int start);
+int						get_grid_len(char *line, double *grid_len, int start);
+
 void					initialise_map_dimension(t_texture *texture);
 void					get_triangle_basis(t_triangle *triangle);
 void					prepare_triangle_mapping(t_triangle *triangle);
 void					get_triangle_texture_center(t_triangle *triangle);
 
+/*
+**=============				scene parameters functions			  =============
+*/
 int						get_resolution(char *line, void **entities);
 int						get_ambient_light(char *line, void **entities);
 int						get_camera(char *line, void **entities);
@@ -368,11 +367,6 @@ void					build_pyramid_faces(t_pyramid *pyramid, double radius, \
 void					get_screen_pixel(void **entities);
 
 int						check_critical_entities(void **entities);
-
-void					manage_config_error(int fd, char *line, \
-						void **entities, int er_nb);
-void					manage_exec_error(void **entities, int error_number);
-void					display_error_message(int error_number);
 
 
 /*********** printing entities functions ************/

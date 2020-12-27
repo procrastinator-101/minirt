@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:57:38 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/06/24 10:26:37 by youness          ###   ########.fr       */
+/*   Updated: 2020/12/27 16:38:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ typedef struct	s_coord_3d
 	double		z;
 }				t_coord_3d;
 
+typedef struct	s_3d_basis
+{
+	t_coord_3d	u;
+	t_coord_3d	v;
+	t_coord_3d	w;
+}				t_3d_basis;
+
+
 typedef struct	s_smat_3d
 {
 	t_coord_3d	v1;
@@ -38,14 +46,13 @@ t_coord_3d		scalar_product(t_coord_3d v, double scalar);
 
 int				coord_3d_cmp(t_coord_3d a, t_coord_3d b);
 double			coord_3d_len(t_coord_3d v);
-t_coord_3d		coord_3d_minus(t_coord_3d a, t_coord_3d b);
-t_coord_3d		coord_3d_plus(t_coord_3d a, t_coord_3d b);
+t_coord_3d		coord_3d_minus(t_coord_3d a, t_coord_3d b);//sub
+t_coord_3d		coord_3d_plus(t_coord_3d a, t_coord_3d b);//add
 
 void			normalise_3d_vec(t_coord_3d *v);
 void			get_base_3d(t_coord_3d *w, t_coord_3d *v, t_coord_3d *u);
 
 int				check_linear_dependency(t_coord_3d a, t_coord_3d b);
-
 
 t_smat_3d		null_3d_smat(void);
 t_coord_3d		null_3d_vec(void);
