@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 21:29:17 by youness           #+#    #+#             */
-/*   Updated: 2020/11/01 11:23:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 11:26:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	manage_translation(int key, t_camera *camera, void **entities)
 		v = camera->screen.v;
 	else if (key == MINUS)
 		v = scalar_product(camera->screen.v, -1);
+	else
+		return ;
 	entities[RENDER] = (void *)1;
 	translate_object(entities[USER_OBJECT], v, type);
 }

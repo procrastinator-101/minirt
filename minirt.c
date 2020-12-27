@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/01 19:06:33 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 12:53:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	entities[DISPLAY] = &display;
-	error_nb = initialise_image_customizers(entities);
+	error_nb = initialise_filters(entities);
 	if (error_nb)
 		manage_exec_error(entities, error_nb);
 	configuration_reader(argv[file_index], entities);

@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:30:25 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/24 11:27:53 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 10:20:42 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-static int		adjust_pixel_coordinate(int c, int max_dim)
+static int			adjust_pixel_coordinate(int c, int max_dim)
 {
 	if (c >= max_dim)
 		c = max_dim - 1;
@@ -49,7 +49,6 @@ t_coord_3d			get_bump_normal(t_map *bump_map, t_3d_basis *basis, \
 	double	x;
 	double	y;
 
-	//optimise it
 	x = dot_product(v, basis->u);
 	y = dot_product(v, basis->v);
 	px = ((int)bump_map->width) / 2 + (int)floor(x / bump_map->u_scale);

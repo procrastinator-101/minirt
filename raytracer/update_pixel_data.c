@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 13:54:58 by youness           #+#    #+#             */
-/*   Updated: 2020/10/31 16:53:04 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 10:34:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	copy_pixel_data(t_display *display, unsigned char *image, int x, \
 	dst = 8 - (x * bpp) % 8;
 	while (bpp > 0)
 	{
-		shift = abs(dst - src);//abs
+		shift = abs(dst - src);
 		temp = dst > src ? *pixel << shift : *pixel >> shift;
 		*image = dst < 8 ? temp + *image : temp;
 		bpp -= dst < src ? dst : src;

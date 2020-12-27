@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:52:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/01 19:00:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 12:52:04 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 int	get_sepia(char *line, void **entities)
 {
-	int start;
-	int	holder;
-	int	*sepia;
+	int		start;
+	int		holder;
+	t_sepia	*sepia;
 
 	sepia = entities[SEPIA];
+	if (sepia->set)
+		return (-SEPIA);
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-SEPIA);
-	*sepia = ft_atoi_length(line + start, &holder);
-	if (*sepia != 0 && *sepia != 1)
+	sepia->on = ft_atoi_length(line + start, &holder);
+	if (sepia->on != 0 && sepia->on != 1)
 		return (-SEPIA);
+	sepia->set = 1;
 	return (check_end_entity_info(line, start + holder, SEPIA));
 }

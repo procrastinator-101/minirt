@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 19:38:46 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/08 17:29:31 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 10:32:10 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ t_rgb			get_map_pix_color(t_map *map, double x, double y)
 		(px * map->bpp) / 8);
 	if (LINEAR_INTERPOLATION)
 		return (linearly_interpolate(map, px, py));
-	return (uint_to_rgb(*ptr));//to modify for more portabality
+	return (uint_to_rgb(*ptr));
 }

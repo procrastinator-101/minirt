@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/24 11:02:09 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 10:23:23 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ t_rgb	illuminate(t_intersection hit, void **entities, t_ray ray)
 		light = light->next != entities[LIGHT] ? light->next : 0;
 	}
 	phong_rgb = rgb_sum(phong_rgb, ambient_term(entities[AMBIENT]));
-	phong_rgb = rgb_mul_rgb(phong_rgb, get_object_rgb(hit.object, \
-		entities[USER_CAMERA], p, hit.type));
-	return (phong_rgb);
+	return (rgb_mul_rgb(phong_rgb, get_object_rgb(hit.object, \
+		entities[USER_CAMERA], p, hit.type)));
 }

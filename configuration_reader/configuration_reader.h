@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/23 10:44:42 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 12:28:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@
 # define RGB								'r'
 # define CHECKERBOARD						'c'
 # define UV_MAP								'm'
+
+# define MAX_AA_FACTOR						10
+# define STATIC_MODE						's'
+# define INTERACTIVE_MODE					'i'
 
 # define LINEAR_INTERPOLATION				0
 # define PLANE_TILTING_SIZE					100
@@ -263,6 +267,18 @@ typedef	struct			s_skybox
 {
 	t_square			faces[6];
 }						t_skybox;
+
+typedef struct			s_sepia
+{
+	char				on;
+	char				set;
+}						t_sepia;
+
+typedef struct			s_anti_aliasing
+{
+	int					factor;
+	char				set;
+}						t_anti_aliasing;
 
 typedef struct  s_display
 {

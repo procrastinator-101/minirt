@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/24 09:50:27 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 12:47:54 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ typedef struct	s_bitmap
 void			check_prog_arg(int argc, char **argv, int *file_index);
 
 int				initialise_display(t_display *display, void **entities);
-int				initialise_image_customizers(void **entities);
+int				initialise_filters(void **entities);
 void			user_interract(void **entities, t_display *display);
 
-int				raytracer(t_camera *camera, void **entities, t_display *display);
+void			render(void **entities);
+void			raytracer(t_camera *camera, void **entities, t_display *display);
 void			render_block(void **entities, t_camera *camera, int start, int end);
 t_coord_3d		get_left_corner(t_camera *camera, t_screen screen);
 
@@ -58,7 +59,7 @@ t_rgb			get_color(t_ray ray, void **entities);
 
 
 int				image_to_bmp(t_bitmap bitmap, int fd);
-void			save_image(void **entities, char *image_name, char *image);
+void			save_image(void **entities, char *image);
 
 void			update_sphere_mode(t_sphere *sphere);
 void			update_pixel_data(t_display *display, int x, int y, unsigned color);
@@ -72,6 +73,9 @@ int				manage_key(int key, void *param);
 int				manage_mouse_hits(int button, int x, int y, void *param);
 int				manage_mouse_moves(int x, int y, void *param);
 
+void			handle_filters(void **entities, int key);
+void			handle_object_mode(void **entities, int key);
+void			handle_hidden_objects(void **entities, int key);
 
 void			manage_translation(int key, t_camera *camera, void **entities);
 void			manage_rotation(int key, t_camera *camera, void **entities);

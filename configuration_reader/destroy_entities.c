@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 12:04:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/01 10:42:23 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 12:33:13 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	destroy_entities(void **entities)
 	i = 0;
 	while (++i < DISPLAY)
 	{
-		if (i < CAMERA || i == ANTI_ALIASING)
+		if (i < CAMERA || i == ANTI_ALIASING || i == SEPIA)
 			free(entities[i]);
 		else if (i == CAMERA || i == LIGHT)
 			ft_dclst_destroy(entities + i, i);

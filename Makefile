@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/12/23 11:06:39 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/12/27 12:47:04 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,19 @@ RAYTRACER_SRC = raytracer/check_prog_arg.c \
 				raytracer/get_color.c \
 				raytracer/get_left_corner.c \
 				raytracer/get_rotation_matrix.c \
+				raytracer/handle_filters.c \
+				raytracer/handle_hidden_objects.c \
+				raytracer/handle_object_mode.c \
 				raytracer/image_to_bmp.c \
 				raytracer/initialise_display.c \
-				raytracer/initialise_image_customizers.c \
+				raytracer/initialise_filters.c \
 				raytracer/manage_key.c \
 				raytracer/manage_mouse_hits.c \
 				raytracer/manage_mouse_moves.c \
 				raytracer/manage_rotation.c \
 				raytracer/manage_translation.c \
 				raytracer/raytracer.c \
+				raytracer/render.c \
 				raytracer/render_block.c \
 				raytracer/render_pixel.c \
 				raytracer/save_image.c \

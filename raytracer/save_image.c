@@ -6,18 +6,18 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 16:45:37 by youness           #+#    #+#             */
-/*   Updated: 2020/10/15 17:40:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 10:42:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-void	save_image(void **entities, char *image_name, char *image)
+void	save_image(void **entities, char *image)
 {
 	int				fd;
 	t_bitmap		bitmap;
 
-	if (!image_name || !image)
+	if (!image)
 		return ;
 	fd = open("output.bmp", O_CREAT | O_WRONLY | O_TRUNC, 777);
 	printf("fd = %d\n", fd);
