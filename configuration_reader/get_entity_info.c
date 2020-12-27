@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 15:35:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/08 10:54:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 17:26:56 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ static int	get_prim_info(char *entity_name, void **entities, char *line)
 		return (get_square(line, entities));
 	else if (!ft_strncmp(entity_name, "tr", 2))
 		return (get_triangle(line, entities));
-	//else if (!ft_strncmp(entity_name, "re", 2))
-	//return (get_rectangle(line, entities));
 	return (0);
 }
 

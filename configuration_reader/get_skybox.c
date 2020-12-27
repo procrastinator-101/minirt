@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 08:35:41 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/21 11:05:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 17:28:36 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration_reader.h"
 
-static void	get_skybox_faces_basis(t_square	*faces)
+static void	get_skybox_faces_basis(t_square *faces)
 {
 	int			i;
 	t_coord_3d	v[3];

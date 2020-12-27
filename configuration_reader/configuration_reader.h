@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 17:20:49 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/27 17:44:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,6 +287,7 @@ typedef struct			s_display
 int						check_critical_entities(void **entities);
 void					get_screen_pixel(void **entities);
 void					destroy_entities(void **entities);
+void					parse_configuration(void **entities, int fd);
 void					configuration_reader(char *input_file, void **entities);
 
 /*
