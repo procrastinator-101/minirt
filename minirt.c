@@ -6,27 +6,26 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 12:53:02 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/28 18:46:06 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int			i;
 	int			error_nb;
-	int			file_index;
 	void		**entities;
 	t_display	display;
 
-	check_prog_arg(argc, argv, &file_index);
+	check_prog_arg(argc, argv);
 	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
 		return (0);
 	i = -1;
 	while (++i < ENTITIES_SIZE)
 		entities[i] = 0;
-	display.mlx_ptr = mlx_init();//handle possible errors 
+	display.mlx_ptr = mlx_init();
 	if (!display.mlx_ptr)
 	{
 		display_error_message(EMC);
@@ -36,7 +35,7 @@ int main(int argc, char **argv)
 	error_nb = initialise_filters(entities);
 	if (error_nb)
 		manage_exec_error(entities, error_nb);
-	configuration_reader(argv[file_index], entities);
+	configuration_reader(argv[1], entities);
 	error_nb = initialise_display(&display, entities);
 	if (error_nb)
 		manage_exec_error(entities, error_nb);

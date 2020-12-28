@@ -6,17 +6,17 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 14:00:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/23 17:08:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/28 18:42:55 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-static void	check_file_extension(char **argv, int file_index)
+static void	check_file_extension(char **argv)
 {
 	char	*tmp;
 
-	if (!(tmp = ft_strrchr(argv[file_index], '.')))
+	if (!(tmp = ft_strrchr(argv[1], '.')))
 	{
 		display_error_message(EMFE);
 		exit(EXIT_FAILURE);
@@ -28,7 +28,7 @@ static void	check_file_extension(char **argv, int file_index)
 	}
 }
 
-void		check_prog_arg(int argc, char **argv, int *file_index)
+void		check_prog_arg(int argc, char **argv)
 {
 	if (argc < 2 || argc > 3)
 	{
@@ -40,15 +40,11 @@ void		check_prog_arg(int argc, char **argv, int *file_index)
 	}
 	if (argc == 3)
 	{
-		*file_index = 2;
-		if (ft_strcmp("--save", argv[1]))
+		if (ft_strcmp("--save", argv[2]))
 		{
 			display_error_message(EIA);
 			exit(EXIT_FAILURE);
 		}
-		check_file_extension(argv, *file_index);
-		return ;
 	}
-	*file_index = 1;
-	check_file_extension(argv, *file_index);
+	check_file_extension(argv);
 }
