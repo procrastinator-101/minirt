@@ -7,4 +7,4 @@ c	0,0,-100	0,0,1	75
 l	0,200,-200	0.8	255,255,255
 
 //sq	0,0,0	0,0,1	30			rb		120,120,120	./images/wave_normal_map.png
-sq	0,0,0	0,0,1	30			rb		120,120,120	./images/bump_maps/earth.xpm
+sq	0,0,0	0,0,1	30			rb		120,120,120	./images/bump_maps/weird_painting.xpm
