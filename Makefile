@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/12/27 17:20:36 by yarroubi         ###   ########.fr        #
+#    Updated: 2020/12/28 17:04:14 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ AUTHOR = youness
 
 NAME = minirt.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -w
 
 CC = gcc
 
@@ -167,6 +167,7 @@ CONFIGURATION_READER_SRC = configuration_reader/build_cube.c \
 						   configuration_reader/initialise_map_dimension.c \
 						   configuration_reader/manage_config_error.c \
 						   configuration_reader/manage_exec_error.c \
+						   configuration_reader/parse_configuration.c \
 						   configuration_reader/prepare_triangle_mapping.c \
 						   configuration_reader/print_3d_basis.c \
 						   configuration_reader/print_ambient_light.c \

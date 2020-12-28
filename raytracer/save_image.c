@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 16:45:37 by youness           #+#    #+#             */
-/*   Updated: 2020/12/27 10:42:35 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/28 17:06:39 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	save_image(void **entities, char *image)
 
 	if (!image)
 		return ;
-	fd = open("output.bmp", O_CREAT | O_WRONLY | O_TRUNC, 777);
+	fd = open("output.bmp", O_RDWR | O_CREAT, 777);
 	printf("fd = %d\n", fd);
 	if (fd <  0)
 		manage_exec_error(entities, EFR);//file creating error

@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 14:09:38 by youness           #+#    #+#             */
-/*   Updated: 2020/12/23 12:48:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/28 17:14:00 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,11 @@ int			image_to_bmp(t_bitmap bitmap, int fd)
 	char	*file_header;
 	char	*info_header;
 
-	nb_pads = bitmap.line_size % 4 ? 4 - bitmap.line_size % 4 : 0;
-	img_size = (bitmap.line_size + nb_pads) * bitmap.height;
+	//nb_pads = bitmap.line_size % 4 ? 4 - bitmap.line_size % 4 : 0;
+	//img_size = (bitmap.line_size + nb_pads) * bitmap.height;
+	int width = (bitmap.width * bitmap.bpp) / 8 + ((bitmap.width * bitmap.bpp) % 8 ? 1 : 0);
+	nb_pads = width % 4 ? 4 - width % 4 : 0;
+	img_size = (width + nb_pads) * bitmap.height;
 	ft_bzero(pads, nb_pads);
 	printf("image size = %d\n", img_size);
 	if (!(file_header = create_bmp_file_header(img_size)))
@@ -69,9 +72,12 @@ int			image_to_bmp(t_bitmap bitmap, int fd)
 	write(fd, info_header, 40);
 	free(file_header);
 	free(info_header);
+	printf("width = %d\n", width);
+	printf("line_size = %d\n", bitmap.line_size);
 	while (bitmap.height--)
 	{
-		write(fd, bitmap.pixel_data + bitmap.height * bitmap.line_size, bitmap.line_size);
+		//write(fd, bitmap.pixel_data + bitmap.height * bitmap.line_size, bitmap.line_size);
+		write(fd, bitmap.pixel_data + bitmap.height * bitmap.line_size, width);
 		write(fd, pads, nb_pads);
 	}
 	return (0);

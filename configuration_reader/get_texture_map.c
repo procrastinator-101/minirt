@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 12:03:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/08 16:57:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/28 17:05:16 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ int	get_texture_map(char *line, t_map *map, t_display *display, \
 	if (!ft_strcmp(file_name + e - start + 1, "xpm"))
 		map->img_ptr = mlx_xpm_file_to_image(display->mlx_ptr, file_name, \
 			&width, &height);
+	/*
 	else if (!ft_strcmp(file_name + e - start + 1, "png"))
 		map->img_ptr = mlx_png_file_to_image(display->mlx_ptr, file_name, \
 			&width, &height);
+	*/
 	else
 	{
 		free(file_name);

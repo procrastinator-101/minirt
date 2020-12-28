@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 17:44:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/28 16:49:00 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void		configuration_reader(char *input_file, void **entities)
 {
+	int		i;
 	int		fd;
 	int		er_nb;
 
