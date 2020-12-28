@@ -1,0 +1,13 @@
+.TP
+.B RGB1
+an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed 255.
+.TP
+.B RGB2
+an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed 255. This information is only given in the case of a chechered color. Otherwise, it is left empty.
+.TP
+.B Length
+a positive real number that represents the length of the grid if a checkered color is used. When filled with 0, a
+.B default
+length will be chosen by the program. Like the
+.B RGB2
+field, the length is only given in the case of a checkered color. Otherwise, it is left empty.

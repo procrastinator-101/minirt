@@ -90,19 +90,10 @@ the 3 dimensional coordinates of the sphere center.
 .B Diameter
 the diameter of the sphere. Naturally it should be a positive real number.
 .TP
-.B RGB1
-an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed
-255.
-.TP
-.B RGB2
-an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed 255. This information is only given in the case of a chechered color. Otherwise, it is left empty.
-.TP
-.B Length
-a positive real number that represents the length of the grid if a checkered color is used. When filled with 0, a
-.B default
-length will be chosen by the program. Like the
-.B RGB2
-field, the length is only given in the case of a checkered color. Otherwise, it is left empty.
+.B Texture
+refer to
+.I texture(6)
+for more information.
 
 .SH \tPLANE
 .TP
@@ -115,18 +106,10 @@ the 3 dimensional coordinates of the sphere center.
 .B Orientation
 a 3 dimensional vector : x,y,z. Each of these components must be in range [-1,1].
 .TP
-.B RGB1
-an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed 255.
-.TP
-.B RGB2
-an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed 255. This information is only given in the case of a chechered color. Otherwise, it is left empty.
-.TP
-.B Length
-a positive real number that represents the length of the grid if a checkered color is used. When filled with 0, a
-.B default
-length will be chosen by the program. Like the 
-.B RGB2 
-field, the length is only given in the case of a checkered color. Otherwise, it is left empty.
+.B Texture
+refer to
+.I texture(6)
+for more information.
 
 .SH \tSQUARE
 .TP
@@ -142,15 +125,73 @@ a 3 dimensional vector : x,y,z. Each of these components must be in range [-1,1]
 .B Side size
 it should be a positive real number.
 .TP
-.B RGB1
-an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed 255.
+.B Texture
+refer to
+.I texture(6)
+for more information.
+
+.SH \tCYLINDER
 .TP
-.B RGB2
-an rgb format color : R,G,B. Each of these components should be a positive integer, and should not exceed 255. This information is only given in the case of a chechered color. Otherwise, it is left empty.
+.B ID
+cy
 .TP
-.B Length
-a positive real number that represents the length of the grid if a checkered color is used. When filled with 0, a
-.B default
-length will be chosen by the program. Like the
-.B RGB2
-field, the length is only given in the case of a checkered color. Otherwise, it is left empty.
+.B Position
+the 3 dimensional coordinates of the center of one of the cylinder caps.
+.TP
+.B Orientation
+a 3 dimensional vector : x,y,z. Each of these components must be in range [-1,1].
+.TP
+.B Diameter
+it should be a positive real number.
+.TP
+.B Height
+a positive real number representing the distance between the cylinder caps'centers.
+.TP
+.B Caps
+it accepts two values : 1 representing caps on; 0 representing caps off.
+.TP
+.B Texture
+refer to
+.I texture(6)
+for more information.
+
+.SH \tTRIANGLE
+.TP
+.B ID
+tr
+.TP
+.B P1
+the 3 dimensional coordinates of the first point of the triangle.
+.TP
+.B P2
+the 3 dimensional coordinates of the second point of the triangle.
+.TP
+.B P3
+the 3 dimensional coordinates of the third point of the triangle.
+.TP
+.B Texture
+refer to
+.I texture(6)
+for more information.
+
+.SH \tCONE
+.TP
+.B ID
+co
+.TP
+.B Vertex
+the 3 dimensional coordinates of the cone vertex.
+.TP
+.B Orientation
+a 3 dimensional vector : x,y,z. Each of these components must be in range [-1,1].
+.TP
+.B Height
+it should a positive real number.
+.TP
+.B Angle
+it should be between 0 and 180.
+.TP
+.B Texture
+refer to
+.I texture(6)
+for more information.
