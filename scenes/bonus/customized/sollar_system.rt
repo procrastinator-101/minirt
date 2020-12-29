@@ -9,10 +9,10 @@ l	0,200,-200	0.8			255,255,255
 //l	0,200,200	0.8			255,255,255
 
 
-sk	./skybox/stary_sky/right.png	./skybox/stary_sky/left.png	./skybox/stary_sky/up.png		./skybox/stary_sky/down.png	./skybox/stary_sky/front.png	./skybox/stary_sky/back.png
+sk	./skybox/red_nebula/right.png	./skybox/red_nebula/left.png	./skybox/red_nebula/top.png		./skybox/red_nebula/bottom.png	./skybox/red_nebula/front.png	./skybox/red_nebula/back.png
 
-sp	0,0,0		40		m			./images/sun.png
+//sp	0,0,0		40		m			./images/sun.png
 
-sp	50,0,-50	20		m			./images/earth.png
+//sp	50,0,-50	20		m			./images/earth.png
 
-sp	40,10,-80	10		m			./images/moon.png
+//sp	40,10,-80	10		m			./images/moon.png

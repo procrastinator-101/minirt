@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 11:35:01 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 12:07:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 12:23:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	multiple_declaration_error_message(int error_number)
 		ft_putstr_fd("multiple anti-aliasing declaration", 2);
 }
 
-void	display_error_message_utils(int error_number)
+void		display_error_message_utils(int error_number)
 {
 	if (error_number > 0 && error_number <= LIGHT)
 		critical_entities_message(error_number);
