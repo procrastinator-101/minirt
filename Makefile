@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/12/28 17:04:14 by youness          ###   ########.fr        #
+#    Updated: 2020/12/29 09:57:07 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ AUTHOR = youness
 
 NAME = minirt.a
 
-FLAGS = -Wall -Wextra -Werror -w
+FLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 

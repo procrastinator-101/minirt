@@ -6,40 +6,40 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 20:41:44 by youness           #+#    #+#             */
-/*   Updated: 2020/12/24 17:09:21 by youness          ###   ########.fr       */
+/*   Updated: 2020/12/23 11:09:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEYS_H
 # define KEYS_H
 
-# define DOWN			65364
-# define UP				65362
-# define RIGHT			65363
-# define LEFT			65361
-# define PLUS			65451
-# define MINUS			65453
+# define DOWN			125
+# define UP				126
+# define RIGHT			124
+# define LEFT			123
+# define PLUS			69
+# define MINUS			78
 
-# define ONE			65436
-# define TWO			65433
-# define THREE			65435
-# define FOUR			65430
-# define SIX			65432
-# define SEVEN			65429
-# define EIGHT			65431
-# define NINE			65434
+# define ONE			83
+# define TWO			84
+# define THREE			85
+# define FOUR			86
+# define SIX			88
+# define SEVEN			89
+# define EIGHT			91
+# define NINE			92
 
-# define A				113
-# define C				99
-# define D				100
-# define E				101
-# define L				0
-# define N				110
-# define M				109
-# define O				111
-# define P				112
-# define S				115
+# define A				0
+# define C				8
+# define D				2
+# define E				14
+# define L				37
+# define N				45
+# define O				31
+# define P				35
+# define M				46
+# define S				1
 
-# define ESC			65307
+# define ESC			53
 
 #endif
