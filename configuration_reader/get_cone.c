@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 14:44:29 by youness           #+#    #+#             */
-/*   Updated: 2020/11/04 11:24:56 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:16:38 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			get_cone(char *line, void **entities)
 	t_cone	*cone;
 
 	if (!(cone = malloc(sizeof(t_cone))))
-		return (-CONE);
+		return (-EMAF);
 	ft_lst_add_head(entities + CONE, cone, CONE);
 	start = update_start(line, 2);
 	if (start == -1)

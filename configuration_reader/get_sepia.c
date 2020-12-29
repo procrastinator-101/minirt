@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:52:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 12:52:04 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:24:50 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_sepia(char *line, void **entities)
 
 	sepia = entities[SEPIA];
 	if (sepia->set)
-		return (-SEPIA);
+		return (-EMSED);
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-SEPIA);

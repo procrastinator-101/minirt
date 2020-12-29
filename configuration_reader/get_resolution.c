@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/28 17:05:46 by youness          ###   ########.fr       */
+/*   Updated: 2020/12/29 11:11:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	get_dimension(char *line, int *dimension, int start, int max_dim)
 		return (-1);
 	*dimension = ft_atoi_length(line + start, &holder);
 	if (*dimension < 1)
-		return (-RESOLUTION);
+		return (-1);
 	if (*dimension > max_dim)
 		*dimension = max_dim;
 	return (start + holder);
@@ -34,14 +34,14 @@ int			get_resolution(char *line, void **entities)
 	t_resolution	*resolution;
 
 	if (entities[RESOLUTION])
-		return (-RESOLUTION);
+		return (-EMRD);
 	if (!(resolution = malloc(sizeof(t_resolution))))
-		return (-RESOLUTION);
+		return (-EMAF);
 	entities[RESOLUTION] = (void *)resolution;
-	//mlx_get_screen_size(((t_display *)entities[DISPLAY])->mlx_ptr, \
-	//	&max_width, &max_height);
-	max_width = 2000;
-	max_height = 2000;
+	mlx_get_screen_size(((t_display *)entities[DISPLAY])->mlx_ptr, \
+		&max_width, &max_height);
+	//max_width = 2000;
+	//max_height = 2000;
 	start = update_start(line, 1);
 	if (start == -1)
 		return (-RESOLUTION);

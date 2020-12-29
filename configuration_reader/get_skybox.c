@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 08:35:41 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 17:28:36 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:23:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ int			get_skybox(char *line, void **entities)
 	int			start;
 	t_skybox	*skybox;
 
+	if (entities[SKYBOX])
+		return (-EMSKD);
 	if (!(skybox = malloc(sizeof(t_skybox))))
-		return (-SKYBOX);
+		return (-EMAF);
 	entities[SKYBOX] = skybox;
-	start = update_start(line, 2);
-	if (start == -1)
+	if ((start = update_start(line, 2)) == -1)
 		return (-SKYBOX);
 	get_skybox_faces_basis(skybox->faces);
 	i = -1;
@@ -59,8 +60,7 @@ int			get_skybox(char *line, void **entities)
 			return (-SKYBOX);
 		if (i == 5)
 			return (check_end_entity_info(line, start, SKYBOX));
-		start = update_start(line, start);
-		if (start == -1)
+		if ((start = update_start(line, start)) == -1)
 			return (-SKYBOX);
 	}
 	return (SKYBOX);

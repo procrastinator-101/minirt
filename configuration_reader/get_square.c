@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 19:13:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/06 12:00:35 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:13:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_square(char *line, void **entities)
 	t_square	*square;
 
 	if (!(square = malloc(sizeof(t_square))))
-		return (-SQUARE);
+		return (-EMAF);
 	ft_lst_add_head(entities + SQUARE, square, SQUARE);
 	if ((start = update_start(line, 2)) == -1)
 		return (-SQUARE);

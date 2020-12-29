@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/23 17:16:34 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:12:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			get_camera(char *line, void **entities)
 	t_camera	*camera;
 
 	if (!(camera = malloc(sizeof(t_camera))))
-		return (-CAMERA);
+		return (-EMAF);
 	ft_dclst_add_head(entities + CAMERA, camera, CAMERA);
 	camera->next = entities[CAMERA];
 	start = update_start(line, 1);

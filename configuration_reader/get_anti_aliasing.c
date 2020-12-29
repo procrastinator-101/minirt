@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:30:47 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 12:37:02 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:25:39 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_anti_aliasing(char *line, void **entities)
 
 	anti_aliasing = entities[ANTI_ALIASING];
 	if (anti_aliasing->set)
-		return (-ANTI_ALIASING);
+		return (-EMAAD);
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-ANTI_ALIASING);

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 19:50:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/04 11:33:38 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:17:10 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_cube(char *line, void **entities)
 	t_cube	*cube;
 
 	if (!(cube = malloc(sizeof(t_cube))))
-		return (-CUBE);
+		return (-EMAF);
 	ft_lst_add_head(entities + CUBE, cube, CUBE);
 	if ((start = update_start(line, 2)) == -1)
 		return (-CUBE);

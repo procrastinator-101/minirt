@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:50:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/29 18:08:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:12:24 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	get_ambient_light(char *line, void **entities)
 	t_ambient	*ambient_light;
 
 	if (entities[AMBIENT])
-		return (-AMBIENT);
+		return (-EMAD);
 	if (!(ambient_light = malloc(sizeof(t_ambient))))
-		return (-AMBIENT);
+		return (-EMAF);
 	entities[AMBIENT] = (void *)ambient_light;
 	start = update_start(line, 1);
 	if (start == -1)

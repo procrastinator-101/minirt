@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:51:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 11:58:44 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:13:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_sphere(char *line, void **entities)
 	t_sphere	*sphere;
 
 	if (!(sphere = malloc(sizeof(t_sphere))))
-		return (-SPHERE);
+		return (-EMAF);
 	ft_lst_add_head(entities + SPHERE, sphere, SPHERE);
 	sphere->basis.u = get_coord_3d(1, 0, 0);
 	sphere->basis.v = get_coord_3d(0, 1, 0);

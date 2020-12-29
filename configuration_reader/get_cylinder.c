@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 21:13:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/04 11:21:46 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:15:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int			get_cylinder(char *line, void **entities)
 	t_cylinder	*cylinder;
 
 	if (!(cylinder = malloc(sizeof(t_cylinder))))
-		return (-CYLINDER);
+		return (-EMAF);
 	ft_lst_add_head(entities + CYLINDER, cylinder, CYLINDER);
 	if ((start = update_start(line, 2)) == -1)
 		return (-CYLINDER);

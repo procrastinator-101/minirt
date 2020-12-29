@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:39:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 17:07:43 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 11:14:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_plane(char *line, void **entities)
 	t_plane	*plane;
 
 	if (!(plane = malloc(sizeof(t_plane))))
-		return (-PLANE);
+		return (-EMAF);
 	ft_lst_add_head(entities + PLANE, plane, PLANE);
 	start = update_start(line, 2);
 	if (start == -1)
