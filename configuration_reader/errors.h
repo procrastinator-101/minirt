@@ -6,21 +6,14 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 16:24:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:56:22 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 12:05:18 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
 
-/*
-**=============				execution error defines				  =============
-*/
-# define EFR								40	//FILE_READING_ERROR
-# define EMAF								41	//MEMORY_ALLOCATION_FAILURE
-# define EMC								42	//MLX_CONNECTION_ERROR
-# define EWC								43	//WINDOW_CREATION_ERROR
-# define EIC								44	//IMAGE_CREATION_ERROR
+# define EMA 		71//
 
 /*
 **=============			multiple declaration error defines		  =============
@@ -37,6 +30,15 @@
 # define EERP								60	//resolution
 # define EEAP								61	//ambient light
 # define EECP								62	//camera
+
+/*
+**=============				execution error defines				  =============
+*/
+# define EFR								70	//FILE_READING_ERROR
+# define EMAF								71	//MEMORY_ALLOCATION_FAILURE
+# define EMC								72	//MLX_CONNECTION_ERROR
+# define EWC								73	//WINDOW_CREATION_ERROR
+# define EIC								74	//IMAGE_CREATION_ERROR
 
 /*
 **=============				program arguments error defines		  =============

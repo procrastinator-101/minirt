@@ -6,9 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 11:35:01 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:52:53 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/12/29 12:07:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "configuration_reader.h"
 
 static void	shapes_error_message(int error_number)
 {
@@ -74,4 +76,6 @@ void	display_error_message_utils(int error_number)
 		shapes_error_message(error_number);
 	else if (error_number >= SKYBOX && error_number <= ANTI_ALIASING)
 		filters_error_message(error_number);
+	else if (error_number >= EMRD && error_number <= EMAAD)
+		multiple_declaration_error_message(error_number);
 }
