@@ -9,9 +9,8 @@ l	0,200,-200	0.8			255,255,255
 //l	0,200,200	0.8			255,255,255
 
 
-aa	5
 
-sk	./skybox/stary_sky/right.png	./skybox/stary_sky/left.png	./skybox/stary_sky/top.png		./skybox/stary_sky/bottom.png	./skybox/stary_sky/front.png	./skybox/stary_sky/back.png
+sk	./skybox/green_nebula/right.png	./skybox/green_nebula/left.png	./skybox/green_nebula/top.png		./skybox/green_nebula/bottom.png	./skybox/green_nebula/front.png	./skybox/green_nebula/back.png
 
 sp	0,0,0		40		m			./images/texture_maps/sun.xpm
 
