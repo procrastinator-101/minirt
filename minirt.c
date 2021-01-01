@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/28 18:46:06 by youness          ###   ########.fr       */
+/*   Updated: 2021/01/01 10:32:04 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	int			i;
-	int			error_nb;
 	void		**entities;
 	t_display	display;
 
@@ -32,13 +31,9 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	entities[DISPLAY] = &display;
-	error_nb = initialise_filters(entities);
-	if (error_nb)
-		manage_exec_error(entities, error_nb);
+	initialise_filters(entities);
 	configuration_reader(argv[1], entities);
-	error_nb = initialise_display(&display, entities);
-	if (error_nb)
-		manage_exec_error(entities, error_nb);
+	initialise_display(&display, entities);
 	entities[USER_LIGHT] = entities[LIGHT];
 	entities[USER_CAMERA] = entities[CAMERA];
 	entities[USER_OBJECT] = entities[CAMERA];

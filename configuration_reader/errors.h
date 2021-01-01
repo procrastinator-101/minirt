@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 16:24:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 12:23:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/01 12:08:57 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,27 @@
 # define EECP								62	//camera
 
 /*
+**=============					map fils error defines		 	  =============
+*/
+# define EMFME								100	//MAP FILE MISSING EXTENSION
+# define EMFWE								101 //MAP FILE WRONG EXTENSION
+/*
 **=============				execution error defines				  =============
 */
 # define EFR								70	//FILE_READING_ERROR
-# define EMAF								71	//MEMORY_ALLOCATION_FAILURE
-# define EMC								72	//MLX_CONNECTION_ERROR
-# define EWC								73	//WINDOW_CREATION_ERROR
-# define EIC								74	//IMAGE_CREATION_ERROR
+# define ECR								71	//FILE_CLOSING_ERROR
+# define EWBFF								76	//WRITING BMP FILE FAILURE
+
+# define EMAF								72	//MEMORY_ALLOCATION_FAILURE
+
+# define EMC								73	//MLX_CONNECTION_ERROR
+# define EWC								74	//WINDOW_CREATION_ERROR
+# define EIC								75	//IMAGE_CREATION_ERROR
+# define EMPEF								76	//MAP FILE EXTRACTON FAILURE
+# define EMPICF								76	//MAP FILE IMAGE CREATION FAILURE
+
+# define ETCF								77	//THREAD CREATION FAILURE
+# define ETJF								78	//THREAD JOIN FAILURE
 
 /*
 **=============				program arguments error defines		  =============

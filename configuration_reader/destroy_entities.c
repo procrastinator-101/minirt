@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 12:04:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 12:33:13 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/01 11:54:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	destroy_entities(void **entities)
 {
-	int	i;
+	int			i;
+	t_display	*display;
 
 	i = 0;
 	while (++i < DISPLAY)
@@ -26,5 +27,8 @@ void	destroy_entities(void **entities)
 		else
 			ft_lst_destroy(entities + i, i);
 	}
+	display = entities[DISPLAY];
+	mlx_destroy_image(display->mlx_ptr, display->img_ptr);
+	mlx_destroy_window(display->mlx_ptr, display->win_ptr);
 	free(entities);
 }

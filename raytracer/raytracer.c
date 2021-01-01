@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:39:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 10:51:41 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/01 11:45:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	raytracer(t_camera *camera, void **entities, t_display *display)
 		save_image(entities, display->img_addr);
 	else
 		mlx_put_image_to_window(display->mlx_ptr, display->win_ptr, \
-			display->img_ptr, 0, 0);//error ??
+			display->img_ptr, 0, 0);
 }

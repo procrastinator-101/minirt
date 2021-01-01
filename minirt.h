@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/28 18:44:32 by youness          ###   ########.fr       */
+/*   Updated: 2021/01/01 11:25:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ typedef struct	s_bitmap
 	unsigned	bpp;
 	unsigned	width;
 	unsigned	height;
+	unsigned	img_size;
 	unsigned	line_size;
+	char		pads[3];
 	char		*pixel_data;
 }				t_bitmap;
 
 /*
 **=============				program management functions		  =============
 */
-int				initialise_display(t_display *display, void **entities);
-int				initialise_filters(void **entities);
 int				terminate_minirt(void *param);
+void			initialise_display(t_display *display, void **entities);
+void			initialise_filters(void **entities);
 void			check_prog_arg(int argc, char **argv);
 
 /*

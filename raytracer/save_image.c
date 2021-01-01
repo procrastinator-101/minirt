@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 16:45:37 by youness           #+#    #+#             */
-/*   Updated: 2020/12/28 17:06:39 by youness          ###   ########.fr       */
+/*   Updated: 2021/01/01 11:34:36 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ void	save_image(void **entities, char *image)
 		return ;
 	fd = open("output.bmp", O_RDWR | O_CREAT, 777);
 	printf("fd = %d\n", fd);
-	if (fd <  0)
-		manage_exec_error(entities, EFR);//file creating error
+	if (fd < 0)
+		manage_exec_error(entities, EFR);
 	bitmap.bpp = ((t_display *)entities[DISPLAY])->bpp;
 	bitmap.line_size = ((t_display *)entities[DISPLAY])->line_size;
 	bitmap.width = ((t_resolution *)entities[RESOLUTION])->width;
 	bitmap.height = ((t_resolution *)entities[RESOLUTION])->height;
 	bitmap.pixel_data = image;
 	image_to_bmp(bitmap, fd);
-	close(fd);//error check
+	if (close(fd) == -1)
+		manage_exec_error(entities, ECR);
 	terminate_minirt(entities);
 }

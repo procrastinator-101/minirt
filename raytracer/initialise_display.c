@@ -6,13 +6,13 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 14:55:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/20 13:08:55 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/01 10:26:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-int	initialise_display(t_display *display, void **entities)
+void	initialise_display(t_display *display, void **entities)
 {
 	int size_x;
 	int size_y;
@@ -22,14 +22,13 @@ int	initialise_display(t_display *display, void **entities)
 	display->win_ptr = mlx_new_window(display->mlx_ptr, size_x, size_y, \
 						"minirt");
 	if (!display->win_ptr)
-		return (EWC);
+		manage_exec_error(entities, EWC);
 	display->img_ptr = mlx_new_image(display->mlx_ptr, size_x, size_y);
 	if (!display->img_ptr)
-		return (EIC);
+		manage_exec_error(entities, EIC);
 	display->img_addr = mlx_get_data_addr(display->img_ptr, &(display->bpp), \
 		&(display->line_size), &(display->server_endian));
 	if (!display->img_addr)
-		return (EIC);
+		manage_exec_error(entities, EIC);
 	display->local_endian = ft_local_endian();
-	return (0);
 }
