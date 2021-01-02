@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:30:47 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:25:39 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 08:17:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	get_anti_aliasing(char *line, void **entities)
 	int				holder;
 	t_anti_aliasing	*anti_aliasing;
 
-	anti_aliasing = entities[ANTI_ALIASING];
-	if (anti_aliasing->set)
+	if (entities[ANTI_ALIASING])
 		return (-EMAAD);
+	if (!(anti_aliasing = malloc(sizeof(t_anti_aliasing))))
+		return (-EMAF);
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-ANTI_ALIASING);
@@ -29,6 +30,5 @@ int	get_anti_aliasing(char *line, void **entities)
 		return (-ANTI_ALIASING);
 	if (anti_aliasing->factor > MAX_AA_FACTOR)
 		anti_aliasing->factor = MAX_AA_FACTOR;
-	anti_aliasing->set = 1;
 	return (check_end_entity_info(line, start + holder, ANTI_ALIASING));
 }

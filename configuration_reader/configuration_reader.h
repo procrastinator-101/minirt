@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 17:44:29 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 08:46:09 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,13 +257,11 @@ typedef	struct			s_skybox
 typedef struct			s_sepia
 {
 	char				on;
-	char				set;
 }						t_sepia;
 
 typedef struct			s_anti_aliasing
 {
 	int					factor;
-	char				set;
 }						t_anti_aliasing;
 
 /*
@@ -296,8 +294,8 @@ void					configuration_reader(char *input_file, void **entities);
 int						update_start(char *line, int start);
 int						find_next_arg(char *line, int start);
 int						check_end_entity_info(char *line, int start, int ret);
-int						get_entity_info(char *entity_name, void **entities, \
-						char *line);
+int						get_entity_info(char *line, void **entities);
+
 /*
 **=============					fetching functions				  =============
 */

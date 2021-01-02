@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/01 10:32:04 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 08:28:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,14 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i < ENTITIES_SIZE)
 		entities[i] = 0;
+	display.win_ptr = 0;
+	display.img_ptr = 0;
 	display.mlx_ptr = mlx_init();
 	if (!display.mlx_ptr)
-	{
-		display_error_message(EMC);
-		exit(EXIT_FAILURE);
-	}
+		manage_exec_error(entities, EMCF);
 	entities[DISPLAY] = &display;
-	initialise_filters(entities);
 	configuration_reader(argv[1], entities);
+	initialise_filters(entities);
 	initialise_display(&display, entities);
 	entities[USER_LIGHT] = entities[LIGHT];
 	entities[USER_CAMERA] = entities[CAMERA];
