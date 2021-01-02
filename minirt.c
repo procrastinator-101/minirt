@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 08:28:20 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 12:46:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ int	main(int argc, char **argv)
 		manage_exec_error(entities, EMCF);
 	entities[DISPLAY] = &display;
 	configuration_reader(argv[1], entities);
+	printf("\npre\n");
 	initialise_filters(entities);
+	printf("\npost\n");
 	initialise_display(&display, entities);
+	printf("\npost2\n");
+	printf("anti-aliasing = %d\n", ((t_anti_aliasing *)entities[ANTI_ALIASING])->factor);
 	entities[USER_LIGHT] = entities[LIGHT];
 	entities[USER_CAMERA] = entities[CAMERA];
 	entities[USER_OBJECT] = entities[CAMERA];

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 09:35:51 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 09:59:38 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	get_dimension(char *line, int *dimension, int start, int max_dim)
 {
 	int	holder;
 
-	if (!ft_isdigit(line[start]) && line[start] != '+')
+	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
 		return (-1);
 	*dimension = ft_atoi_length(line + start, &holder);
 	if (*dimension < 1)

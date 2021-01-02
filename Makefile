@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2020/12/29 12:04:30 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/02 09:55:21 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -194,7 +194,8 @@ SUPPORT_FUNCTIONS_SRC = support_functions/convert_to_lit_end.c \
 						support_functions/ft_atoi_length.c \
 						support_functions/ft_local_endian.c \
 						support_functions/ft_max.c \
-						support_functions/ft_min.c
+						support_functions/ft_min.c \
+						support_functions/ft_issign.c
 
 LIB_3D_MATH = lib_3d_math/check_linear_dependency.c \
 			  lib_3d_math/coord_3d_antimetric_matrix.c \

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 21:16:54 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/04 11:34:56 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:53:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			build_cube(t_cube *cube, void **entities)
 	while (++i < 6)
 	{
 		if (!(cube->faces[i] = malloc(sizeof(t_square))))
-			return (EMA);
+			return (EMAF);
 		ft_lst_add_head(entities + SQUARE, cube->faces[i], SQUARE);
 		update_cube_faces(cube, i);
 	}

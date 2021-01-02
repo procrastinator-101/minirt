@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 14:09:38 by youness           #+#    #+#             */
-/*   Updated: 2021/01/01 11:31:00 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:52:31 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ int			image_to_bmp(t_bitmap bitmap, int fd)
 	create_bmp_file_header(file_header, bitmap.img_size);
 	create_bmp_info_header(info_header, bitmap);
 	if (write(fd, file_header, 14) == -1)
-		return (EWBFF);
+		return (EBFWF);
 	if (write(fd, info_header, 40) == -1)
-		return (EWBFF);
+		return (EBFWF);
 	while (bitmap.height--)
 	{
 		if (write(fd, bitmap.pixel_data + bitmap.height * bitmap.line_size, \
 			row_size) == -1)
-			return (EWBFF);
+			return (EBFWF);
 		if (write(fd, bitmap.pads, nb_pads) == -1)
-			return (EWBFF);
+			return (EBFWF);
 	}
 	return (0);
 }

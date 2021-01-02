@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 15:35:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 09:01:55 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 11:25:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	get_major_entities(char *line, void **entities)
 {
+	if (line[1] && find_next_arg(line, 1) == 1)
+		return (0);
 	if (!ft_strncmp(line, "A", 1))
 		return (get_ambient_light(line, entities));
 	else if (!ft_strncmp(line, "c", 1))
@@ -25,8 +27,10 @@ static int	get_major_entities(char *line, void **entities)
 	return (0);
 }
 
-static int	get_prim_info(char *line, void **entities, char *line)
+static int	get_prim_info(char *line, void **entities)
 {
+	if (line[2] && find_next_arg(line, 2) == 2)
+		return (0);
 	if (!ft_strncmp(line, "co", 2))
 		return (get_cone(line, entities));
 	else if (!ft_strncmp(line, "cu", 2))
@@ -48,6 +52,8 @@ static int	get_prim_info(char *line, void **entities, char *line)
 
 static int	get_image_customizers(char *line, void **entities)
 {
+	if (line[2] && find_next_arg(line, 2) == 2)
+		return (0);
 	if (!ft_strncmp(line, "AA", 2))
 		return (get_anti_aliasing(line, entities));
 	else if (!ft_strncmp(line, "SE", 2))

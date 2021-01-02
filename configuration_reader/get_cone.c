@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 14:44:29 by youness           #+#    #+#             */
-/*   Updated: 2020/12/29 11:16:38 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:15:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@ static int	get_height_angle(char *line, t_cone *cone, int start)
 	int	angle;
 	int	holder;
 
-	if (!ft_isdigit(line[start]) && line[start] != 43)
+	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
 		return (-1);
 	cone->height = ft_atod_length(line + start, &holder);
-	start += holder;
-	start = update_start(line, start);
+	if (cone->height < 0.0)
+		return (-1);
+	start = update_start(line, start + holder);
 	if (start == -1)
 		return (-1);
-	if (!ft_isdigit(line[start]) && line[start] != 43)
+	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
 		return (-1);
 	angle = ft_atoi_length(line + start, &holder);
-	if (angle > 180)
+	if (angle < 0 || angle > 180)
 		return (-1);
 	cone->angle = (angle / 2.0) * (M_PI / 180.0);
 	return (update_start(line, start + holder));

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:45:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/18 19:36:23 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:22:28 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ void	ft_lst_add_head(void **lst_tail, void *new, int type)
 	void	*tail;
 	void	*next;
 
-	tail = new;
+	if (!lst_tail)
+		return ;
 	if (!(*lst_tail))
-		*lst_tail = tail;
+		*lst_tail = new;
 	else
 	{
 		tail = *lst_tail;

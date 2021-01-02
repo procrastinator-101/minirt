@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 21:13:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:15:00 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 12:50:38 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,17 @@ static int	get_extra_parameters(char *line, t_cylinder *cylinder, int start)
 {
 	int	holder;
 
-	if (!ft_isdigit(line[start]) && line[start] != 43)
-		return (-1);
-	cylinder->radius = ft_atod_length(line + start, &holder) / 2.0;
-	start = update_start(line, start + holder);
+	start = get_radius(line, &(cylinder->radius), start);
 	if (start == -1)
 		return (-1);
-	if (!ft_isdigit(line[start]) && line[start] != 43)
+	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
 		return (-1);
 	cylinder->height = ft_atod_length(line + start, &holder);
-	start = update_start(line, start + holder);
-	if (start == -1)
+	if (cylinder->height < 0.0)
 		return (-1);
-	if (!ft_isdigit(line[start]) && line[start] != 43)
+	if ((start = update_start(line, start + holder)) == -1)
+		return (-1);
+	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
 		return (-1);
 	cylinder->caps = ft_atoi_length(line + start, &holder);
 	if (cylinder->caps > 1 || cylinder->caps < 0)
@@ -54,7 +52,9 @@ int			get_cylinder(char *line, void **entities)
 	start = fetch_vector_3d(line, &(cylinder->basis.w), start);
 	if ((start = update_start(line, start)) == -1)
 		return (-CYLINDER);
+	printf("extra\n");
 	start = get_extra_parameters(line, cylinder, start);
+	printf("extra\n");
 	if ((start = update_start(line, start)) == -1)
 		return (-CYLINDER);
 	cylinder->texture.width = cylinder->radius * 2.0;

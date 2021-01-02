@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 11:35:01 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 12:23:32 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 11:39:55 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	shapes_error_message(int error_number)
 		ft_putstr_fd("the pyramid's configuration is not valid", 2);
 }
 
-static void	critical_entities_message(int error_number)
+static void	scene_parameters_message(int error_number)
 {
 	if (error_number == RESOLUTION)
 		ft_putstr_fd("the resolution's configuration is not valid", 2);
@@ -71,7 +71,7 @@ static void	multiple_declaration_error_message(int error_number)
 void		display_error_message_utils(int error_number)
 {
 	if (error_number > 0 && error_number <= LIGHT)
-		critical_entities_message(error_number);
+		scene_parameters_message(error_number);
 	else if (error_number >= SPHERE && error_number <= PYRAMID)
 		shapes_error_message(error_number);
 	else if (error_number >= SKYBOX && error_number <= ANTI_ALIASING)

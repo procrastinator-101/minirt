@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 21:43:55 by youness           #+#    #+#             */
-/*   Updated: 2020/12/27 17:07:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:53:21 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			build_pyramid(t_pyramid *pyramid, void **entities)
 	while (++i < 4)
 	{
 		if (!(pyramid->faces[i] = malloc(sizeof(t_triangle))))
-			return (EMA);
+			return (EMAF);
 		ft_lst_add_head(entities + TRIANGLE, pyramid->faces[i], TRIANGLE);
 		update_pyramid_faces(pyramid, i);
 	}

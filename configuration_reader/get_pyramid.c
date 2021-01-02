@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:57:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:18:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:41:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,12 @@ static int	get_pyramid_base(char *line, t_pyramid *pyramid)
 	if (start == -1)
 		return (-1);
 	start = fetch_vector_3d(line, &(pyramid->base->basis.w), start);
-	get_base_3d(&(pyramid->base->basis.w), &(pyramid->base->basis.v), \
-		&(pyramid->base->basis.u));
 	start = update_start(line, start);
 	if (start == -1)
 		return (-1);
+	get_base_3d(&(pyramid->base->basis.w), &(pyramid->base->basis.v), \
+		&(pyramid->base->basis.u));
 	start = get_radius(line, &(pyramid->base->radius), start);
-	if (start == -1)
-		return (-1);
 	return (start);
 }
 

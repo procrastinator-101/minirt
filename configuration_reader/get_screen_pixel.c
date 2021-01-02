@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 12:23:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/14 11:36:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 11:58:14 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,10 @@ void		get_screen_pixel(void **entities)
 	height = ((t_resolution *)entities[RESOLUTION])->height;
 	aspect_ratio = width / height;
 	camera = entities[CAMERA];
-	if (camera)
+	while (camera)
 	{
 		get_screen(camera, &(camera->screen), aspect_ratio);
 		get_pixel(camera, width, height);
-		camera = camera->next;
-		while (camera != entities[CAMERA])
-		{
-			get_screen(camera, &(camera->screen), aspect_ratio);
-			get_pixel(camera, width, height);
-			camera = camera->next;
-		}
+		camera = camera->next != entities[CAMERA] ? camera->next : 0;
 	}
 }

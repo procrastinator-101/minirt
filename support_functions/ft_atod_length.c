@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 15:46:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/25 15:47:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:07:14 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ double			ft_atod_length(char *str, int *len)
 	double	ret;
 
 	sp = 0;
+	*len  = 0;
 	while (str[sp] == 32 || (str[sp] > 8 && str[sp] < 14))
 		sp++;
 	i = sp;

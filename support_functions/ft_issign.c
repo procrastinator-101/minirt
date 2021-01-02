@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_config_error.c                              :+:      :+:    :+:   */
+/*   ft_issign.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 15:38:29 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 11:16:50 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/01/02 09:55:00 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/01/02 09:55:13 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "configuration_reader.h"
+#include "support_functions.h"
 
-void	manage_config_error(int fd, char *line, void **entities, int er_nb)
+int	ft_issign(char c)
 {
-	printf("\n\nline	: %s||\n\n", line);
-	free(line);
-	if (er_nb != -EIFRE)
-	{
-		while (get_next_line(fd, &line) > 0)
-			free(line);
-	}
-	close(fd);
-	destroy_entities(entities);
-	display_error_message(-er_nb);
-	exit(EXIT_FAILURE);
+	return (c == '-' || c == '+' ? 1 : 0);
 }

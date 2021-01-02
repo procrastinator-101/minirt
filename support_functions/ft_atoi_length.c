@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 15:37:44 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/26 18:51:40 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:08:14 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_atoi_length(char *str, int *len)
 	int	sp;
 	int	ret;
 
+	*len = 0;
 	sp = 0;
 	while (str[sp] == 32 || (str[sp] > 8 && str[sp] < 14))
 		sp++;
