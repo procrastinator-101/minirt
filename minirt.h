@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/01 11:25:49 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/14 11:57:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@
 # include "support_functions/support_functions.h"
 # include "configuration_reader/configuration_reader.h"
 
-# define AMPLITUDE			10
-# define ROTATION_ANGLE		9
+# define AMPLITUDE				10
+# define ROTATION_ANGLE			9
+# define MATHEMATICAL_ROTATION	0
 
 typedef struct	s_bitmap
 {

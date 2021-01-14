@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 21:13:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 12:50:38 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:31:28 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ int			get_cylinder(char *line, void **entities)
 	start = fetch_vector_3d(line, &(cylinder->basis.w), start);
 	if ((start = update_start(line, start)) == -1)
 		return (-CYLINDER);
-	printf("extra\n");
 	start = get_extra_parameters(line, cylinder, start);
-	printf("extra\n");
 	if ((start = update_start(line, start)) == -1)
 		return (-CYLINDER);
 	cylinder->texture.width = cylinder->radius * 2.0;

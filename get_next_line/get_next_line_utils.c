@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:59:24 by yarroubi          #+#    #+#             */
-/*   Updated: 2019/11/23 13:28:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/14 12:09:13 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int	adjust_start(char *buffer_fd, int *v, int option)
 
 	if (option)
 	{
-		str = (char *)(&(START));
+		str = (char *)(&(v[1]));
 		i = 1;
 		while (++i < (int)sizeof(int) + 2)
 			str[i - 2] = buffer_fd[i];
 	}
 	else
 	{
-		str = (char *)(&(START));
+		str = (char *)(&(v[1]));
 		i = 1;
 		while (++i < (int)sizeof(int) + 2)
-			buffer_fd[i] = (START >= BUFFER_SIZE ? 0 : str[i - 2]);
+			buffer_fd[i] = (v[1] >= BUFFER_SIZE ? 0 : str[i - 2]);
 	}
-	return (START >= BUFFER_SIZE ? 0 : START);
+	return (v[1] >= BUFFER_SIZE ? 0 : v[1]);
 }
 
 int	find_buffer(char ***buffers_address, int fd, int *v)
@@ -45,7 +45,7 @@ int	find_buffer(char ***buffers_address, int fd, int *v)
 	i = -1;
 	while (++i < 3)
 		v[i] = 0;
-	FD = fd;
+	v[4] = fd;
 	i = 0;
 	p = 0;
 	str = (char *)(&p);
@@ -55,7 +55,7 @@ int	find_buffer(char ***buffers_address, int fd, int *v)
 	{
 		str[0] = buffers[i][0];
 		str[1] = buffers[i][1];
-		START = (fd == p ? adjust_start(buffers[i], v, 1) : 0);
+		v[1] = (fd == p ? adjust_start(buffers[i], v, 1) : 0);
 		if (fd == p)
 			return (i + 1);
 		i += 2;
@@ -127,23 +127,23 @@ int	ft_ccpy(char **line, char **buffer_address, int buffer_size, int *v)
 	char	*buffer;
 
 	buffer = *buffer_address;
-	i = START;
+	i = v[1];
 	while (i < buffer_size && buffer[i] && buffer[i] != '\n')
 		i++;
 	i += (buffer[i] == '\n');
-	if (!(ptr = malloc((LINE_SIZE + i - START + (LINE_SIZE == 0)\
+	if (!(ptr = malloc((v[0] + i - v[1] + (v[0] == 0)\
 						* sizeof(char)))))
 		return (-1);
-	ft_fast_cpy(ptr, *line, LINE_SIZE);
+	ft_fast_cpy(ptr, *line, v[0]);
 	free(*line);
-	ft_fast_cpy(ptr + LINE_SIZE - (LINE_SIZE > 0), buffer + START, i - START);
-	ptr[i - START + LINE_SIZE - (LINE_SIZE > 0)] = 0;
+	ft_fast_cpy(ptr + v[0] - (v[0] > 0), buffer + v[1], i - v[1]);
+	ptr[i - v[1] + v[0] - (v[0] > 0)] = 0;
 	*line = ptr;
-	j = START;
-	START = i;
+	j = v[1];
+	v[1] = i;
 	if (i >= buffer_size)
 		free(*buffer_address);
 	if (i >= buffer_size)
 		*buffer_address = 0;
-	return (i - j + LINE_SIZE + (LINE_SIZE == 0));
+	return (i - j + v[0] + (v[0] == 0));
 }

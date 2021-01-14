@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 19:37:22 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/24 11:02:02 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/14 12:35:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_rgb	get_rgb_sphere(t_sphere *sphere, t_camera *camera, t_coord_3d p)
 	if (sphere->texture.type[0] == RGB)
 		return (sphere->texture.rgb1);
 	p = coord_3d_minus(p, sphere->center);
-	if (sphere->texture.type[0] == UV_MAP && sphere->mode == 's')
+	if (sphere->texture.type[0] == UV_MAP && sphere->mode == STATIC_MODE)
 	{
 		x = dot_product(p, camera->screen.u);
 		y = dot_product(p, camera->screen.v);

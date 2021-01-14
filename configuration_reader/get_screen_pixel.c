@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 12:23:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 11:58:14 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:50:07 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@ static void	get_screen(t_camera *camera, t_screen *screen, double aspect_ratio)
 	screen->width = tan(fov_radian);
 	screen->height = screen->width * aspect_ratio;
 	get_base_3d(&(screen->w), &(screen->v), &(screen->u));
-}
-
-static void	get_pixel(t_camera *camera, double width, double height)
-{
-	camera->pixel.width = camera->screen.width / width * 2.0;
-	camera->pixel.height = camera->screen.height / height * 2.0;
 }
 
 void		get_screen_pixel(void **entities)
@@ -42,7 +36,8 @@ void		get_screen_pixel(void **entities)
 	while (camera)
 	{
 		get_screen(camera, &(camera->screen), aspect_ratio);
-		get_pixel(camera, width, height);
+		camera->pixel.width = camera->screen.width / width * 2.0;
+		camera->pixel.height = camera->screen.height / height * 2.0;
 		camera = camera->next != entities[CAMERA] ? camera->next : 0;
 	}
 }

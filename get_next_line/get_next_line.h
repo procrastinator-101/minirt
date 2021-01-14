@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 17:45:04 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/02/23 17:17:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/14 12:07:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # include <unistd.h>
 
 # define BUFFER_SIZE 100
-
-# define LINE_SIZE	v[0]
-# define START		v[1]
-# define R			v[2]
-# define CURRENT	v[3]
-# define FD			v[4]
 
 int		get_next_line(int fd, char **line);
 

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 10:51:17 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/23 11:17:25 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/14 12:37:05 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	update_sphere_mode(t_sphere *sphere)
 {
 	double	len;
 
-	if (sphere->mode == 'r')
+	if (sphere->mode == INTERACTIVE_MODE)
 		len = sphere->radius * 2 * M_PI;
 	else
 		len = sphere->radius * 2;
