@@ -17,8 +17,8 @@ t_coord_3d	get_first_grid_center(t_coord_3d c, t_screen screen, int nb)
 	double	tmp;
 
 	tmp = (1.0 / nb - 1.0) / 2.0;
-	c = coord_3d_plus(c, scalar_product(screen.u, screen.width * tmp));
-	c = coord_3d_minus(c, scalar_product(screen.v, screen.height * tmp));
+	c = coord_3d_add(c, scalar_product(screen.u, screen.width * tmp));
+	c = coord_3d_sub(c, scalar_product(screen.v, screen.height * tmp));
 	return (c);
 }
 
@@ -44,11 +44,11 @@ int			check_aliasing(void **entities, t_ray ray, t_rgb *rgb, \
 	}
 	while (i--)
 	{
-		p[1] = coord_3d_plus(p[0], scalar_product(screen.u, dm[i][0]));
-		p[1] = coord_3d_minus(p[1], scalar_product(screen.v, dm[i][1]));
+		p[1] = coord_3d_add(p[0], scalar_product(screen.u, dm[i][0]));
+		p[1] = coord_3d_sub(p[1], scalar_product(screen.v, dm[i][1]));
 		printf("dir%d", i);
 		print_coord_3d(p[1]);
-		ray.direction = coord_3d_minus(p[1], ray.origin);
+		ray.direction = coord_3d_sub(p[1], ray.origin);
 		tmp = get_color(ray, entities);
 		*rgb = rgb_sum(*rgb, tmp);
 	}
@@ -71,15 +71,15 @@ t_rgb		super_sample(void **entities, t_ray ray, t_rgb *rgb, \
 	idx[0] = -1;
 	while (++idx[0] < nb)
 	{
-		p[1] = coord_3d_minus(p[0], scalar_product(screen.v, idx[0] * dm[1]));
+		p[1] = coord_3d_sub(p[0], scalar_product(screen.v, idx[0] * dm[1]));
 		idx[1] = idx[0] == 0 || idx[0] == nb - 1 ? 0 : -1;
 		end = idx[0] == 0 || idx[0] == nb - 1 ? nb - 1 : nb;
 		while (++idx[1] < end)
 		{
-			p[2] = coord_3d_plus(p[1], scalar_product(screen.u, \
+			p[2] = coord_3d_add(p[1], scalar_product(screen.u, \
 				idx[1] * dm[0]));
 			print_coord_3d(p[2]);
-			ray.direction = coord_3d_minus(p[2], ray.origin);
+			ray.direction = coord_3d_sub(p[2], ray.origin);
 			*rgb = rgb_sum(*rgb, get_color(ray, entities));
 		}
 	}
@@ -102,7 +102,7 @@ int			render_pixel(void **entities, t_camera *camera, \
 	nb = *((int *)entities[ANTI_ALIASING]);
 	if (nb < 2)
 	{
-		ray.direction = coord_3d_minus(ray.direction, ray.origin);
+		ray.direction = coord_3d_sub(ray.direction, ray.origin);
 		rgb = get_color(ray, entities);
 	}
 	else
