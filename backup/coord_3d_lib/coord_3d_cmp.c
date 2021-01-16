@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   null_3d_vec.c                                      :+:      :+:    :+:   */
+/*   coord_3d_cmp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 20:44:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:10:49 by yarroubi         ###   ########.fr       */
+/*   Updated: 2020/03/14 12:03:46 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_3d_math.h"
+#include "coord_3d_lib.h"
 
-t_coord_3d	null_3d_vec(void)
+int	coord_3d_cmp(t_coord_3d a, t_coord_3d b)
 {
-	t_coord_3d v;
-
-	v.x = 0;
-	v.y = 0;
-	v.z = 0;
-	return (v);
+	if (fabs(a.x - b.x) > EPSILON)
+		return (0);
+	if (fabs(a.y - b.y) > EPSILON)
+		return (0);
+	if (fabs(a.z - b.z) > EPSILON)
+		return (0);
+	return (1);
 }

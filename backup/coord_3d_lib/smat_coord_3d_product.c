@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   null_3d_vec.c                                      :+:      :+:    :+:   */
+/*   smat_coord_3d_product.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 20:44:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:10:49 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/04/25 16:01:17 by youness           #+#    #+#             */
+/*   Updated: 2020/04/25 16:08:34 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_3d_math.h"
+#include "coord_3d_lib.h"
 
-t_coord_3d	null_3d_vec(void)
+t_coord_3d	smat_coord_3d_product(t_smat_3d m, t_coord_3d w)
 {
-	t_coord_3d v;
+	t_coord_3d	r;
 
-	v.x = 0;
-	v.y = 0;
-	v.z = 0;
-	return (v);
+	r.x = dot_product(m.v1, w);
+	r.y = dot_product(m.v2, w);
+	r.z = dot_product(n.v3, w);
+	return (r);
 }

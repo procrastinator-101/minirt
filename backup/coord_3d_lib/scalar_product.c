@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   null_3d_vec.c                                      :+:      :+:    :+:   */
+/*   scalar_product.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 20:44:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:10:49 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 16:38:42 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 16:40:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_3d_math.h"
+#include "coord_3d_lib.h"
 
-t_coord_3d	null_3d_vec(void)
+t_coord_3d	scalar_product(t_coord_3d v, double scalar)
 {
-	t_coord_3d v;
-
-	v.x = 0;
-	v.y = 0;
-	v.z = 0;
+	v.x *= scalar;
+	v.y *= scalar;
+	v.z *= scalar;
 	return (v);
 }

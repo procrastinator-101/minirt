@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 17:59:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 11:48:37 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/16 17:15:15 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static void	critical_entities_message(int error_number)
 
 void		display_error_message(int error_number)
 {
-	printf("error number : %d\n", error_number);//
 	ft_putstr_fd("Error\n", 2);
 	if (error_number >= EMIFE && error_number <= EIA)
 		program_arguments_error_message(error_number);

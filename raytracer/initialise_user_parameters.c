@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   null_3d_vec.c                                      :+:      :+:    :+:   */
+/*   initialise_user_parameters.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 20:44:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:10:49 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/01/16 17:04:56 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/01/16 17:08:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_3d_math.h"
+#include "../minirt.h"
 
-t_coord_3d	null_3d_vec(void)
+void	initialise_user_parameters(void **entities, int argc)
 {
-	t_coord_3d v;
-
-	v.x = 0;
-	v.y = 0;
-	v.z = 0;
-	return (v);
+	entities[USER_LIGHT] = entities[LIGHT];
+	entities[USER_CAMERA] = entities[CAMERA];
+	entities[USER_OBJECT] = entities[CAMERA];
+	entities[USER_OBJECT_TYPE] = (void *)CAMERA;
+	entities[SAVE_IMAGE] = argc == 3 ? (void *)1 : 0;
 }

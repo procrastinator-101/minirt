@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/14 10:37:18 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/16 17:16:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ typedef struct			s_triangle
 	t_coord_3d			p1;
 	t_coord_3d			p2;
 	t_coord_3d			p3;
-	t_coord_3d			centroid;//
+	t_coord_3d			centroid;
 	void				*parent;
 	struct s_triangle	*next;
 	t_texture			texture;

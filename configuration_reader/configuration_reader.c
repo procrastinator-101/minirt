@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/14 09:39:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/16 17:14:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void		configuration_reader(char *input_file, void **entities)
 	er_nb = check_critical_entities(entities);
 	if (er_nb)
 		manage_exec_error(entities, er_nb);
-	printf("read finicshe\n");
 	get_screen_pixel(entities);
-	printf("read finicshe\n");
 	er_nb = construct_cubes(entities[CUBE], entities);
 	if (er_nb)
 		manage_exec_error(entities, er_nb);

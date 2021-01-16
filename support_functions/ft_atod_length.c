@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 15:46:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 10:07:14 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/16 17:25:05 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,16 @@ double			ft_atod_length(char *str, int *len)
 	double	ret;
 
 	sp = 0;
-	*len  = 0;
+	*len = 0;
 	while (str[sp] == 32 || (str[sp] > 8 && str[sp] < 14))
 		sp++;
-	i = sp;
-	if (str[sp] == '-' || str[sp] == '+')
-		i++;
+	i = sp + ((str[sp] == '-' || str[sp] == '+') ? 1 : 0);
 	ret = 0;
 	radix = -1;
 	while ((str[i] > 47 && str[i] < 58) || str[i] == '.')
 	{
 		if (radix > 0 && str[i] == '.')
-			return (ret);
+			break ;
 		if (str[i] == '.')
 			radix = i;
 		else

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_configuration.c                              :+:      :+:    :+:   */
+/*   get_base_3d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/27 17:38:03 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:07:58 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 16:02:39 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/14 12:04:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "configuration_reader.h"
+#include "coord_3d_lib.h"
 
-void	parse_configuration(void **entities, int fd)
+void	get_base_3d(t_coord_3d *w, t_coord_3d *v, t_coord_3d *u)
 {
-	int		i;
-	int		er_nb;
-	char	*line;
+	t_coord_3d up;
 
-	er_nb = 0;
-	i = 1;
-	while (i > 0)
+	up.x = 0;
+	up.y = 1;
+	up.z = 0;
+	if (check_linear_dependency(*w, up))
 	{
-		if ((i = get_next_line(fd, &line)) < 0)
-			manage_config_error(fd, line, entities, -EIFRE);
-		if (line && line[0])
-		{
-			er_nb = get_entity_info(line, entities);
-			if (er_nb < 0)
-				manage_config_error(fd, line, entities, er_nb);
-		}
-		free(line);
+		up.x = 1;
+		up.y = 0;
 	}
+	*u = cross_product(*w, up);
+	*v = cross_product(*u, *w);
+	normalise_3d_vec(u);
+	normalise_3d_vec(v);
 }

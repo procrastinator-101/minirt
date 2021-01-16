@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   null_3d_vec.c                                      :+:      :+:    :+:   */
+/*   coord_3d_minus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 20:44:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:10:49 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 20:47:39 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 20:47:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_3d_math.h"
+#include "coord_3d_lib.h"
 
-t_coord_3d	null_3d_vec(void)
+t_coord_3d	coord_3d_minus(t_coord_3d a, t_coord_3d b)
 {
-	t_coord_3d v;
+	t_coord_3d	ret;
 
-	v.x = 0;
-	v.y = 0;
-	v.z = 0;
-	return (v);
+	ret.x = a.x - b.x;
+	ret.y = a.y - b.y;
+	ret.z = a.z - b.z;
+	return (ret);
 }

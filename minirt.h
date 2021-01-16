@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/14 11:57:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/16 17:06:24 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_bitmap
 int				terminate_minirt(void *param);
 void			initialise_display(t_display *display, void **entities);
 void			initialise_filters(void **entities);
+void			initialise_user_parameters(void **entities, int argc);
 void			check_prog_arg(int argc, char **argv);
 
 /*

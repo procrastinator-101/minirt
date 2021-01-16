@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/02 09:55:21 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/16 17:12:09 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ RAYTRACER_SRC = raytracer/check_prog_arg.c \
 				raytracer/image_to_bmp.c \
 				raytracer/initialise_display.c \
 				raytracer/initialise_filters.c \
+				raytracer/initialise_user_parameters.c \
 				raytracer/manage_key.c \
 				raytracer/manage_mouse_hits.c \
 				raytracer/manage_mouse_moves.c \

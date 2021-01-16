@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   null_3d_vec.c                                      :+:      :+:    :+:   */
+/*   cross_product.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 20:44:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:10:49 by yarroubi         ###   ########.fr       */
+/*   Created: 2020/03/07 15:23:29 by yarroubi          #+#    #+#             */
+/*   Updated: 2020/03/07 15:27:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_3d_math.h"
+#include "coord_3d_lib.h"
 
-t_coord_3d	null_3d_vec(void)
+t_coord_3d	cross_product(t_coord_3d a, t_coord_3d b)
 {
-	t_coord_3d v;
+	t_coord_3d	ret;
 
-	v.x = 0;
-	v.y = 0;
-	v.z = 0;
-	return (v);
+	ret.x = a.y * b.z - a.z * b.y;
+	ret.y = a.z * b.x - a.x * b.z;
+	ret.z = a.x * b.y - a.y * b.x;
+	return (ret);
 }
