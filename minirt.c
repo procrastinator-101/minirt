@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 19:02:27 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/17 09:38:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	main(int argc, char **argv)
 
 	check_prog_arg(argc, argv);
 	if (!(entities = malloc(sizeof(void *) * ENTITIES_SIZE)))
-		return (0);
+	{
+		display_error_message(EMAF);
+		exit(EXIT_FAILURE);
+	}
 	i = -1;
 	while (++i < ENTITIES_SIZE)
 		entities[i] = 0;

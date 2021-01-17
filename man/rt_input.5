@@ -186,7 +186,7 @@ the 3 dimensional coordinates of the cone vertex.
 a 3 dimensional vector : x,y,z. Each of these components must be in range [-1,1].
 .TP
 .B Height
-it should a positive real number.
+it should be a positive real number.
 .TP
 .B Angle
 it should be between 0 and 180.
@@ -195,3 +195,85 @@ it should be between 0 and 180.
 refer to
 .I texture(6)
 for more information.
+
+.SH \tCUBE
+.TP
+.B ID
+cu
+.TP
+.B Position
+the 3 dimensional coordinates of the cube position (its center).
+.TP
+.B Orientation
+a 3 dimensional vector : x,y,z. Each of these components must be in range [-1,1].
+.TP
+.B Side size
+it should be a positive real number.
+.TP
+.B Texture
+refer to
+.I texture(6)
+for more information.
+
+.SH \tPYRAMID
+.TP
+.B ID
+py
+.TP
+.B Position
+the 3 dimensional coordinates of the pyramid position (the center of its base).
+.TP
+.B Orientation
+a 3 dimensional vector : x,y,z. Each of these components must be in range [-1,1].
+.TP
+.B Side size
+it should be a positive real number.
+.TP
+.B Apex
+the 3 dimensional coordinates of the pyramid apex.
+.TP
+.TP
+.B Texture
+refer to
+.I texture(6)
+for more information.
+
+.SH \tSKYBOX
+.TP
+.B ID
+SK
+.TP
+.B Right
+the texture (image) of the right side of the skybox.
+.TP
+.B Left
+the texture (image) of the left side of the skybox.
+.TP
+.B Top
+the texture (image) of the top of the skybox.
+.TP
+.B Bottom
+the texture (image) of the bottom of the skybox.
+.TP
+.B Front
+the texture (image) of the front of the skybox.
+.TP
+.B Back
+the texture (image) of the back of the skybox.
+
+.SH \tANTI-ALIASING
+.TP
+.B ID
+AA
+.TP
+.B Factor
+an integer between 1 and 10. If it exceeds 10, it will be set to 10. If it is less than 1, an error will occur. If this entity is not declared, a factor of 1 will be used.
+
+.SH \tSEPIA
+.TP
+.B ID
+SE
+.TP
+.B Option
+1 if sepia is on, and 0 if sepia filter is off. In case this entity is not declared, the sepia filter is set to 0.
+
