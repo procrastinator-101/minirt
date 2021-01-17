@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/16 18:41:45 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/17 17:37:58 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -151,6 +151,7 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/find_next_arg.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_dclst_add_head.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_dclst_destroy.c \
+						   $(CONFIGURATION_READER_SRC_PATH)/ft_destroy_lst_mem.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_lst_add_head.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_lst_destroy.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_print_object_position.c \
@@ -164,6 +165,7 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_cylinder.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_entity_info.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_light.c \
+						   $(CONFIGURATION_READER_SRC_PATH)/get_lst_mem_texture.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_next_lst_mem.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_plane.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_previous_lst_mem.c \
@@ -212,7 +214,8 @@ SUPPORT_FUNCTIONS_SRC = $(SUPPORT_FUNCTIONS_SRC_PATH)/convert_to_lit_end.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_local_endian.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_max.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_min.c \
-						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_issign.c
+						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_issign.c \
+						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_strrstr.c
 
 LIB_3D_MATH_SRC = $(LIB_3D_MATH_SRC_PATH)/check_linear_dependency.c \
 				  $(LIB_3D_MATH_SRC_PATH)/coord_3d_add.c \

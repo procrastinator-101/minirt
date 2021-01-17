@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   modul.c                                            :+:      :+:    :+:   */
+/*   ft_strrstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/26 11:37:22 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 16:24:05 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/01/17 15:33:26 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/01/17 16:22:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "../../includes/support_functions.h"
 
 /*
- ** this is a comment
- */
+** this function looks for the last occurence of needle in the haystack
+*/
 
-#include <string.h>
-
-char    *ft_strrstr(const char *haystack, const char *needle)
+char	*ft_strrstr(const char *haystack, const char *needle)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int needle_len;
-	int haystack_len;
+	int	haystack_len;
 
-	if (!haystack || ! needle)
+	if (!haystack || !needle)
 		return (0);
-	needle_len = strlen(needle);
-	haystack_len = strlen(haystack);
+	needle_len = ft_strlen(needle);
+	haystack_len = ft_strlen(haystack);
 	while (haystack_len >= needle_len)
 	{
 		i = haystack_len - 1;
@@ -39,19 +36,11 @@ char    *ft_strrstr(const char *haystack, const char *needle)
 			if (needle[j] != haystack[i])
 				break ;
 			if (j == 0)
-				return ((char *)(haystack + i));
+				return (haystack + i);
 			i--;
 			j--;
 		}
 		haystack_len--;
 	}
 	return (0);
-}
-
-int main()
-{
-	char haystack[] = "123456789 .rt  .rtabcgd lldns;";
-	char needle[] = "l";
-	printf("ret = %s\n", ft_strrstr(haystack, needle));
-	return 0;
 }

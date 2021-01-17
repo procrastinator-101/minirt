@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 19:53:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 09:55:28 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/17 16:24:38 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SUPPORT_FUNCTIONS_H
 
 # include <math.h>
+# include "libft.h"
 
 double	ft_min(double a, double b);
 double	ft_max(double a, double b);
@@ -22,6 +23,8 @@ int		ft_issign(char c);
 
 int		ft_atoi_length(char *str, int *len);
 double	ft_atod_length(char *str, int *len);
+
+char	*ft_strrstr(const char *haystack, const char *needle);
 
 void	convert_to_lit_end(char *dest, unsigned num, int size);
 

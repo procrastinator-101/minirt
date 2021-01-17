@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 18:52:18 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/17 17:22:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -319,6 +319,9 @@ void					*get_previous_lst_mem(void *lst_mem, int type);
 void					ft_update_next(void *lst_mem, void *next, int type);
 void					ft_update_previous(void *lst_mem, void *previous, \
 						int type);
+void					ft_destroy_lst_mem(void *lst_mem, int type, \
+						t_display *display);
+t_texture				*get_lst_mem_texture(void *lst_mem, int type);
 
 /*
 **=============					texture functions			  	  =============

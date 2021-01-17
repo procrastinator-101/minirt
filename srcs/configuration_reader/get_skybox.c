@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 08:35:41 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:23:02 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/17 17:30:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	get_skybox_faces_basis(t_square *faces)
 		faces[i].texture.uv_map.height = faces[i].texture.uv_map.width;
 		faces[i].texture.type[0] = UV_MAP;
 		faces[i].texture.type[1] = 0;
+		faces[i].texture.uv_map.img_ptr = 0;
 	}
 }
 
