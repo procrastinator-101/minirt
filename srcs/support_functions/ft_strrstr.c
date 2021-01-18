@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 15:33:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 16:22:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/17 17:46:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strrstr(const char *haystack, const char *needle)
 			if (needle[j] != haystack[i])
 				break ;
 			if (j == 0)
-				return (haystack + i);
+				return ((char *)(haystack + i));
 			i--;
 			j--;
 		}

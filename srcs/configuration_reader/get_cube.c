@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 19:50:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:17:10 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:36:22 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	get_cube(char *line, void **entities)
 	if (!(cube = malloc(sizeof(t_cube))))
 		return (-EMAF);
 	ft_lst_add_head(entities + CUBE, cube, CUBE);
+	cube->texture.uv_map.img_ptr = 0;
+	cube->texture.bump_map.img_ptr = 0;
 	if ((start = update_start(line, 2)) == -1)
 		return (-CUBE);
 	start = fetch_point_3d(line, &(cube->center), start);

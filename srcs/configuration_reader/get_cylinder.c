@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 21:13:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/14 09:31:28 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:33:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int			get_cylinder(char *line, void **entities)
 	if (!(cylinder = malloc(sizeof(t_cylinder))))
 		return (-EMAF);
 	ft_lst_add_head(entities + CYLINDER, cylinder, CYLINDER);
+	cylinder->texture.uv_map.img_ptr = 0;
+	cylinder->texture.bump_map.img_ptr = 0;
 	if ((start = update_start(line, 2)) == -1)
 		return (-CYLINDER);
 	start = fetch_point_3d(line, &(cylinder->position), start);

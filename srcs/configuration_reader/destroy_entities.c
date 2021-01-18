@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 12:04:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 08:09:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/18 12:22:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void	destroy_entities(void **entities)
 	i = 0;
 	while (++i < DISPLAY)
 	{
-		if (i < CAMERA || (i >= SKYBOX && i <= ANTI_ALIASING))
+		if (i < CAMERA || i == ANTI_ALIASING || i == SEPIA)
 			free(entities[i]);
 		else if (i == CAMERA || i == LIGHT)
 			ft_dclst_destroy(entities + i, i);
+		else if (i == SKYBOX)
+			ft_destroy_lst_mem(entities[i], i, entities[DISPLAY]);
 		else
-			ft_lst_destroy(entities + i, i);
+			ft_lst_destroy(entities + i, i, entities[DISPLAY]);
 	}
 	display = entities[DISPLAY];
 	if (display->mlx_ptr && display->img_ptr)

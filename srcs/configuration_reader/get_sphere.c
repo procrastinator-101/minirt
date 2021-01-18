@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:51:13 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/29 11:13:12 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:28:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	get_sphere(char *line, void **entities)
 	sphere->basis.u = get_coord_3d(1, 0, 0);
 	sphere->basis.v = get_coord_3d(0, 1, 0);
 	sphere->basis.w = get_coord_3d(0, 0, 1);
-	start = update_start(line, 2);
-	if (start == -1)
+	sphere->texture.uv_map.img_ptr = 0;
+	sphere->texture.bump_map.img_ptr = 0;
+	if ((start = update_start(line, 2)) == -1)
 		return (-SPHERE);
 	start = fetch_point_3d(line, &(sphere->center), start);
-	start = update_start(line, start);
-	if (start == -1)
+	if ((start = update_start(line, start)) == -1)
 		return (-SPHERE);
 	start = get_radius(line, &(sphere->radius), start);
 	if (start == -1)

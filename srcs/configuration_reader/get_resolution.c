@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 09:59:38 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:56:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			get_resolution(char *line, void **entities)
 		return (-EMRD);
 	if (!(resolution = malloc(sizeof(t_resolution))))
 		return (-EMAF);
-	entities[RESOLUTION] = (void *)resolution;
+	entities[RESOLUTION] = resolution;
 	mlx_get_screen_size(((t_display *)entities[DISPLAY])->mlx_ptr, \
 		&max_width, &max_height);
 	start = update_start(line, 1);

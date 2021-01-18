@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 17:22:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/17 17:44:56 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -311,7 +311,8 @@ int						fetch_vector_3d(char *line, t_coord_3d *vector, \
 **=============					linked lists functions			  =============
 */
 void					ft_lst_add_head(void **lst_tail, void *new, int type);
-void					ft_lst_destroy(void **lst_tail, int type);
+void					ft_lst_destroy(void **lst_tail, int type, \
+						t_display *display);
 void					ft_dclst_add_head(void **lst_tail, void *new, int type);
 void					ft_dclst_destroy(void **tail, int type);
 void					*get_next_lst_mem(void *lst_mem, int type);

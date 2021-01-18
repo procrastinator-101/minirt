@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 14:44:29 by youness           #+#    #+#             */
-/*   Updated: 2021/01/17 10:12:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:35:53 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,15 @@ int			get_cone(char *line, void **entities)
 	if (!(cone = malloc(sizeof(t_cone))))
 		return (-EMAF);
 	ft_lst_add_head(entities + CONE, cone, CONE);
-	start = update_start(line, 2);
-	if (start == -1)
+	cone->texture.uv_map.img_ptr = 0;
+	cone->texture.bump_map.img_ptr = 0;
+	if ((start = update_start(line, 2)) == -1)
 		return (-CONE);
 	start = fetch_point_3d(line, &(cone->vertex), start);
-	start = update_start(line, start);
-	if (start == -1)
+	if ((start = update_start(line, start)) == -1)
 		return (-CONE);
 	start = fetch_vector_3d(line, &(cone->basis.w), start);
-	start = update_start(line, start);
-	if (start == -1)
+	if ((start = update_start(line, start)) == -1)
 		return (-CONE);
 	start = get_height_angle(line, cone, start);
 	if (start == -1)

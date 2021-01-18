@@ -10,4 +10,4 @@ l   0,200,-200   0.8                                    255,255,255
 AA  1
 SE  1
 
-sp  0,0,0     40                        m               ./images/texture_maps/earth.png
+sp  0,0,0     40                        m               ./images/planets_texture_maps/earth.png

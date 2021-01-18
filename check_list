@@ -8,19 +8,41 @@ get_texture_map.c
 
 						configuration_reader
 initialise_map_dimension.c
+
+ft_lst_add_head.c
 ft_lst_destroy.c
 ft_dclst_destroy.c
+
 get_entity_info.c
+
+update_start.c
 find_next_arg.c
+check_end_entity_info.c
+
 ft_update_next.c
 get_next_lst_mem.c
-ft_lst_add_head.c
-update_start.c
+
+fetch_rgb.c
 fetch_point_3d.c
 fetch_vector_3d.c
-get_cone.c
-get_texture_type.c
-manage_config_error.c
+get_radius.c				//update start at the end
+
+get_texture_type.c			//update start at the end
+
+get_resolution.c
+get_ambient_light.c
+get_camera.c
+get_light.c
+
+get_sphere.c
+get_plane.c
+get_square.c
+get_cylinder.c
+get_sepia.c
+get_anti_aliasing.c
+
+#get_cone.c
+#manage_config_error.c
 
 
 						raytracer
