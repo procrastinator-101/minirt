@@ -29,6 +29,10 @@ get_radius.c				//update start at the end
 
 get_texture_type.c			//update start at the end
 
+prepare_triangle_mapping.c
+get_triangle_texture_center.c
+
+
 get_resolution.c
 get_ambient_light.c
 get_camera.c
@@ -38,6 +42,8 @@ get_sphere.c
 get_plane.c
 get_square.c
 get_cylinder.c
+get_triangle.c
+get_cone.c
 get_sepia.c
 get_anti_aliasing.c
 
