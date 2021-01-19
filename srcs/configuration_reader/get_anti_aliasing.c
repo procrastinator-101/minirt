@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:30:47 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 11:30:27 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/19 12:10:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_anti_aliasing(char *line, void **entities)
 	start = update_start(line, 2);
 	if (start == -1)
 		return (-ANTI_ALIASING);
-	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
+	if (!ft_isnumber(line + start))
 		return (-ANTI_ALIASING);
 	anti_aliasing->factor = ft_atoi_length(line + start, &holder);
 	if (anti_aliasing->factor < 1)

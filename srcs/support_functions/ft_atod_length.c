@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 15:46:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:25:05 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/19 10:03:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static double	update_ret(char *str, int i, int radix, double ret)
 {
-	if (radix > 0)
+	if (radix >= 0)
 		ret = ret + (double)(str[i] - 48) / pow(10.0, i - radix);
 	else
 		ret = ret * 10 + (str[i] - 48);
@@ -32,12 +32,12 @@ double			ft_atod_length(char *str, int *len)
 	*len = 0;
 	while (str[sp] == 32 || (str[sp] > 8 && str[sp] < 14))
 		sp++;
-	i = sp + ((str[sp] == '-' || str[sp] == '+') ? 1 : 0);
+	i = sp + (str[sp] == '-' || str[sp] == '+');
 	ret = 0;
 	radix = -1;
 	while ((str[i] > 47 && str[i] < 58) || str[i] == '.')
 	{
-		if (radix > 0 && str[i] == '.')
+		if (radix >= 0 && str[i] == '.')
 			break ;
 		if (str[i] == '.')
 			radix = i;

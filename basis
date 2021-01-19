@@ -1,0 +1,8 @@
+srcs/configuration_reader/get_sphere.c
+srcs/configuration_reader/print_sphere.c
+srcs/lighting_shading/sphere_normal.c
+srcs/objects_interactivity/rotate_sphere.c
+srcs/objects_interactivity/translate_sphere.c
+srcs/objects_intersections/intersect_sphere.c
+srcs/raytracer/update_sphere_mode.c
+srcs/rgb/get_rgb_sphere.c

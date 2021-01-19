@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_radius.c                                       :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 21:04:05 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/19 12:08:57 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/01/19 11:52:51 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/01/19 12:02:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/configuration_reader.h"
+#include "../../includes/support_functions.h"
 
-int	get_radius(char *line, double *radius, int start)
+int ft_isnumber(char *num)
 {
-	int		holder;
+	int i;
 
-	if (!ft_isnumber(line + start))
-		return (-1);
-	*radius = ft_atod_length(line + start, &holder) / 2.0;
-	if (*radius < 0.0)
-		return (-1);
-	return (update_start(line, start + holder));
+	i = 0;
+	if (ft_issign(num[i]))
+		i++;
+	if (ft_isdigit(num[i]))
+		i += 2;
+	return (i < 2 ? 0 : 1);
 }

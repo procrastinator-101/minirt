@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 19:53:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 16:24:38 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/19 12:02:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ double	ft_min(double a, double b);
 double	ft_max(double a, double b);
 
 int		ft_issign(char c);
+int		ft_isnumber(char *num);
 
 int		ft_atoi_length(char *str, int *len);
 double	ft_atod_length(char *str, int *len);

@@ -4,7 +4,6 @@ configuration_reader.c
 parse_configuration.c
 get_entity_info.c
 get_texture.c
-get_texture_map.c
 
 						configuration_reader
 initialise_map_dimension.c
@@ -22,32 +21,34 @@ check_end_entity_info.c
 ft_update_next.c
 get_next_lst_mem.c
 
-fetch_rgb.c
-fetch_point_3d.c
-fetch_vector_3d.c
-get_radius.c				//update start at the end
+#fetch_rgb.c
+#fetch_point_3d.c
+#fetch_vector_3d.c
+#get_radius.c				//update start at the end
 
 get_texture_type.c			//update start at the end
+get_texture_map.c
 
 prepare_triangle_mapping.c
 get_triangle_texture_center.c
 
 
-get_resolution.c
-get_ambient_light.c
-get_camera.c
-get_light.c
+#get_resolution.c
+#get_ambient_light.c
+#get_camera.c
+#get_light.c
 
 get_sphere.c
 get_plane.c
 get_square.c
-get_cylinder.c
+#get_cylinder.c
 get_triangle.c
-get_cone.c
-get_sepia.c
-get_anti_aliasing.c
-
 #get_cone.c
+get_cube.c
+get_pyramid.c				//contains the texture of its base --> its faces'textures should be rebuilt
+#get_sepia.c
+#get_anti_aliasing.c
+
 #manage_config_error.c
 
 
@@ -61,4 +62,12 @@ check_linear_dependency.c
 get_base_3d.c
 
 						support_functions
+								DONE
+ft_max.c
+ft_min.c
+ft_issign.c
 ft_strrstr.c
+ft_atoi_length.c
+ft_atod_length.c
+convert_to_lit_end.c
+ft_local_endian.c

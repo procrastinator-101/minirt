@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 21:13:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/18 11:33:34 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/19 12:08:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static int	get_extra_parameters(char *line, t_cylinder *cylinder, int start)
 	start = get_radius(line, &(cylinder->radius), start);
 	if (start == -1)
 		return (-1);
-	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
+	if (!ft_isnumber(line + start))
 		return (-1);
 	cylinder->height = ft_atod_length(line + start, &holder);
 	if (cylinder->height < 0.0)
 		return (-1);
 	if ((start = update_start(line, start + holder)) == -1)
 		return (-1);
-	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
+	if (!ft_isnumber(line + start))
 		return (-1);
 	cylinder->caps = ft_atoi_length(line + start, &holder);
 	if (cylinder->caps > 1 || cylinder->caps < 0)

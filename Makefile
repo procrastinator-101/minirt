@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/17 17:37:58 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/19 12:10:53 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -211,10 +211,11 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 SUPPORT_FUNCTIONS_SRC = $(SUPPORT_FUNCTIONS_SRC_PATH)/convert_to_lit_end.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_atod_length.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_atoi_length.c \
+						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_isnumber.c \
+						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_issign.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_local_endian.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_max.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_min.c \
-						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_issign.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_strrstr.c
 
 LIB_3D_MATH_SRC = $(LIB_3D_MATH_SRC_PATH)/check_linear_dependency.c \

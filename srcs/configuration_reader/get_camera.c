@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:42:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 09:58:14 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/19 12:07:16 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	fill_fov(char *line, t_camera *camera, int start)
 {
 	int	holder;
 
-	if (!ft_isdigit(line[start]) && !ft_issign(line[start]))
+	if (!ft_isnumber(line + start))
 		return (-1);
 	camera->fov = ft_atoi_length(line + start, &holder);
 	if (camera->fov < 0 || camera->fov > 180)

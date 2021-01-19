@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:57:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/18 11:36:57 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/19 09:23:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static int	get_pyramid_base(char *line, t_pyramid *pyramid)
 int			get_pyramid(char *line, void **entities)
 {
 	int			start;
-	t_coord_3d	v;
 	t_pyramid	*pyramid;
 
 	if (!(pyramid = malloc(sizeof(t_pyramid))))
@@ -47,14 +46,14 @@ int			get_pyramid(char *line, void **entities)
 	if (!(pyramid->base = malloc(sizeof(t_square))))
 		return (-EMAF);
 	ft_lst_add_head(entities + SQUARE, pyramid->base, SQUARE);
+	pyramid->base->texture.uv_map.img_ptr = 0;
+	pyramid->base->texture.bump_map.img_ptr = 0;
 	start = get_pyramid_base(line, pyramid);
 	if (start == -1)
 		return (-PYRAMID);
 	start = fetch_point_3d(line, &(pyramid->apex), start);
-	start = update_start(line, start);
-	if (start == -1)
+	if ((start = update_start(line, start)) == -1)
 		return (-PYRAMID);
-	v = coord_3d_sub(pyramid->apex, pyramid->base->position);
 	pyramid->texture.width = pyramid->base->radius * 2.0;
 	pyramid->texture.height = pyramid->texture.width;
 	initialise_map_dimension(&(pyramid->texture));
