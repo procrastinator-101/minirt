@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 17:59:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:15:15 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 11:53:43 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	program_arguments_error_message(int error_number)
 static void	execution_error_message(int error_number)
 {
 	if (error_number == EIFRF)
-		ft_putstr_fd("the file reading process failed", 2);
+		ft_putstr_fd("the file reading process has failed", 2);
 	else if (error_number == EMAF)
 		ft_putstr_fd("a memory allocation for some block has failed", 2);
 	else if (error_number == EMCF)

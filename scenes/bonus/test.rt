@@ -11,6 +11,5 @@ sq  0,0,0           +1,0,1         30       cb          +255,0,0        0,0,255 
 
 sp  0,0,0       15       cb      255,255,255        0,255,255  images/bump_maps/circles.png
 
-sp  0,0,-30       15      m    images/texture_maps/firefox.png
 
 

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 16:24:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 11:48:32 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 11:55:15 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define EMAF								72	//MEMORY_ALLOCATION_FAILURE
 
+# define EUED								63	//UNIDENTIFIED ENTITY DECLARATION
 
 /*
 **=============				program arguments error defines		  =============
@@ -41,7 +42,6 @@
 # define EEAP								61	//ambient light
 # define EECP								62	//camera
 
-# define EUED								63	//UNIDENTIFIED ENTITY DECLARATION
 
 /*
 **=============					map fils error defines		 	  =============

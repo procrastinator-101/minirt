@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 16:45:02 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 18:16:49 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 11:41:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,13 @@ void		ft_destroy_lst_mem(void *lst_mem, int type, t_display *display)
 
 	if (!lst_mem)
 		return ;
-	if (type < SPHERE || type == ANTI_ALIASING || type == SEPIA)
-		free(lst_mem);
-	else if (type == SQUARE)
+	if (type == SQUARE)
 		destroy_square(lst_mem, display);
 	else if (type == TRIANGLE)
 		destroy_triangle(lst_mem, display);
 	else if (type == SKYBOX)
 		destroy_skybox(lst_mem, display);
-	else
+	else if (type >= SPHERE && type <= PYRAMID)
 	{
 		texture = get_lst_mem_texture(lst_mem, type);
 		if (texture->uv_map.img_ptr)
