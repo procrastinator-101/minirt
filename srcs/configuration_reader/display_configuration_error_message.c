@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_error_message_utils.c                      :+:      :+:    :+:   */
+/*   display_configuration_error_message.c              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/29 11:35:01 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 11:39:55 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/01/22 12:25:12 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/01/22 12:25:28 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	multiple_declaration_error_message(int error_number)
 		ft_putstr_fd("multiple anti-aliasing declaration", 2);
 }
 
-void		display_error_message_utils(int error_number)
+void		display_configuration_error_message(int error_number)
 {
 	if (error_number > 0 && error_number <= LIGHT)
 		scene_parameters_message(error_number);

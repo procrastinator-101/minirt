@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:14:29 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 12:16:36 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		configuration_reader(char *input_file, void **entities)
 
 	fd = open(input_file, O_RDONLY);
 	if (fd == -1)
-		manage_exec_error(entities, EIFRF);
+		manage_exec_error(entities, EIFOF);
 	parse_configuration(entities, fd);
 	if (close(fd) == -1)
 		manage_exec_error(entities, EIFCF);
