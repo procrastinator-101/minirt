@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 12:03:02 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/22 12:47:13 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:49:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static void	display_mlx_error_message(int error_number)
 		ft_putstr_fd("the mlx window creation has failed", 2);
 	else if (error_number == EICF)
 		ft_putstr_fd("the mlx image creation had failed", 2);
+	else if (error_number == EIEF)
+		ft_putstr_fd("the mlx image extraction had failed", 2);
 }
 
 void		display_execution_error_message(int error_number)
@@ -62,6 +64,6 @@ void		display_execution_error_message(int error_number)
 		display_input_file_error_message(error_number);
 	else if (error_number >= EBFOF && error_number <= EBFWF)
 		display_bmp_file_error_message(error_number);
-	else if (error_number >= EMCF && error_number <= EICF)
+	else if (error_number >= EMCF && error_number <= EIEF)
 		display_mlx_error_message(error_number);
 }

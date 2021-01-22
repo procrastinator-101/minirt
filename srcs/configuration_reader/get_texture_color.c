@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 14:48:34 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/19 12:52:55 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:36:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,27 @@ static int	fetch_user_grid_len(char *line, double *grid_len, int start)
 	return (start + holder);
 }
 
+static int	set_default_grid_len(t_texture *texture, int start)
+{
+	texture->grid_len = ft_min(texture->height, texture->width);
+	if (texture->grid_len < 100.0)
+		texture->grid_len /= 10.0;
+	else
+		texture->grid_len = 10.0;
+	texture->grid_len = ft_max(texture->grid_len, 0.5);
+	return (start);
+}
+
 static int	get_grid_len(char *line, t_texture *texture, int start)
 {
 	int	new_start;
 
 	new_start = update_start(line, start);
 	if (new_start == -1)
-		return (-1);
+		return (set_default_grid_len(texture, start));
 	new_start = fetch_user_grid_len(line, &(texture->grid_len), new_start);
 	if (new_start == -2)
-	{
-		texture->grid_len = ft_min(texture->height, texture->width);
-		if (texture->grid_len < 100.0)
-			texture->grid_len /= 10.0;
-		else
-			texture->grid_len = 10.0;
-		texture->grid_len = ft_max(texture->grid_len, 0.5);
-		return (start);
-	}
+		return (set_default_grid_len(texture, start));
 	return (new_start);
 }
 

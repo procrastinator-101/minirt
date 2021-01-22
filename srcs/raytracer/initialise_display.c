@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 14:55:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 08:23:28 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:50:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void	initialise_display(t_display *display, void **entities)
 	display->img_addr = mlx_get_data_addr(display->img_ptr, &(display->bpp), \
 		&(display->line_size), &(display->server_endian));
 	if (!display->img_addr)
-		manage_exec_error(entities, EICF);
+		manage_exec_error(entities, EIEF);
 	display->local_endian = ft_local_endian();
 }

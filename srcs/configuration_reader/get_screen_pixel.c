@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 12:23:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/14 09:50:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:51:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	get_screen(t_camera *camera, t_screen *screen, double aspect_ratio)
 
 	fov_radian = camera->fov / 2.0 * (M_PI / 180.0);
 	screen->width = tan(fov_radian);
-	screen->height = screen->width * aspect_ratio;
+	screen->height = screen->width / aspect_ratio;
 	get_base_3d(&(screen->w), &(screen->v), &(screen->u));
 }
 

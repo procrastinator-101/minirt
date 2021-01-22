@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 17:59:09 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/22 12:41:59 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:48:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void		display_error_message(int error_number)
 		critical_entities_message(error_number);
 	else if (error_number >= RESOLUTION && error_number <= EMAAD)
 		display_configuration_error_message(error_number);
-	else if (error_number >= EMFME && error_number <= EICF)
+	else if (error_number >= EMFME && error_number <= EIEF)
 		display_execution_error_message(error_number);
 	else if (error_number >= ETCF && error_number <= ETJF)
 		threads_error_message(error_number);

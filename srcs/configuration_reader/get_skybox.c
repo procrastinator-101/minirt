@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 08:35:41 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/18 11:41:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:33:15 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ int			get_skybox(char *line, void **entities)
 	if (!(skybox = malloc(sizeof(t_skybox))))
 		return (-EMAF);
 	entities[SKYBOX] = skybox;
+	get_skybox_faces_basis(skybox->faces);
 	if ((start = update_start(line, 2)) == -1)
 		return (-SKYBOX);
-	get_skybox_faces_basis(skybox->faces);
 	i = -1;
 	while (++i < 6)
 	{
 		start = get_texture_map(line, &(skybox->faces[i].texture.uv_map), \
 			entities[DISPLAY], start);
-		if (start == -1)
-			return (-SKYBOX);
+		if (start < 0)
+			return (start);
 		if (i == 5)
 			return (check_end_entity_info(line, start, SKYBOX));
 		if ((start = update_start(line, start)) == -1)

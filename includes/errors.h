@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 16:24:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/22 12:33:47 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:48:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@
 # define EMCF								130	//MLX_CONNECTION_FAILURE
 # define EWCF								131	//WINDOW_CREATION_FAILURE
 # define EICF								132	//IMAGE_CREATION_FAILURE
+# define EIEF								133	//IMAGE_EXTRACTION_FAILURE
 
 
 /*

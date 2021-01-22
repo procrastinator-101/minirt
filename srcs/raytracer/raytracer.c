@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:39:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/01 11:45:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 19:10:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	raytracer(t_camera *camera, void **entities, t_display *display)
 {
 	int			nb;
 
-	nb = *((int *)entities[ANTI_ALIASING]);
+	nb = ((t_anti_aliasing *)entities[ANTI_ALIASING])->factor;
 	camera->pixel.u = scalar_product(camera->screen.u, camera->pixel.width);
 	camera->pixel.v = scalar_product(camera->screen.v, camera->pixel.height);
 	camera->sub_pixel.width = camera->pixel.width / nb;
