@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 19:13:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/18 11:32:57 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:04:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	get_square(char *line, void **entities)
 	if (!(square = malloc(sizeof(t_square))))
 		return (-EMAF);
 	ft_lst_add_head(entities + SQUARE, square, SQUARE);
+	square->parent = 0;
 	square->texture.uv_map.img_ptr = 0;
 	square->texture.bump_map.img_ptr = 0;
 	if ((start = update_start(line, 2)) == -1)
@@ -33,7 +34,6 @@ int	get_square(char *line, void **entities)
 	if ((start = get_radius(line, &(square->radius), start)) == -1)
 		return (-SQUARE);
 	get_base_3d(&(square->basis.w), &(square->basis.v), &(square->basis.u));
-	square->parent = 0;
 	square->texture.width = square->radius * 2.0;
 	square->texture.height = square->texture.width;
 	initialise_map_dimension(&(square->texture));

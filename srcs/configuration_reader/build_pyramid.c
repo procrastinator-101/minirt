@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 21:43:55 by youness           #+#    #+#             */
-/*   Updated: 2021/01/02 10:53:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:53:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int			build_pyramid(t_pyramid *pyramid, void **entities)
 {
 	int	i;
 
-	pyramid->base->parent = pyramid;
-	pyramid->base->parent_type = PYRAMID;
 	pyramid->base->texture = pyramid->texture;
 	i = -1;
 	while (++i < 4)

@@ -10,27 +10,23 @@ display_error_message.c
 
 						configuration_reader
 
-manage_exec_error.c
 destroy_entities.c
 ft_dclst_destroy.c
 ft_lst_destroy.c
 ft_destroy_lst_mem.c
-get_lst_mem_texture.c
-*display_error_message.c
-	-program_arguments_error_message
-	-critical_entities_message
-
-display_error_message_utils.c
-
-
-///old check
-initialise_map_dimension.c
 
 ft_lst_add_head.c
-ft_lst_destroy.c
-ft_dclst_destroy.c
+ft_dclst_add_head.c
 
-get_entity_info.c
+
+manage_exec_error.c
+display_error_message.c
+display_configuration_error_message.c
+display_execution_error_message.c
+
+
+initialise_map_dimension.c
+
 
 update_start.c
 find_next_arg.c
@@ -38,37 +34,39 @@ check_end_entity_info.c
 
 ft_update_next.c
 get_next_lst_mem.c
-
-#fetch_rgb.c
-#fetch_point_3d.c
-#fetch_vector_3d.c
-#get_radius.c				//update start at the end
-
-get_texture_type.c			//update start at the end
-get_texture_map.c
-
+get_lst_mem_texture.c
 
 prepare_triangle_mapping.c
 get_triangle_texture_center.c
+get_triangle_basis.c
 
-
-#get_resolution.c
-#get_ambient_light.c
-#get_camera.c
-#get_light.c
-
+get_entity_info.c
+get_resolution.c
+get_ambient_light.c
+get_camera.c
+get_light.c
 get_sphere.c
 get_plane.c
 get_square.c
-#get_cylinder.c
-get_triangle.c
-#get_cone.c
+get_cylinder.c
+get_cone.c
 get_cube.c
-get_pyramid.c				//contains the texture of its base --> its faces'textures should be rebuilt
-#get_sepia.c
-#get_anti_aliasing.c
+get_pyramid.c
 
-#manage_config_error.c
+construct_cubes.c
+build_cube.c
+build_cube_faces.c
+
+construct_pyramids.c
+build_pyramid.c
+build_pyramid_faces.c
+
+get_radius.c		//update start at the end
+
+fetch_rgb.c
+fetch_point_3d.c
+fetch_vector_3d.c
+
 
 
 						raytracer

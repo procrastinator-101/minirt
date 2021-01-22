@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:57:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/19 09:23:40 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:52:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int			get_pyramid(char *line, void **entities)
 	if (!(pyramid->base = malloc(sizeof(t_square))))
 		return (-EMAF);
 	ft_lst_add_head(entities + SQUARE, pyramid->base, SQUARE);
-	pyramid->base->texture.uv_map.img_ptr = 0;
-	pyramid->base->texture.bump_map.img_ptr = 0;
+	pyramid->base->parent = pyramid;
+	pyramid->base->parent_type = PYRAMID;
 	start = get_pyramid_base(line, pyramid);
 	if (start == -1)
 		return (-PYRAMID);

@@ -7,7 +7,9 @@ c   0,0,-50       0,0,1          110
 l   0,200,-200                    0.8                  255,255,255
 
 
+sq  0,0,0           +1,0,1         30       cb          +255,0,0        0,0,255   8 images/bump_maps/circles.png
 
+sp  0,0,0       15       cb      255,255,255        0,255,255  images/bump_maps/circles.png
 
 tr  0,0,0       1,0,0    0,1,0   r   255,255,0
 

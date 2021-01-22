@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 15:38:29 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/02 11:16:50 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:38:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 void	manage_config_error(int fd, char *line, void **entities, int er_nb)
 {
-	printf("\n\nline	: %s||\n\n", line);
-	free(line);
+	char	*str;
+
 	if (er_nb != -EIFRE)
 	{
-		while (get_next_line(fd, &line) > 0)
-			free(line);
+		while (get_next_line(fd, &str) > 0)
+			free(str);
 	}
 	close(fd);
 	destroy_entities(entities);
 	display_error_message(-er_nb);
+	if (er_nb != -EIFRE)
+		printf("\n\nline	: ||%s||\n\n", line);
+	free(line);
 	exit(EXIT_FAILURE);
 }
