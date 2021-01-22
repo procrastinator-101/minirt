@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 12:03:02 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/22 12:24:05 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 12:47:13 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		display_execution_error_message(int error_number)
 {
 	if (error_number >= EMFME && error_number <= EMPICF)
 		display_map_file_error_message(error_number);
-	else if (error_number >= EIFRF && error_number <= EIFCF)
+	else if (error_number >= EIFOF && error_number <= EIFCF)
 		display_input_file_error_message(error_number);
 	else if (error_number >= EBFOF && error_number <= EBFWF)
 		display_bmp_file_error_message(error_number);

@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/19 12:10:53 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/22 12:45:41 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,8 +143,9 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/construct_cubes.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/construct_pyramids.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/destroy_entities.c \
+						   $(CONFIGURATION_READER_SRC_PATH)/display_configuration_error_message.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/display_error_message.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/display_error_message_utils.c \
+						   $(CONFIGURATION_READER_SRC_PATH)/display_execution_error_message.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/fetch_point_3d.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/fetch_rgb.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/fetch_vector_3d.c \

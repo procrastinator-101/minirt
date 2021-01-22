@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:35:41 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/03 16:35:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/22 12:47:37 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_texture_map(t_map *map)
 	printf("----->  line_size   =   %d\n", map->line_size);
 }
 
-void	print_texture(t_texture *texture)
+void		print_texture(t_texture *texture)
 {
 	if (texture->type[0] == CHECKERBOARD || texture->type[0] == RGB)
 	{
