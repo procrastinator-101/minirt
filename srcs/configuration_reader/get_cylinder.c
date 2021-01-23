@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 21:13:53 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/19 12:08:32 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/23 10:31:55 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int			get_cylinder(char *line, void **entities)
 	if ((start = update_start(line, start)) == -1)
 		return (-CYLINDER);
 	cylinder->texture.width = cylinder->radius * 2.0;
-	cylinder->texture.height = cylinder->height;
+	cylinder->texture.height = cylinder->texture.width;
 	initialise_map_dimension(&(cylinder->texture));
 	return (get_texture(line + start, &(cylinder->texture), entities[DISPLAY], \
 		CYLINDER));

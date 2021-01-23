@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 14:44:29 by youness           #+#    #+#             */
-/*   Updated: 2021/01/19 12:07:48 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/23 10:31:05 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static int	get_height_angle(char *line, t_cone *cone, int start)
 
 static void	get_texture_dimension(t_cone *cone)
 {
-	cone->texture.height = cone->height;
 	cone->texture.width = 2 * (tan(cone->angle) * cone->height);
+	cone->texture.height = cone->texture.width;
 	initialise_map_dimension(&(cone->texture));
 }
 
