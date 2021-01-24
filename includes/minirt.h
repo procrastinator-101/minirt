@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 18:52:55 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:21:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "get_next_line.h"
 # include "intersection.h"
 # include "support_functions.h"
+# include "printing_functions.h"
 # include "configuration_reader.h"
 # include "../external_includes/X.h"
 

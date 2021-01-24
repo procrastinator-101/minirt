@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/22 12:45:41 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/24 12:50:19 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ OBJECTS_INTERSECTIONS_SRC_PATH = srcs/objects_intersections
 
 LIGHTING_SHADING_SRC_PATH = srcs/lighting_shading
 SUPPORT_FUNCTIONS_SRC_PATH = srcs/support_functions
+PRINTING_FUCNTIONS_SRC_PATH = srcs/printing_functions
 
 RGB_SRC_PATH = srcs/rgb
 LIB_3D_MATH_SRC_PATH = srcs/lib_3d_math
@@ -155,7 +156,6 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_destroy_lst_mem.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_lst_add_head.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_lst_destroy.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_print_object_position.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_update_next.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/ft_update_previous.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_ambient_light.c \
@@ -190,24 +190,28 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/manage_exec_error.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/parse_configuration.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/prepare_triangle_mapping.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_3d_basis.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_ambient_light.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_camera.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_cone.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_coord_3d.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_cylinder.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_entity.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_light.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_pixel.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_plane.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_resolution.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_rgb.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_smat_3d.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_sphere.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_square.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_texture.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/print_triangle.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/update_start.c
+
+PRINTING_FUCNTIONS_SRC = $(PRINTING_FUCNTIONS_SRC_PATH)/ft_print_object_position.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_3d_basis.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_ambient_light.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_camera.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_cone.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_coord_3d.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_cube.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_cylinder.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_entity.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_light.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_pixel.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_plane.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_pyramid.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_resolution.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_rgb.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_smat_3d.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_sphere.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_square.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_texture.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_triangle.c
 
 SUPPORT_FUNCTIONS_SRC = $(SUPPORT_FUNCTIONS_SRC_PATH)/convert_to_lit_end.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_atod_length.c \
@@ -290,7 +294,8 @@ GET_NEXT_LINE_SRC = $(GET_NEXT_LINE_SRC_PATH)/get_next_line.c \
 
 SRC = $(RAYTRACER_SRC) $(OBJECTS_INTERACTIVITY_SRC) $(LIGHTING_SHADING_SRC) \
 	  $(OBJECTS_INTERSECTIONS_SRC) $(RGB_SRC) $(CONFIGURATION_READER_SRC) \
-	  $(SUPPORT_FUNCTIONS_SRC) $(LIB_3D_MATH_SRC) $(LIBFT_SRC) $(GET_NEXT_LINE_SRC)
+	  $(PRINTING_FUCNTIONS_SRC) $(SUPPORT_FUNCTIONS_SRC) $(LIB_3D_MATH_SRC) \
+	  $(LIBFT_SRC) $(GET_NEXT_LINE_SRC)
 
 OBJ = $(SRC:.c=.o)
 

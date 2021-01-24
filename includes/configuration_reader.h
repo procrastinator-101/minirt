@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 17:44:56 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:09:28 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -380,30 +380,5 @@ void					build_pyramid_faces(t_pyramid *pyramid, double radius, \
 int						get_skybox(char *line, void **entities);
 int						get_sepia(char *line, void **entities);
 int						get_anti_aliasing(char *line, void **entities);
-
-/*
-**=============					printing functions				  =============
-*/
-void					ft_print_object_position(void *object, int type);
-
-void					print_entity(void **entities, int type);
-
-void					print_rgb(t_rgb rgb);
-void					print_pixel(t_pixel pixel);
-void					print_smat_3d(t_smat_3d m);
-void					print_coord_3d(t_coord_3d point);
-void					print_3d_basis(t_3d_basis basis);
-void					print_texture(t_texture *texture);
-
-void					print_resolution(t_resolution *resolution);
-void					print_ambient_light(t_ambient *ambient);
-void					print_camera(t_camera *camera);
-void					print_light(t_light *light);
-void					print_sphere(t_sphere *sphere);
-void					print_plane(t_plane *plane);
-void					print_square(t_square *square);
-void					print_cylinder(t_cylinder *cylinder);
-void					print_triangle(t_triangle *triangle);
-void					print_cone(t_cone *tail);
 
 #endif

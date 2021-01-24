@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 18:24:21 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/31 19:24:47 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:56:43 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	render_block(void **entities, t_camera *camera, int start, int end)
 	i = start - 1;
 	ray.origin = camera->position;
 	p = get_left_corner(camera, camera->screen);
-	p = coord_3d_sub(p, scalar_product(camera->pixel.v, i));
+	p = coord_3d_sub(p, scalar_product(camera->pixel.v, start));
 	while (++i < end)
 	{
 		j = -1;

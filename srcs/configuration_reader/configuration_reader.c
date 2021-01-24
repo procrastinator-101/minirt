@@ -6,11 +6,12 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/22 12:16:36 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:22:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/configuration_reader.h"
+#include "../../includes/printing_functions.h"
 
 void		configuration_reader(char *input_file, void **entities)
 {

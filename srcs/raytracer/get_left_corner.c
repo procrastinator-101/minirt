@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:29:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/08 17:52:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:54:21 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ t_coord_3d	get_left_corner(t_camera *camera, t_screen screen)
 	start = coord_3d_add(start, temp);
 	temp = scalar_product(screen.v, screen.height);
 	start = coord_3d_add(start, temp);
-	start.x += camera->pixel.width / 2.0;
-	start.y -= camera->pixel.height / 2.0;
+	temp = scalar_product(camera->pixel.u, 0.5);
+	start = coord_3d_add(start, temp);
+	temp = scalar_product(camera->pixel.v, 0.5);
+	start = coord_3d_sub(start, temp);
 	return (start);
 }
