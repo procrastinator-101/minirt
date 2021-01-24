@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 18:24:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 12:22:20 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 17:14:56 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void		configuration_reader(char *input_file, void **entities)
 	if (er_nb)
 		manage_exec_error(entities, er_nb);
 	i = 0;
-	while (++i < CUBE)
+	while (++i < DISPLAY)
 		print_entity(entities, i);
 }

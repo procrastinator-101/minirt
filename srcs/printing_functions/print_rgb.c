@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 18:15:54 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/06/24 19:39:53 by youness          ###   ########.fr       */
+/*   Updated: 2021/01/24 16:46:45 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_rgb(t_rgb rgb)
 {
-	printf("red   = %f\n", rgb.red);
-	printf("green = %f\n", rgb.green);
-	printf("blue  = %f\n", rgb.blue);
+	printf("\nred\t\t= [%f]\n", rgb.red);
+	printf("green\t\t= [%f]\n", rgb.green);
+	printf("blue\t\t= [%f]\n", rgb.blue);
 }

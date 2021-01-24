@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 11:45:42 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 11:54:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 16:57:31 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	print_cube(t_cube *cube)
 
 	while (cube)
 	{
-		printf("\n\n=========== CUBE  ===========\n");
+		printf("\n\n=======================================");
+		printf(" CUBE ");
+		printf("=======================================\n");
 		print_coord_3d(cube->center);
 		printf("radius\t=\t%f\n", cube->radius);
 		print_3d_basis(cube->basis);
@@ -32,6 +34,8 @@ void	print_cube(t_cube *cube)
 			print_3d_basis(cube->faces[i]->basis);
 			print_texture(&(cube->faces[i]->texture));
 		}
+		printf("==========================================");
+		printf("==========================================\n");
 		cube = cube->next;
 	}
 }

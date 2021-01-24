@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 13:10:00 by youness           #+#    #+#             */
-/*   Updated: 2020/12/27 12:55:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 15:35:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	manage_key(int key, void *param)
 
 	entities = (void **)param;
 	if (key == ESC)
-		exit(EXIT_SUCCESS);
+		terminate_minirt(param);
 	else if (key == N || key == P || key == C || key == L)
 		handle_hidden_objects(entities, key);
 	else if (key == S || key == A || (entities[USER_OBJECT_TYPE] == (void *)\

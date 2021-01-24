@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 12:13:30 by youness           #+#    #+#             */
-/*   Updated: 2020/11/04 19:33:20 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 15:12:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	manage_rotation(int key, t_camera *camera, void **entities)
 		m = get_rotation_matrix(-ROTATION_ANGLE, camera->screen.v);
 	else
 		return ;
-	printf("---------------- rotation matrix -------------------\n");
-	print_smat_3d(m);
 	entities[RENDER] = (void *)1;
 	rotate_object(entities[USER_OBJECT], m, type);
 }

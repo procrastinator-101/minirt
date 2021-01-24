@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 10:56:47 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/31 19:24:03 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 15:17:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ unsigned	render_pixel(void **entities, t_camera *camera, t_ray ray)
 	t_rgb		tmp;
 	t_coord_3d	start;
 
-	nb = *((int *)entities[ANTI_ALIASING]);
+	nb = ((t_anti_aliasing *)entities[ANTI_ALIASING])->factor;
 	start = get_first_grid_center(ray.direction, camera);
 	ray.direction = coord_3d_sub(ray.direction, ray.origin);
 	rgb = get_color(ray, entities);
@@ -92,7 +92,7 @@ unsigned	render_pixel(void **entities, t_camera *camera, t_ray ray)
 	{
 		ray.direction = start;
 		tmp = adaptive_sample(entities, camera, ray, nb);
-		if (rgb_cmp(rgb, rgb_mul_double(tmp, 1 / 4.0), 1.0 / 255.0))
+		if (rgb_cmp(rgb, rgb_mul_double(tmp, 1 / (4 * nb - 4)), 1.0 / 255.0))
 		{
 			rgb = rgb_sum(rgb, super_sample(entities, camera, ray, nb));
 			rgb = rgb_mul_double(rgb_sum(rgb, tmp), 1.0 / (nb * nb + 1));

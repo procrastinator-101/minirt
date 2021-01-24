@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:35:41 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 11:33:49 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 16:47:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void		print_texture(t_texture *texture)
 	printf("height   =  %f\n", texture->height);
 	if (texture->type[0] == CHECKERBOARD || texture->type[0] == RGB)
 	{
-		printf("rgb1 : ");
+		printf("--------- rgb1 ---------");
 		print_rgb(texture->rgb1);
 		if (texture->type[0] == CHECKERBOARD)
 		{
-			printf("rgb2 : ");
+			printf("--------- rgb2 ---------");
 			print_rgb(texture->rgb2);
 			printf("grid length = %f\n", texture->grid_len);
 		}

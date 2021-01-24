@@ -3,6 +3,9 @@ minirt.c
 raytracer.c
 render.c
 render_block.c
+update_pixel_data.c
+render_pixel.c
+get_color.c
 
 
 						raytracer
@@ -13,7 +16,20 @@ initialise_user_parameters.c
 render.c
 get_left_corner.c
 render_block.c
-	-update_pixel_data?
+render_pixel.c
+update_pixel_data.c
+
+						objects_intersections
+intersect_sphere.c
+get_right_solution.c
+intersect_plane.c
+intersect_square.c
+
+						rgb
+rgb_to_uint.c
+rgb_sum.c
+rgb_cmp.c
+
 						configuration_reader
 
 parse_configuration.c

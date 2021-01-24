@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/24 12:50:19 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/24 17:12:33 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -195,6 +195,7 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 PRINTING_FUCNTIONS_SRC = $(PRINTING_FUCNTIONS_SRC_PATH)/ft_print_object_position.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_3d_basis.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_ambient_light.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_anti_aliasing.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_camera.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_cone.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_coord_3d.c \
@@ -207,6 +208,8 @@ PRINTING_FUCNTIONS_SRC = $(PRINTING_FUCNTIONS_SRC_PATH)/ft_print_object_position
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_pyramid.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_resolution.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_rgb.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_sepia.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_skybox.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_smat_3d.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_sphere.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_square.c \

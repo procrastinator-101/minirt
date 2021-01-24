@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:00:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 12:06:51 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/24 17:00:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,38 @@ static void	print_base(t_square *square)
 	print_texture(&(square->texture));
 }
 
-void		print_pyramid(t_pyramid *pyramid)
+static void	print_pyramid_faces(t_pyramid *pyramid)
 {
 	int	i;
 
+	i = -1;
+	while (++i < 4)
+	{
+		printf("***** face %d *****\n", i);
+		print_coord_3d(pyramid->faces[i]->p1);
+		print_coord_3d(pyramid->faces[i]->p2);
+		print_coord_3d(pyramid->faces[i]->p3);
+		print_coord_3d(pyramid->faces[i]->c);
+		print_coord_3d(pyramid->faces[i]->centroid);
+		print_3d_basis(pyramid->faces[i]->basis);
+		print_texture(&(pyramid->faces[i]->texture));
+	}
+}
+
+void		print_pyramid(t_pyramid *pyramid)
+{
 	while (pyramid)
 	{
-		printf("\n\n===========	PYRAMID	===========\n");
+		printf("\n\n=====================================");
+		printf(" PYRAMID ");
+		printf("======================================\n");
 		printf("apex\t:\t");
 		print_coord_3d(pyramid->apex);
 		print_texture(&(pyramid->texture));
 		print_base(pyramid->base);
-		i = -1;
-		while (++i < 4)
-		{
-			printf("***** face %d *****\n", i);
-			print_coord_3d(pyramid->faces[i]->p1);
-			print_coord_3d(pyramid->faces[i]->p2);
-			print_coord_3d(pyramid->faces[i]->p3);
-			print_coord_3d(pyramid->faces[i]->c);
-			print_coord_3d(pyramid->faces[i]->centroid);
-			print_3d_basis(pyramid->faces[i]->basis);
-			print_texture(&(pyramid->faces[i]->texture));
-		}
+		print_pyramid_faces(pyramid);
+		printf("==========================================");
+		printf("==========================================\n");
 		pyramid = pyramid->next;
 	}
 }
