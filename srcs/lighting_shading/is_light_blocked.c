@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:57:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/03/07 21:37:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:54:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_light_blocked(t_ray ray, void **entities)
 	double	temp;
 
 	i = LIGHT;
-	while (++i < DISPLAY)
+	while (++i < CUBE)
 	{
 		temp = intersect_obstacle_class(ray, entities[i], i);
 		if (temp < 1.0)

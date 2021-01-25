@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/25 14:50:26 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/25 17:08:42 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -202,6 +202,7 @@ PRINTING_FUCNTIONS_SRC = $(PRINTING_FUCNTIONS_SRC_PATH)/ft_print_object_position
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_coord_3d.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_cube.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_cylinder.c \
+						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_disk.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_entity.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_light.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_pixel.c \

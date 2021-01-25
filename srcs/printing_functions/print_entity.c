@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:10:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 17:24:45 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:10:11 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	print_prim_objects(void **entities, int type)
 		print_triangle(entities[type]);
 	else if (type == CONE)
 		print_cone(entities[type]);
+	else if (type == DISK)
+		print_disk(entities[type]);
 }
 
 void		print_entity(void **entities, int type)
@@ -48,7 +50,7 @@ void		print_entity(void **entities, int type)
 		print_camera(entities[type]);
 	else if (type == LIGHT)
 		print_light(entities[type]);
-	else if (type >= SPHERE && type <= CONE)
+	else if (type >= SPHERE && type <= DISK)
 		print_prim_objects(entities, type);
 	else if (type == CUBE)
 		print_cube(entities[type]);

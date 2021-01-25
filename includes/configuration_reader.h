@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/25 14:35:08 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:10:57 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include "get_next_line.h"
 # include "support_functions.h"
 
-# define ENTITIES_SIZE						24
+# define ENTITIES_SIZE						25
 
 /*
 **=============				entities indexes defines			  =============
@@ -41,18 +41,19 @@
 # define CYLINDER							8
 # define TRIANGLE							9
 # define CONE								10
-# define CUBE								11
-# define PYRAMID							12
-# define SKYBOX								13
-# define SEPIA								14
-# define ANTI_ALIASING						15
-# define DISPLAY							16
-# define USER_CAMERA						17
-# define USER_LIGHT							18
-# define USER_OBJECT						19
-# define USER_OBJECT_TYPE					20
-# define SAVE_IMAGE							21
-# define RENDER								22
+# define DISK								11
+# define CUBE								12
+# define PYRAMID							13
+# define SKYBOX								14
+# define SEPIA								15
+# define ANTI_ALIASING						16
+# define DISPLAY							17
+# define USER_CAMERA						18
+# define USER_LIGHT							19
+# define USER_OBJECT						20
+# define USER_OBJECT_TYPE					21
+# define SAVE_IMAGE							22
+# define RENDER								23
 
 /*
 **=============				texture types defines			  	  =============

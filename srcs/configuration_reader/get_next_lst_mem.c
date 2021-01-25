@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 19:33:52 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 09:45:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:42:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	*get_next_lst_mem(void *lst_mem, int type)
 		return (((t_triangle *)lst_mem)->next);
 	if (type == CONE)
 		return (((t_cone *)lst_mem)->next);
+	if (type == DISK)
+		return (((t_disk *)lst_mem)->next);
 	if (type == CUBE)
 		return (((t_cube *)lst_mem)->next);
 	if (type == PYRAMID)

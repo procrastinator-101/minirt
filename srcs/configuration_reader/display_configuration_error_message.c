@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 12:25:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/22 12:25:28 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:44:19 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	shapes_error_message(int error_number)
 		ft_putstr_fd("the triangle's configuration is not valid", 2);
 	else if (error_number == CONE)
 		ft_putstr_fd("the cone's configuration is not valid", 2);
+	else if (error_number == DISK)
+		ft_putstr_fd("the disk's configuration is not valid", 2);
 	else if (error_number == CUBE)
 		ft_putstr_fd("the cube's configuration is not valid", 2);
 	else if (error_number == PYRAMID)

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 11:54:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 17:10:40 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:03:04 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	print_square(t_square *square);
 void	print_cylinder(t_cylinder *cylinder);
 void	print_triangle(t_triangle *triangle);
 void	print_cone(t_cone *tail);
+void    print_disk(t_disk *disk);
 void	print_cube(t_cube *cube);
 void	print_pyramid(t_pyramid *pyramid);
 void	print_skybox(t_skybox *skybox);

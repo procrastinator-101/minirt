@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 17:16:25 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 17:32:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:42:06 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_texture	*get_lst_mem_texture(void *lst_mem, int type)
 		return (&(((t_triangle *)lst_mem)->texture));
 	if (type == CONE)
 		return (&(((t_cone *)lst_mem)->texture));
+	if (type == DISK)
+		return (&(((t_disk *)lst_mem)->texture));
 	if (type == CUBE)
 		return (&(((t_cube *)lst_mem)->texture));
 	if (type == PYRAMID)
