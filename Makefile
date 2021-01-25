@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/24 17:12:33 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/25 14:50:26 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,7 @@ OBJECTS_INTERSECTIONS_SRC = $(OBJECTS_INTERSECTIONS_SRC_PATH)/get_closest_inter.
 							$(OBJECTS_INTERSECTIONS_SRC_PATH)/get_right_solution.c \
 							$(OBJECTS_INTERSECTIONS_SRC_PATH)/intersect_cone.c \
 							$(OBJECTS_INTERSECTIONS_SRC_PATH)/intersect_cylinder.c \
+							$(OBJECTS_INTERSECTIONS_SRC_PATH)/intersect_disk.c \
 							$(OBJECTS_INTERSECTIONS_SRC_PATH)/intersect_object_class.c \
 							$(OBJECTS_INTERSECTIONS_SRC_PATH)/intersect_obstacle_class.c \
 							$(OBJECTS_INTERSECTIONS_SRC_PATH)/intersect_plane.c \

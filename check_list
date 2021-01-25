@@ -24,6 +24,9 @@ intersect_sphere.c
 get_right_solution.c
 intersect_plane.c
 intersect_square.c
+intersect_cylinder.c
+intersect_disk.c
+intersect_cone.c
 
 						rgb
 rgb_to_uint.c

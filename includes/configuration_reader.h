@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 12:09:28 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 14:35:08 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,6 +224,15 @@ typedef struct			s_cone
 	struct s_cone		*next;
 	t_texture			texture;
 }						t_cone;
+
+typedef struct			s_disk
+{
+	double				radius;
+	t_3d_basis			basis;
+	t_coord_3d			position;
+	struct s_disk		*next;
+	t_texture			texture;
+}						t_disk;
 
 /*
 **=============				compound ojects definitions			  =============

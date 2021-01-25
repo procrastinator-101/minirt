@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 18:11:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/04 11:51:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 15:00:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,27 +43,18 @@ static double	get_finity(t_ray ray, t_cylinder *cylinder, double a, double b)
 	return (check_finity(ray, cylinder, a));
 }
 
-static double	get_caps(t_ray ray, t_cylinder *cylinder, t_coord_3d p1)
+static double	get_caps(t_ray ray, t_cylinder *cylinder)
 {
-	double		a;
-	double		b;
 	double		t[2];
-	t_coord_3d	p2;
-	t_coord_3d	q[2];
+	t_disk		disk;
 
-	a = dot_product(ray.direction, cylinder->basis.w);
-	b = dot_product(coord_3d_sub(ray.origin, p1), cylinder->basis.w);
-	t[0] = a == 0 ? INFINITY : -b / a;
-	p2 = coord_3d_add(p1, scalar_product(cylinder->basis.w, \
-		cylinder->height));
-	b = dot_product(coord_3d_sub(ray.origin, p2), cylinder->basis.w);
-	t[1] = a == 0 ? INFINITY : -b / a;
-	q[0] = coord_3d_add(ray.origin, scalar_product(ray.direction, t[0]));
-	q[1] = coord_3d_add(ray.origin, scalar_product(ray.direction, t[1]));
-	if (coord_3d_len(coord_3d_sub(q[0], p1)) > cylinder->radius)
-		t[0] = INFINITY;
-	if (coord_3d_len(coord_3d_sub(q[1], p2)) > cylinder->radius)
-		t[1] = INFINITY;
+	disk.position = cylinder->position;
+	disk.basis = cylinder->basis;
+	disk.radius = cylinder->radius;
+	t[0] = intersect_disk(ray, &disk);
+	disk.position = scalar_product(cylinder->basis.w, cylinder->height);
+	disk.position = coord_3d_add(cylinder->position, disk.position);
+	t[1] = intersect_disk(ray, &disk);
 	return (get_right_solution(t[0], t[1]));
 }
 
@@ -88,7 +79,7 @@ double			intersect_cylinder(t_ray ray, t_cylinder *cylinder)
 	t[0] = get_finity(ray, cylinder, t[0], t[1]);
 	if (cylinder->caps)
 	{
-		t[1] = get_caps(ray, cylinder, cylinder->position);
+		t[1] = get_caps(ray, cylinder);
 		return (get_right_solution(t[0], t[1]));
 	}
 	return (t[0]);

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 18:41:11 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 18:48:42 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/25 14:51:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ double				intersect_sphere(t_ray ray, t_sphere *sphere);
 double				intersect_square(t_ray ray, t_square *square);
 double				intersect_triangle(t_ray ray, t_triangle *triangle);
 double				intersect_cone(t_ray ray, t_cone *cone);
+double				intersect_disk(t_ray ray, t_disk *disk);
 t_intersection		intersect_skybox(t_ray ray, t_skybox *skybox);
 
 #endif
