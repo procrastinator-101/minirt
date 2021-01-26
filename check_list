@@ -6,6 +6,10 @@ render_block.c
 update_pixel_data.c
 render_pixel.c
 get_color.c
+illuminate.c
+surface_normal.c
+get_bump_normal.c
+get_wave_normal.c
 
 
 						raytracer
@@ -21,9 +25,11 @@ update_pixel_data.c
 
 						lighting_shading
 is_light_blocked.c
+get_wave_length.c
 
 
 						objects_intersections
+								DONE
 get_closest_inter.c
 intersect_object_class.c
 intersect_obstacle_class.c
@@ -33,6 +39,7 @@ get_right_solution.c
 intersect_plane.c
 intersect_square.c
 intersect_cylinder.c
+intersect_triangle.c
 intersect_cone.c
 intersect_disk.c
 intersect_skybox.c
@@ -125,6 +132,7 @@ normalise_3d_vec.c
 coord_3d_cmp.c
 check_linear_dependency.c
 get_base_3d.c
+null_3d_vec.c
 
 						support_functions
 								DONE
@@ -141,6 +149,7 @@ ft_min.c
 ft_strrstr.c
 
 					printing_functions
+						DONE
 print_entity.c
 print_resolution.c
 print_ambient_light.c
