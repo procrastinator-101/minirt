@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:54:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/10/31 19:16:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:52:36 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ t_rgb	uint_to_rgb(unsigned color)
 
 	rgb.red = ((color << 8) >> 24) / 255.0;
 	rgb.green = ((color << 16) >> 24) / 255.0;
-	rgb.blue = (color & 255) / 255.0;
+	rgb.blue = ((color << 24) >> 24) / 255.0;
 	return (rgb);
 }

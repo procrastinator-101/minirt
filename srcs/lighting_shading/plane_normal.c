@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 10:19:25 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:45:13 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static	t_coord_3d	tilt_point_coordinates(t_plane *plane, t_coord_3d p)
 		x -= PLANE_TILTING_SIZE;
 	if (y > PLANE_TILTING_SIZE / 2.0)
 		y -= PLANE_TILTING_SIZE;
-	p1 = coord_3d_add(plane->position, scalar_product(plane->basis.u, x));
+	p1 = scalar_product(plane->basis.u, x);
 	p1 = coord_3d_add(p1, scalar_product(plane->basis.v, y));
 	return (p1);
 }

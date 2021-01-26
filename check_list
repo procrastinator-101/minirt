@@ -24,10 +24,22 @@ render_pixel.c
 update_pixel_data.c
 
 						lighting_shading
+							DONE
+illuminate.c
 is_light_blocked.c
-get_wave_length.c
-square_normal.c
+surface_normal.c
 sphere_normal.c
+plane_normal.c
+square_normal.c
+cylinder_normal.c
+triangle_normal.c
+cone_normal.c
+get_wave_length.c
+get_wave_normal.c
+get_bump_normal.c
+
+diffuse_spec_terms.c
+ambient_term.c
 
 
 						objects_intersections
@@ -48,6 +60,7 @@ intersect_skybox.c
 
 						rgb
 rgb_to_uint.c
+uint_to_rgb.c
 rgb_sum.c
 rgb_cmp.c
 
