@@ -26,6 +26,8 @@ update_pixel_data.c
 						lighting_shading
 is_light_blocked.c
 get_wave_length.c
+square_normal.c
+sphere_normal.c
 
 
 						objects_intersections
