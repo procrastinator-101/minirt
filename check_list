@@ -7,10 +7,8 @@ update_pixel_data.c
 render_pixel.c
 get_color.c
 illuminate.c
-surface_normal.c
-get_bump_normal.c
-get_wave_normal.c
-
+get_object_rgb.c
+get_rgb_sphere.c
 
 						raytracer
 check_prog_arg.c
@@ -42,6 +40,15 @@ diffuse_spec_terms.c
 ambient_term.c
 
 
+						rgb
+get_rgb_sphere.c
+
+rgb_to_uint.c
+uint_to_rgb.c
+rgb_sum.c
+rgb_cmp.c
+get_rgb_nb.c
+get_map_pix_color.c
 						objects_intersections
 								DONE
 get_closest_inter.c
@@ -57,12 +64,6 @@ intersect_triangle.c
 intersect_cone.c
 intersect_disk.c
 intersect_skybox.c
-
-						rgb
-rgb_to_uint.c
-uint_to_rgb.c
-rgb_sum.c
-rgb_cmp.c
 
 						configuration_reader
 

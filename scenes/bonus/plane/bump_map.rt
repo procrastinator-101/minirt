@@ -8,4 +8,4 @@ c   0,1000,-2000         0,-1,0       75
 
 l   0,200,-200                    0.7         255,255,255
 
-pl  0,0,0            0,1,0        rb          150,150,0          ./images/bump_maps/hexagone.xpm
+pl  0,0,0            0,1,0        rb          150,150,0          ./images/bump_maps/wave.xpm
