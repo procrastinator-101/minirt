@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/31 14:10:06 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/31 17:44:11 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ RAYTRACER_SRC = $(RAYTRACER_SRC_PATH)/check_prog_arg.c \
 				$(RAYTRACER_SRC_PATH)/handle_object_mode.c \
 				$(RAYTRACER_SRC_PATH)/image_to_bmp.c \
 				$(RAYTRACER_SRC_PATH)/initialise_display.c \
+				$(RAYTRACER_SRC_PATH)/initialise_entities.c \
 				$(RAYTRACER_SRC_PATH)/initialise_filters.c \
 				$(RAYTRACER_SRC_PATH)/initialise_user_parameters.c \
 				$(RAYTRACER_SRC_PATH)/manage_key.c \

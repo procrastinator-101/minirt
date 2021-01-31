@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 13:10:00 by youness           #+#    #+#             */
-/*   Updated: 2021/01/24 15:35:27 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:50:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	manage_key(int key, void *param)
 		manage_rotation(key, entities[USER_CAMERA], entities);
 		manage_translation(key, entities[USER_CAMERA], entities);
 	}
-	//print_camera(entities[USER_CAMERA]);
-	//printf("object_type = %llu\n", (unsigned long long)entities[USER_OBJECT_TYPE]);
 	ft_print_object_position(entities[USER_OBJECT], \
 			(int)entities[USER_OBJECT_TYPE]);
 	if (entities[RENDER])

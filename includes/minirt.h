@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/24 12:21:26 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:43:16 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_bitmap
 **=============				program management functions		  =============
 */
 int				terminate_minirt(void *param);
+void			**initialise_entities(void);
 void			initialise_display(t_display *display, void **entities);
 void			initialise_filters(void **entities);
 void			initialise_user_parameters(void **entities, int argc);
