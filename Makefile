@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/25 17:08:42 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/01/31 14:10:06 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -226,7 +226,8 @@ SUPPORT_FUNCTIONS_SRC = $(SUPPORT_FUNCTIONS_SRC_PATH)/convert_to_lit_end.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_local_endian.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_max.c \
 						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_min.c \
-						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_strrstr.c
+						$(SUPPORT_FUNCTIONS_SRC_PATH)/ft_strrstr.c \
+						$(SUPPORT_FUNCTIONS_SRC_PATH)/tilt.c
 
 LIB_3D_MATH_SRC = $(LIB_3D_MATH_SRC_PATH)/check_linear_dependency.c \
 				  $(LIB_3D_MATH_SRC_PATH)/coord_3d_add.c \
