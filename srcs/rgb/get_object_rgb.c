@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:58:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/24 09:47:39 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:28:28 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ t_rgb	get_object_rgb(void *object, t_camera *camera, t_coord_3d p, int type)
 		return (get_rgb_cylinder(object, p));
 	if (type == TRIANGLE)
 		return (get_rgb_triangle(object, p));
-	return (get_rgb_cone(object, p));
+	if (type == CONE)
+		return (get_rgb_cone(object, p));
+	return (get_black_rgb());
 }

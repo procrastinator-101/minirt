@@ -1,14 +1,6 @@
 QUEUED
 minirt.c
 raytracer.c
-render.c
-render_block.c
-update_pixel_data.c
-render_pixel.c
-get_color.c
-illuminate.c
-get_object_rgb.c
-get_rgb_sphere.c
 
 						raytracer
 check_prog_arg.c
@@ -20,6 +12,7 @@ get_left_corner.c
 render_block.c
 render_pixel.c
 update_pixel_data.c
+get_color.c
 
 						lighting_shading
 							DONE
@@ -41,12 +34,24 @@ ambient_term.c
 
 
 						rgb
+						DONE
+get_object_rgb.c
+get_black_rgb.c
 get_rgb_sphere.c
+get_rgb_plane.c
+get_rgb_square.c
+get_rgb_cylinder.c
+get_rgb_triangle.c
+get_rgb_cone.c
 
+adjust_rgb.c
 rgb_to_uint.c
 uint_to_rgb.c
+rgb_to_sepia.c
 rgb_sum.c
 rgb_cmp.c
+rgb_mul_double.c
+rgb_mul_rgb.c
 get_rgb_nb.c
 get_map_pix_color.c
 						objects_intersections

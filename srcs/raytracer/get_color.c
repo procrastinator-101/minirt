@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:57:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/12/27 12:53:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/01/31 15:11:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ t_rgb	get_color(t_ray ray, void **entities)
 	}
 	if (((t_sepia *)entities[SEPIA])->on)
 		rgb = rgb_to_sepia(rgb);
-	return (rgb);
+	return (adjust_rgb(rgb));
 }
