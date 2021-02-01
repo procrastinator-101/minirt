@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:52:20 by youness           #+#    #+#             */
-/*   Updated: 2021/01/14 11:57:08 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/01 12:45:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ static void	rotate_around_center(t_triangle *triangle, t_smat_3d m)
 	v[1] = cross_product(v[0], triangle->basis.u);
 	triangle->basis.v = cross_product(triangle->basis.u, v[1]);
 	triangle->basis.w = cross_product(triangle->basis.u, triangle->basis.v);
-	normalise_3d_vec(&(triangle->basis.u));
-	normalise_3d_vec(&(triangle->basis.v));
-	normalise_3d_vec(&(triangle->basis.w));
 }
 
 void		rotate_triangle(t_triangle *triangle, t_smat_3d m)
@@ -52,4 +49,7 @@ void		rotate_triangle(t_triangle *triangle, t_smat_3d m)
 	}
 	else
 		rotate_around_center(triangle, m);
+	normalise_3d_vec(&(triangle->basis.u));
+	normalise_3d_vec(&(triangle->basis.v));
+	normalise_3d_vec(&(triangle->basis.w));
 }

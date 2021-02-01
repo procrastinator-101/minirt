@@ -16,6 +16,11 @@ get_color.c
 terminate_minirt.c
 save_image.c
 image_to_bmp.c
+handle_hidden_objects.c
+handle_filters.c
+handle_object_mode.c
+update_sphere_mode.c
+get_rotation_matrix.c
 
 						lighting_shading
 							DONE
@@ -150,13 +155,33 @@ get_texture_color.c
 
 						objects_interactivity
 translate_skybox.c
+rotate_camera.c
+rotate_sphere.c
+rotate_plane.c
+rotate_square.c
+rotate_cylinder.c
+rotate_triangle.c
 
 						lib_3d_math
+							DONE
 normalise_3d_vec.c
 coord_3d_cmp.c
 check_linear_dependency.c
 get_base_3d.c
 null_3d_vec.c
+null_3d_smat.c
+coord_3d_add.c
+coord_3d_antimetric_matrix.c
+outer_product.c
+scalar_product.c
+smat_3d_addition.c
+smat_3d_scalar_product.c
+smat_vec_3d_product.c
+coord_3d_len.c
+coord_3d_sub.c
+cross_product.c
+dot_product.c
+get_coord_3d.c
 
 						support_functions
 								DONE
