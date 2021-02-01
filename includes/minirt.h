@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/31 17:43:16 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:18:55 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_coord_3d		get_left_corner(t_camera *camera, t_screen screen);
 */
 int				manage_key(int key, void *param);
 int				manage_mouse_hits(int button, int x, int y, void *param);
-int				manage_mouse_moves(int x, int y, void *param);
 void			user_interract(void **entities, t_display *display);
 void			manage_translation(int key, t_camera *camera, void **entities);
 void			manage_rotation(int key, t_camera *camera, void **entities);

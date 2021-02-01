@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/01/31 17:44:11 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/02/01 14:18:39 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ RAYTRACER_SRC = $(RAYTRACER_SRC_PATH)/check_prog_arg.c \
 				$(RAYTRACER_SRC_PATH)/initialise_user_parameters.c \
 				$(RAYTRACER_SRC_PATH)/manage_key.c \
 				$(RAYTRACER_SRC_PATH)/manage_mouse_hits.c \
-				$(RAYTRACER_SRC_PATH)/manage_mouse_moves.c \
 				$(RAYTRACER_SRC_PATH)/manage_rotation.c \
 				$(RAYTRACER_SRC_PATH)/manage_translation.c \
 				$(RAYTRACER_SRC_PATH)/raytracer.c \

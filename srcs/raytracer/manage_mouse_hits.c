@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 13:12:22 by youness           #+#    #+#             */
-/*   Updated: 2020/11/01 11:34:29 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:25:23 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int			manage_mouse_hits(int button, int x, int y, void *param)
 	t_coord_3d		v;
 	t_intersection	hit;
 
+	if (button == 2)
+		return (0);
 	entities = param;
 	camera = entities[USER_CAMERA];
 	ray.origin = camera->position;
@@ -58,6 +60,5 @@ int			manage_mouse_hits(int button, int x, int y, void *param)
 	ray.direction = coord_3d_sub(ray.direction, ray.origin);
 	hit = get_closest_inter(ray, entities);
 	update_user_object(hit, entities);
-	printf("button = %d\n", button);
 	return (0);
 }
