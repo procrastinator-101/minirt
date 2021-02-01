@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 20:58:51 by youness           #+#    #+#             */
-/*   Updated: 2020/10/19 20:21:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/01 12:55:14 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	translate_object(void *object, t_coord_3d v, int type)
 {
 	if (type == CAMERA)
 		translate_camera(object, v);
-	if (type == LIGHT)
+	else if (type == LIGHT)
 		translate_light(object, v);
 	else if (type == SPHERE)
 		translate_sphere(object, v);

@@ -154,13 +154,29 @@ get_texture_color.c
 
 
 						objects_interactivity
+translate_object.c
+translate_camera.c
+translate_light.c
+translate_sphere.c
+translate_plane.c
+translate_square.c
+translate_cylinder.c
+translate_triangle.c
+translate_cone.c
+translate_cube.c
+translate_pyramid.c
 translate_skybox.c
+
+rotate_object.c
 rotate_camera.c
 rotate_sphere.c
 rotate_plane.c
 rotate_square.c
 rotate_cylinder.c
 rotate_triangle.c
+rotate_cone.c
+rotate_cube.c
+rotate_pyramid.c
 
 						lib_3d_math
 							DONE
