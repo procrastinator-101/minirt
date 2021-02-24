@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/02/24 15:39:30 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:27:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void			translate_cylinder(t_cylinder *cylinder, t_coord_3d v);
 void			translate_triangle(t_triangle *triangle, t_coord_3d v);
 void			translate_cone(t_cone *cone, t_coord_3d v);
 void			translate_cube(t_cube *cube, t_coord_3d v);
+void			translate_disk(t_disk *disk, t_coord_3d v);
 void			translate_pyramid(t_pyramid *pyramid, t_coord_3d v);
 void			translate_skybox(t_skybox *skybox, t_camera *camera);
 
@@ -114,6 +115,7 @@ void			rotate_square(t_square *square, t_smat_3d m);
 void			rotate_cylinder(t_cylinder *cylinder, t_smat_3d m);
 void			rotate_triangle(t_triangle *triangle, t_smat_3d m);
 void			rotate_cone(t_cone *cone, t_smat_3d m);
+void			rotate_disk(t_disk *disk, t_smat_3d m);
 void			rotate_cube(t_cube *cube, t_smat_3d m);
 void			rotate_pyramid(t_pyramid *pyramid, t_smat_3d m);
 t_smat_3d		get_rotation_matrix(int angle, t_coord_3d n);
@@ -166,6 +168,7 @@ t_coord_3d		cylinder_normal(t_cylinder *cylinder, t_coord_3d p, \
 t_coord_3d		triangle_normal(t_triangle *triangle, t_coord_3d p, \
 				t_coord_3d d);
 t_coord_3d		cone_normal(t_cone *cone, t_coord_3d p, t_coord_3d d);
+t_coord_3d		disk_normal(t_disk *disk, t_coord_3d p, t_coord_3d d);
 t_coord_3d		get_bump_normal(t_map *bump_map, t_3d_basis *basis, \
 				t_coord_3d n, t_coord_3d p);
 t_coord_3d		get_wave_normal(t_3d_basis basis, t_coord_3d c, t_coord_3d p, \

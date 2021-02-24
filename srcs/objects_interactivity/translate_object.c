@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 20:58:51 by youness           #+#    #+#             */
-/*   Updated: 2021/02/01 12:55:14 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:25:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	translate_object(void *object, t_coord_3d v, int type)
 		translate_triangle(object, v);
 	else if (type == CONE)
 		translate_cone(object, v);
+	else if (type == DISK)
+		translate_disk(object, v);
 	else if (type == CUBE)
 		translate_cube(object, v);
 	else if (type == PYRAMID)

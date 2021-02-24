@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:33:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2020/11/25 14:23:48 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:19:21 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ t_coord_3d	surface_normal(void *object, t_coord_3d d, t_coord_3d p, int type)
 		return (triangle_normal(object, p, d));
 	if (type == CONE)
 		return (cone_normal(object, p, d));
+	if (type == DISK)
+		return (disk_normal(object, p, d));
 	return (null_3d_vec());
 }

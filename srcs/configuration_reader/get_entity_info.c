@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 15:35:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/17 09:37:14 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:16:10 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	get_prim_info(char *line, void **entities)
 		return (get_cube(line, entities));
 	else if (!ft_strncmp(line, "cy", 2))
 		return (get_cylinder(line, entities));
+	else if (!ft_strncmp(line, "di", 2))
+		return (get_disk(line, entities));
 	else if (!ft_strncmp(line, "pl", 2))
 		return (get_plane(line, entities));
 	else if (!ft_strncmp(line, "py", 2))

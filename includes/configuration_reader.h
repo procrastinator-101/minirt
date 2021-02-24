@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/02/24 15:23:21 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:31:15 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,19 @@
 # define TRIANGLE							9
 # define CONE								10
 # define DISK								11
-# define CUBE								12
-# define PYRAMID							13
-# define SKYBOX								14
-# define SEPIA								15
-# define ANTI_ALIASING						16
-# define DISPLAY							17
-# define USER_CAMERA						18
-# define USER_LIGHT							19
-# define USER_OBJECT						20
-# define USER_OBJECT_TYPE					21
-# define SAVE_IMAGE							22
-# define RENDER								23
+# define RECTANGLE							12
+# define CUBE								13
+# define PYRAMID							14
+# define SKYBOX								15
+# define SEPIA								16
+# define ANTI_ALIASING						17
+# define DISPLAY							18
+# define USER_CAMERA						19
+# define USER_LIGHT							20
+# define USER_OBJECT						21
+# define USER_OBJECT_TYPE					22
+# define SAVE_IMAGE							23
+# define RENDER								24
 
 /*
 **=============				texture types defines			  	  =============
@@ -230,10 +231,23 @@ typedef struct			s_disk
 {
 	double				radius;
 	t_3d_basis			basis;
-	t_coord_3d			position;
+	t_coord_3d			center;
 	struct s_disk		*next;
 	t_texture			texture;
 }						t_disk;
+
+typedef struct			s_rectangle
+{
+	double				width;
+	double				height;
+	t_3d_basis			basis;
+	t_coord_3d			position;
+	void				*parent;
+	struct s_square		*next;
+	t_texture			texture;
+	int					parent_type;
+	int					face_number;
+}						t_rectangle;
 
 /*
 **=============				compound ojects definitions			  =============
@@ -368,6 +382,7 @@ int						get_square(char *line, void **entities);
 int						get_cylinder(char *line, void **entities);
 int						get_triangle(char *line, void **entities);
 int						get_cone(char *line, void **entities);
+int						get_disk(char *line, void **entities);
 
 /*
 **=============					cube functions					  =============
