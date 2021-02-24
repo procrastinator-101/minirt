@@ -6,15 +6,14 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 10:48:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/31 17:45:45 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 15:17:42 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minirt.h"
+#include "../includes/minirt.h"
 
 int	main(int argc, char **argv)
 {
-	int			i;
 	void		**entities;
 	t_display	display;
 

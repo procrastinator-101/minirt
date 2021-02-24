@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 16:24:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/22 18:48:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 15:26:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@
 # define EBFCF								121	//BMP FILE CLOSING FAILURE
 # define EBFWF								122	//WRITING BMP FILE FAILURE
 
-
 /*
 **=============					MLX error defines				  =============
 */
@@ -63,7 +62,6 @@
 # define EWCF								131	//WINDOW_CREATION_FAILURE
 # define EICF								132	//IMAGE_CREATION_FAILURE
 # define EIEF								133	//IMAGE_EXTRACTION_FAILURE
-
 
 /*
 **=============					threads error defines			  =============
@@ -79,7 +77,6 @@
 # define EMIF								202	//missing input file
 # define ETCPA								203	//truncated characters after program arguments
 # define EIA								204	//invalid argument
-
 
 void	manage_config_error(int fd, char *line, \
 		void **entities, int er_nb);

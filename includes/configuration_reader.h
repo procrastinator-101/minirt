@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 21:27:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/25 16:10:57 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 15:23:21 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <math.h>
 # include <fcntl.h>
-# include <stdio.h>//to elimiante
+# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 

@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/02/24 15:01:13 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/02/24 15:41:52 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,13 @@ FLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 
+ifdef LINUX
 LIB = -lX11 -lXext -lm -pthread
+INCLUDES = -D LINUX
+else
+LIB = -pthread
+INCLUDES = 
+endif
 
 
 #	SOURCE FILES
@@ -330,7 +336,8 @@ HDR = $(HDR_PATH)/configuration_reader.h \
 	  $(HDR_PATH)/errors.h \
 	  $(HDR_PATH)/get_next_line.h \
 	  $(HDR_PATH)/intersection.h \
-	  $(HDR_PATH)/keys.h \
+	  $(HDR_PATH)/keys_linux.h \
+	  $(HDR_PATH)/keys_macos.h \
 	  $(HDR_PATH)/lib_3d_math.h \
 	  $(HDR_PATH)/libft.h \
 	  $(HDR_PATH)/minirt.h \
@@ -349,13 +356,13 @@ HEADER = $(HDR) $(EXT_HDR)
 #	MLX
 #IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-MLX_lINUX = libmlx_Linux.a
+MLX_lINUX = libmlx_linux.a
 MLX_MACOS = libmlx.dylib
 
 ifdef LINUX
-MLX = MLX_lINUX
+MLX = $(MLX_lINUX)
 else
-MLX = MLX_MACOS
+MLX = $(MLX_MACOS)
 endif
 #IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
@@ -363,8 +370,10 @@ OBJ = $(SRC:.c=.o)
 
 .PHNONY : clean fclean re
 
+all : $(NAME)
+
 $(NAME) : $(MLX) $(HEADER) $(OBJ)
-	@$(CC) -o $@ $(OBJ) $(MLX) $(FLAGS) $(LIB)
+	@$(CC) -o $@ $(OBJ) $(MLX) $(FLAGS) $(INCLUDES) $(LIB)
 
 $(MLX_MACOS) :
 	@$(MAKE) -C minilibx_macos
@@ -375,11 +384,12 @@ $(MLX_lINUX) :
 	@mv minilibx_linux/libmlx_Linux.a .
 
 %.o : %.c
-	@$(CC) -o $@ -c $(FLAGS) $<
+	@$(CC) -o $@ -c $(FLAGS) $(INCLUDES) $<
 
 clean :
 	@rm -rf $(OBJ)
 	@$(MAKE) -C minilibx_macos clean
+	@$(MAKE) -C minilibx_linux clean
 
 clean_bonus :
 	@$(MAKE) BONUS=1 clean
@@ -387,3 +397,5 @@ clean_bonus :
 fclean : clean
 	@rm -rf $(NAME)
 	@rm -rf $(MLX)
+
+re : fclean all

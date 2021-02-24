@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 16:07:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/02/01 14:18:55 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 15:39:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdlib.h>
 # include <pthread.h>
 
-# include "keys.h"
 # include "libft.h"
 # include "lib_3d_math.h"
 # include "get_next_line.h"
@@ -29,6 +28,12 @@
 # include "printing_functions.h"
 # include "configuration_reader.h"
 # include "../external_includes/X.h"
+
+# ifdef LINUX
+#  include "keys_linux.h"
+# else
+#  include "keys_macos.h"
+# endif
 
 # define AMPLITUDE				10
 # define ROTATION_ANGLE			9

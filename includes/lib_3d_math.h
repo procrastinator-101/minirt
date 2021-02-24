@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:57:38 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/16 17:52:00 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/02/24 15:24:22 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct	s_3d_basis
 	t_coord_3d	v;
 	t_coord_3d	w;
 }				t_3d_basis;
-
 
 typedef struct	s_smat_3d
 {
