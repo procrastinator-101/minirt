@@ -6,38 +6,41 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 10:09:04 by yarroubi          #+#    #+#              #
-#    Updated: 2021/02/01 14:18:39 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/02/24 15:01:13 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 AUTHOR = youness
 
-NAME = minirt.a
+NAME = miniRT
 
 FLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 
-LIB = -lX11 -lXext -lm
+LIB = -lX11 -lXext -lm -pthread
 
 
+#	SOURCE FILES
+#IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+#	Source files paths
+#===================================================================================================
+RGB_SRC_PATH = srcs/rgb
+LIBFT_SRC_PATH = srcs/libft
 RAYTRACER_SRC_PATH = srcs/raytracer
-CONFIGURATION_READER_SRC_PATH = srcs/configuration_reader
-
-OBJECTS_INTERACTIVITY_SRC_PATH = srcs/objects_interactivity
-OBJECTS_INTERSECTIONS_SRC_PATH = srcs/objects_intersections
-
+LIB_3D_MATH_SRC_PATH = srcs/lib_3d_math
+GET_NEXT_LINE_SRC_PATH = srcs/get_next_line
 LIGHTING_SHADING_SRC_PATH = srcs/lighting_shading
 SUPPORT_FUNCTIONS_SRC_PATH = srcs/support_functions
 PRINTING_FUCNTIONS_SRC_PATH = srcs/printing_functions
-
-RGB_SRC_PATH = srcs/rgb
-LIB_3D_MATH_SRC_PATH = srcs/lib_3d_math
-
-LIBFT_SRC_PATH = srcs/libft
-GET_NEXT_LINE_SRC_PATH = srcs/get_next_line
+CONFIGURATION_READER_SRC_PATH = srcs/configuration_reader
+OBJECTS_INTERACTIVITY_SRC_PATH = srcs/objects_interactivity
+OBJECTS_INTERSECTIONS_SRC_PATH = srcs/objects_intersections
+#===================================================================================================
 
 
+#===================================================================================================
 RAYTRACER_SRC = $(RAYTRACER_SRC_PATH)/check_prog_arg.c \
 				$(RAYTRACER_SRC_PATH)/get_color.c \
 				$(RAYTRACER_SRC_PATH)/get_left_corner.c \
@@ -173,7 +176,6 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_previous_lst_mem.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_pyramid.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_radius.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/get_resolution.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_screen_pixel.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_sepia.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_skybox.c \
@@ -181,7 +183,6 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_square.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_texture.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_texture_color.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/get_texture_map.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_texture_type.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_triangle.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_triangle_basis.c \
@@ -192,6 +193,15 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/parse_configuration.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/prepare_triangle_mapping.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/update_start.c
+
+ifdef	LINUX
+CONFIGURATION_READER_CMPL_SRC = $(CONFIGURATION_READER_SRC_PATH)/ft_get_screen_size.c \
+								$(CONFIGURATION_READER_SRC_PATH)/get_resolution_linux.c \
+								$(CONFIGURATION_READER_SRC_PATH)/get_texture_map_linux.c
+else
+CONFIGURATION_READER_CMPL_SRC = $(CONFIGURATION_READER_SRC_PATH)/get_resolution.c \
+								$(CONFIGURATION_READER_SRC_PATH)/get_texture_map.c
+endif
 
 PRINTING_FUCNTIONS_SRC = $(PRINTING_FUCNTIONS_SRC_PATH)/ft_print_object_position.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_3d_basis.c \
@@ -297,30 +307,83 @@ GET_NEXT_LINE_SRC = $(GET_NEXT_LINE_SRC_PATH)/get_next_line.c \
 					$(GET_NEXT_LINE_SRC_PATH)/get_next_line_utils.c
 
 
-
 SRC = $(RAYTRACER_SRC) $(OBJECTS_INTERACTIVITY_SRC) $(LIGHTING_SHADING_SRC) \
 	  $(OBJECTS_INTERSECTIONS_SRC) $(RGB_SRC) $(CONFIGURATION_READER_SRC) \
-	  $(PRINTING_FUCNTIONS_SRC) $(SUPPORT_FUNCTIONS_SRC) $(LIB_3D_MATH_SRC) \
-	  $(LIBFT_SRC) $(GET_NEXT_LINE_SRC)
+	  $(CONFIGURATION_READER_CMPL_SRC) $(PRINTING_FUCNTIONS_SRC) \
+	  $(SUPPORT_FUNCTIONS_SRC) $(LIB_3D_MATH_SRC) $(LIBFT_SRC) \
+	  $(GET_NEXT_LINE_SRC) srcs/minirt.c
+#===================================================================================================
+#IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+
+#	HEADERS
+#IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+#	Headers paths
+#===================================================================================================
+HDR_PATH = includes
+EXT_HDR_PATH = external_includes
+#===================================================================================================
+
+#===================================================================================================
+HDR = $(HDR_PATH)/configuration_reader.h \
+	  $(HDR_PATH)/errors.h \
+	  $(HDR_PATH)/get_next_line.h \
+	  $(HDR_PATH)/intersection.h \
+	  $(HDR_PATH)/keys.h \
+	  $(HDR_PATH)/lib_3d_math.h \
+	  $(HDR_PATH)/libft.h \
+	  $(HDR_PATH)/minirt.h \
+	  $(HDR_PATH)/printing_functions.h \
+	  $(HDR_PATH)/support_functions.h
+
+EXT_HDR = $(EXT_HDR_PATH)/X.h \
+		  $(EXT_HDR_PATH)/mlx.h
+
+
+HEADER = $(HDR) $(EXT_HDR)
+#===================================================================================================
+#IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+
+#	MLX
+#IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+MLX_lINUX = libmlx_Linux.a
+MLX_MACOS = libmlx.dylib
+
+ifdef LINUX
+MLX = MLX_lINUX
+else
+MLX = MLX_MACOS
+endif
+#IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 OBJ = $(SRC:.c=.o)
 
-
 .PHNONY : clean fclean re
 
-all : $(NAME)
+$(NAME) : $(MLX) $(HEADER) $(OBJ)
+	@$(CC) -o $@ $(OBJ) $(MLX) $(FLAGS) $(LIB)
 
-$(NAME) : $(OBJ)
-	@ar rc $@ $^
-	@ranlib $@
+$(MLX_MACOS) :
+	@$(MAKE) -C minilibx_macos
+	@mv minilibx_macos/libmlx.dylib .
+
+$(MLX_lINUX) :
+	@$(MAKE) -C minilibx_linux
+	@mv minilibx_linux/libmlx_Linux.a .
 
 %.o : %.c
 	@$(CC) -o $@ -c $(FLAGS) $<
 
 clean :
 	@rm -rf $(OBJ)
+	@$(MAKE) -C minilibx_macos clean
+
+clean_bonus :
+	@$(MAKE) BONUS=1 clean
 
 fclean : clean
 	@rm -rf $(NAME)
-
-re : fclean all
+	@rm -rf $(MLX)
