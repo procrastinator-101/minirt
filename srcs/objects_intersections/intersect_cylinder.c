@@ -48,12 +48,12 @@ static double	get_caps(t_ray ray, t_cylinder *cylinder)
 	double		t[2];
 	t_disk		disk;
 
-	disk.position = cylinder->position;
+	disk.center = cylinder->position;
 	disk.basis = cylinder->basis;
 	disk.radius = cylinder->radius;
 	t[0] = intersect_disk(ray, &disk);
-	disk.position = scalar_product(cylinder->basis.w, cylinder->height);
-	disk.position = coord_3d_add(cylinder->position, disk.position);
+	disk.center = scalar_product(cylinder->basis.w, cylinder->height);
+	disk.center = coord_3d_add(cylinder->position, disk.center);
 	t[1] = intersect_disk(ray, &disk);
 	return (get_right_solution(t[0], t[1]));
 }

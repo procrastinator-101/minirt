@@ -90,7 +90,7 @@ void		ft_print_object_position(void *object, int type)
 	else if (type == DISK)
 	{
 		printf("\n\n===========     DISK       ===========\n");
-		print_coord_3d(((t_disk *)object)->position);
+		print_coord_3d(((t_disk *)object)->center);
 	}
 	else if (type == CUBE || type == CONE)
 		handle_compound_objects(object, type);

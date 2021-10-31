@@ -35,7 +35,9 @@ endif
 RGB_SRC_PATH = srcs/rgb
 LIBFT_SRC_PATH = srcs/libft
 RAYTRACER_SRC_PATH = srcs/raytracer
+ERROR_MANAGER_SRC_PATH = srcs/error_manager
 LIB_3D_MATH_SRC_PATH = srcs/lib_3d_math
+LST_FUNCTIONS_SRC_PATH = srcs/lst_functions
 GET_NEXT_LINE_SRC_PATH = srcs/get_next_line
 LIGHTING_SHADING_SRC_PATH = srcs/lighting_shading
 SUPPORT_FUNCTIONS_SRC_PATH = srcs/support_functions
@@ -87,6 +89,7 @@ OBJECTS_INTERACTIVITY_SRC = $(OBJECTS_INTERACTIVITY_SRC_PATH)/rotate_camera.c \
 							$(OBJECTS_INTERACTIVITY_SRC_PATH)/translate_cone.c \
 							$(OBJECTS_INTERACTIVITY_SRC_PATH)/translate_cube.c \
 							$(OBJECTS_INTERACTIVITY_SRC_PATH)/translate_cylinder.c \
+							$(OBJECTS_INTERACTIVITY_SRC_PATH)/translate_disk.c \
 							$(OBJECTS_INTERACTIVITY_SRC_PATH)/translate_light.c \
 							$(OBJECTS_INTERACTIVITY_SRC_PATH)/translate_object.c \
 							$(OBJECTS_INTERACTIVITY_SRC_PATH)/translate_plane.c \
@@ -100,6 +103,7 @@ LIGHTING_SHADING_SRC = $(LIGHTING_SHADING_SRC_PATH)/ambient_term.c \
 					   $(LIGHTING_SHADING_SRC_PATH)/cone_normal.c \
 					   $(LIGHTING_SHADING_SRC_PATH)/cylinder_normal.c \
 					   $(LIGHTING_SHADING_SRC_PATH)/diffuse_spec_terms.c \
+					   $(LIGHTING_SHADING_SRC_PATH)/disk_normal.c \
 					   $(LIGHTING_SHADING_SRC_PATH)/get_bump_normal.c \
 					   $(LIGHTING_SHADING_SRC_PATH)/get_wave_length.c \
 					   $(LIGHTING_SHADING_SRC_PATH)/get_wave_normal.c \
@@ -154,32 +158,20 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/construct_cubes.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/construct_pyramids.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/destroy_entities.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/display_configuration_error_message.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/display_error_message.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/display_execution_error_message.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/fetch_point_3d.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/fetch_rgb.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/fetch_vector_3d.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/find_next_arg.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_dclst_add_head.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_dclst_destroy.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_destroy_lst_mem.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_lst_add_head.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_lst_destroy.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_update_next.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/ft_update_previous.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_ambient_light.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_anti_aliasing.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_camera.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_cone.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_cylinder.c \
+						   $(CONFIGURATION_READER_SRC_PATH)/get_disk.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_entity_info.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_light.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/get_lst_mem_texture.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/get_next_lst_mem.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_plane.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/get_previous_lst_mem.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_pyramid.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_radius.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_screen_pixel.c \
@@ -194,8 +186,6 @@ CONFIGURATION_READER_SRC = $(CONFIGURATION_READER_SRC_PATH)/build_cube.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_triangle_basis.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/get_triangle_texture_center.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/initialise_map_dimension.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/manage_config_error.c \
-						   $(CONFIGURATION_READER_SRC_PATH)/manage_exec_error.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/parse_configuration.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/prepare_triangle_mapping.c \
 						   $(CONFIGURATION_READER_SRC_PATH)/update_start.c
@@ -208,6 +198,17 @@ else
 CONFIGURATION_READER_CMPL_SRC = $(CONFIGURATION_READER_SRC_PATH)/get_resolution.c \
 								$(CONFIGURATION_READER_SRC_PATH)/get_texture_map.c
 endif
+
+LST_FUNCTIONS_SRC = $(LST_FUNCTIONS_SRC_PATH)/ft_dclst_add_head.c \
+					$(LST_FUNCTIONS_SRC_PATH)/ft_dclst_destroy.c \
+					$(LST_FUNCTIONS_SRC_PATH)/ft_destroy_lst_mem.c \
+					$(LST_FUNCTIONS_SRC_PATH)/ft_lst_add_head.c \
+					$(LST_FUNCTIONS_SRC_PATH)/ft_lst_destroy.c \
+					$(LST_FUNCTIONS_SRC_PATH)/ft_update_next.c \
+					$(LST_FUNCTIONS_SRC_PATH)/ft_update_previous.c \
+					$(LST_FUNCTIONS_SRC_PATH)/get_lst_mem_texture.c \
+					$(LST_FUNCTIONS_SRC_PATH)/get_next_lst_mem.c \
+					$(LST_FUNCTIONS_SRC_PATH)/get_previous_lst_mem.c
 
 PRINTING_FUCNTIONS_SRC = $(PRINTING_FUCNTIONS_SRC_PATH)/ft_print_object_position.c \
 						 $(PRINTING_FUCNTIONS_SRC_PATH)/print_3d_basis.c \
@@ -264,6 +265,12 @@ LIB_3D_MATH_SRC = $(LIB_3D_MATH_SRC_PATH)/check_linear_dependency.c \
 				  $(LIB_3D_MATH_SRC_PATH)/smat_3d_scalar_product.c \
 				  $(LIB_3D_MATH_SRC_PATH)/smat_vec_3d_product.c
 
+ERROR_MANAGER_SRC = $(ERROR_MANAGER_SRC_PATH)/display_configuration_error_message.c \
+					$(ERROR_MANAGER_SRC_PATH)/display_error_message.c \
+					$(ERROR_MANAGER_SRC_PATH)/display_execution_error_message.c \
+					$(ERROR_MANAGER_SRC_PATH)/manage_config_error.c \
+					$(ERROR_MANAGER_SRC_PATH)/manage_exec_error.c
+
 LIBFT_SRC = $(LIBFT_SRC_PATH)/ft_atoi.c \
 			$(LIBFT_SRC_PATH)/ft_bzero.c \
 			$(LIBFT_SRC_PATH)/ft_calloc.c \
@@ -315,8 +322,8 @@ GET_NEXT_LINE_SRC = $(GET_NEXT_LINE_SRC_PATH)/get_next_line.c \
 
 SRC = $(RAYTRACER_SRC) $(OBJECTS_INTERACTIVITY_SRC) $(LIGHTING_SHADING_SRC) \
 	  $(OBJECTS_INTERSECTIONS_SRC) $(RGB_SRC) $(CONFIGURATION_READER_SRC) \
-	  $(CONFIGURATION_READER_CMPL_SRC) $(PRINTING_FUCNTIONS_SRC) \
-	  $(SUPPORT_FUNCTIONS_SRC) $(LIB_3D_MATH_SRC) $(LIBFT_SRC) \
+	  $(CONFIGURATION_READER_CMPL_SRC) $(LST_FUNCTIONS_SRC) $(PRINTING_FUCNTIONS_SRC) \
+	  $(SUPPORT_FUNCTIONS_SRC) $(ERROR_MANAGER_SRC) $(LIB_3D_MATH_SRC) $(LIBFT_SRC) \
 	  $(GET_NEXT_LINE_SRC) srcs/minirt.c
 #===================================================================================================
 #IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
