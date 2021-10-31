@@ -1,2 +1,1 @@
-# minirt <br>
-a simple raytracer
+# ft_minirt
