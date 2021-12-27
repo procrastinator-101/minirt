@@ -368,8 +368,10 @@ MLX_MACOS = libmlx.dylib
 
 ifdef LINUX
 MLX = $(MLX_lINUX)
+MLX_PATH = minilibx_linux
 else
 MLX = $(MLX_MACOS)
+MLX_PATH = minilibx_macos
 endif
 #IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
@@ -382,27 +384,35 @@ all : $(NAME)
 $(NAME) : $(MLX) $(HEADER) $(OBJ)
 	@$(CC) -o $@ $(OBJ) $(MLX) $(FLAGS) $(INCLUDES) $(LIB)
 
-$(MLX_MACOS) :
-	@$(MAKE) -C minilibx_macos
-	@mv minilibx_macos/libmlx.dylib .
+linux :
+	@$(MAKE) LINUX=1
 
-$(MLX_lINUX) :
-	@$(MAKE) -C minilibx_linux
-	@mv minilibx_linux/libmlx_Linux.a .
+$(MLX) :
+	@echo "\e[32m============================================ creating mlx ============================================\e[0m"
+	@$(MAKE) -C $(MLX_PATH)
+	@mv $(MLX_PATH)/$(MLX) .
+	@echo "\e[32m======================================================================================================\e[0m"
+
 
 %.o : %.c
 	@$(CC) -o $@ -c $(FLAGS) $(INCLUDES) $<
 
 clean :
 	@rm -rf $(OBJ)
-	@$(MAKE) -C minilibx_macos clean
-	@$(MAKE) -C minilibx_linux clean
+	@$(MAKE) -C $(MLX_PATH) clean
 
-clean_bonus :
-	@$(MAKE) BONUS=1 clean
+clean_linux :
+	@$(MAKE) LINUX=1 clean
 
 fclean : clean
 	@rm -rf $(NAME)
 	@rm -rf $(MLX)
 
+fclean_linux :
+	@$(MAKE) LINUX=1 fclean
+
 re : fclean all
+
+re_linux :
+	@$(MAKE) LINUX=1 re
+
