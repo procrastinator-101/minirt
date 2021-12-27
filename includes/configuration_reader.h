@@ -320,6 +320,7 @@ typedef struct				s_display
 */
 int							check_critical_entities(void **entities);
 void						get_screen_pixel(void **entities);
+void						ft_get_screen_size(int *width, int *height);
 void						destroy_entities(void **entities);
 void						parse_configuration(void **entities, int fd);
 void						configuration_reader(char *input_file, void **entities);

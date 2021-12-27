@@ -34,10 +34,10 @@
 # define D				2
 # define E				14
 # define L				37
+# define M				46
 # define N				45
 # define O				31
 # define P				35
-# define M				46
 # define S				1
 
 # define ESC			53

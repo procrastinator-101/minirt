@@ -32,7 +32,7 @@ int	manage_key(int key, void *param)
 		manage_translation(key, entities[USER_CAMERA], entities);
 	}
 	ft_print_object_position(entities[USER_OBJECT], \
-			(int)entities[USER_OBJECT_TYPE]);
+			(int)(size_t)entities[USER_OBJECT_TYPE]);
 	if (entities[RENDER])
 		raytracer(entities[USER_CAMERA], entities, entities[DISPLAY]);
 	return (0);
