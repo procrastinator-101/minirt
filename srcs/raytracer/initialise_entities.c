@@ -11,6 +11,39 @@
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
+#include <bits/pthreadtypes.h>
+#include <pthread.h>
+
+static void	ft_locks_nclear(pthread_mutex_t *locks, int n)
+{
+	int	i;
+
+	i = -1;
+	while (++i < n)
+		pthread_mutex_destroy(locks + i);
+}
+
+
+static int	ft_initialise_locks(void **entities)
+{
+	int	i;
+	int	error;
+
+	entities[MUTEXES] = malloc(sizeof(pthread_mutex_t) * NB_BLOCKS);
+	if (!entities[MUTEXES])
+		return EMAF;
+	i = -1;
+	while (++i < NB_BLOCKS)
+	{
+		error = pthread_mutex_init(entities[MUTEXES] + i, 0);
+		if (error)
+		{
+			ft_locks_nclear(entities[MUTEXES], i);
+			return EMUCF;
+		}
+	}
+	return 0;
+}
 
 void	**initialise_entities(void)
 {

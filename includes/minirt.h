@@ -35,6 +35,7 @@
 #  include "keys_macos.h"
 # endif
 
+# define NB_BLOCKS				4
 # define AMPLITUDE				10
 # define ROTATION_ANGLE			9
 # define MATHEMATICAL_ROTATION	0

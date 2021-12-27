@@ -26,7 +26,7 @@
 # include "get_next_line.h"
 # include "support_functions.h"
 
-# define ENTITIES_SIZE						25
+# define ENTITIES_SIZE						26
 
 /*
 **=============				entities indexes defines			  =============
@@ -55,6 +55,7 @@
 # define USER_OBJECT_TYPE					22
 # define SAVE_IMAGE							23
 # define RENDER								24
+# define MUTEXES							25
 
 /*
 **=============				texture types defines			  	  =============
